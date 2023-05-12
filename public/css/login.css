@@ -51,6 +51,7 @@ body{
     flex-direction: column;
     align-items: center;
     border-bottom: 1px solid var(--backdrop-color);
+    padding-top: 30px;
 }
 .login-title{
     padding-left: 10px;
@@ -75,7 +76,7 @@ form{
 }
 .fields input{
     align-self: center;
-    padding: 5px 15px;
+    padding: 7px 15px;
     height: 20px;
     width: 80%;
     border: none;
