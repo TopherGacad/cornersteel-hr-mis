@@ -89,14 +89,19 @@ form{
 .forgot-pass-container{
     width: 100%;
     display: flex;
-    padding-right: 15px;
-    justify-content: end;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    padding-top: 10px;
 }
 .forgot-pass-container a{
     padding-right: 30px;
     font-size: 13px;
     text-decoration: none;
     color: var(--font-dark);
+}
+.see-pass-container{
+    padding-left: 30px;
 }
 .link-container{
     margin-top: 30px ;
