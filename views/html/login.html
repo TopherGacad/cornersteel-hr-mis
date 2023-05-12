@@ -8,32 +8,66 @@
     
     <!-- STYLESHEET -->
     <link rel="stylesheet" href="../../public/css/login.css">
+    <link rel="icon" href="../../public/assets/comfac-logo-transparent.png">
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/aa37050208.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <header>
-        <img src="../../public/assets/comfac-logo.png" alt="comfac global group logo">
-    </header>
-
-    <main>
-        <div class="login-header">
-            <p>Login</p>
+    
+    <div class="login-page-container">
+        
+        <!-- PAGE HEADER -->
+        <div class="head-container">
+            <img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo">
         </div>
-
-        <form action="#">
-            <div class="fields email-field">
-                <input class="email" type="text" placeholder="juan@example.com">
-                <i class="far fa-envelope"></i>
+        
+        <!-- LOGIN FORM -->
+        <div class="login-contain">
+            <div class="login-header">
+                <img class="form-logo" src="../../public/assets/comfac-logo.png"alt="">
+                <p class="login-title">Login to HR-MIS Extension</p>
             </div>
+    
+            <form action="#">
 
-            <div class="fields">
-                <input type="password">
-            </div>
+                <!-- USERNAME FIELD -->
+                <div class="fields email-field">
+                    <label for="login-username">Username</label>
+                    <input 
+                        id="login-username" 
+                        name="login-username" 
+                        class="email" 
+                        type="text" 
+                        placeholder="juan@example.com"
+                        required>
+                </div>
+                
+                <!-- PASSWORD FIELD -->
+                <div class="fields">
+                    <label for="">Password</label>
+                    <input
+                        id="login-pass"
+                        name="login-pass" 
+                        type="password"
+                        placeholder="password"
+                        required>
+                </div>
 
-            <input type="submit">
-        </form>
-
-    </main>
+                <!-- FORGOT PASSWORD LINK -->
+                <div class="forgot-pass-container">
+                    <a href="">Forgot password?</a>
+                </div>
+                
+                <!-- BTN & LINK CONTAINER -->
+                <div class="link-container">
+                    <input class="Btn-login" type="submit">
+                    <p>Don't have an account? <a href="">Register here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+   
 </body>
 </html>
