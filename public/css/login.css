@@ -42,7 +42,7 @@ body{
     text-align: center;
     background-color: var(--def-white);
     font-size: 1.6rem;
-    box-shadow: var(--box-shadow) 0px 4px 8px 0;
+    box-shadow: var(--box-shadow) 0px 5px 10px 0;
 }
 .login-header{
     width: 100%;
