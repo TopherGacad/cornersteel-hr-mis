@@ -103,6 +103,18 @@ form{
 .see-pass-container{
     padding-left: 30px;
 }
+
+.see-pass{
+    vertical-align: middle; 
+    position: relative;
+    bottom: 0px;
+}
+
+.see-pass-label{
+    vertical-align: middle;
+    bottom: 2px;
+}
+
 .link-container{
     margin-top: 30px ;
     padding: 10px 10px 0px 10px;
@@ -124,6 +136,4 @@ form{
     text-decoration: none;
     color: var(--link-color);
 }
-
-
 
