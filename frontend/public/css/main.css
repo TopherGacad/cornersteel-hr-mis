@@ -78,7 +78,7 @@ body{
     padding: 8px 20px;
 }
 .side-nav li:hover{
-    background-color: red;
+    background-color:#ebeef0;
 }
 
         /* MAIN CONTENT SECTION */
@@ -132,6 +132,5 @@ th{
 
         /* STYLE TOGGLING */
 .btn-active{
-    background-color:red;
-    color: white;
+    background-color:#ebeef0;
 }
