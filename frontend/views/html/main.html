@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="../../public/css/main.css">
+    <!-- WEB ICON -->
+    <link rel="icon" href="../../public/assets/comfac-logo-transparent.png">
+    <!-- FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/aa37050208.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+     <!-- PAGE HEADER -->
+     <div class="head-container">
+        <img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo">
+        <i class="nav-icons fa-solid fa-arrow-right-from-bracket"></i>
+    </div>
+
+    <!-- SIDE NAVBAR -->
+    <div class="side-nav">
+        <ul>
+            <a href="#" ><li id="dash-btn"><i class="nav-icons fa-solid fa-house"></i>Dashboard</li></a>
+            <a href="#" ><li id="leaves-btn"><i class="nav-icons fa-regular fa-calendar"></i> Leaves</li></a>
+            <a href="#" ><li id="overtime-btn"><i class="nav-icons fa-solid fa-clock"></i>Overtime</li></a>
+            <a href="#" ><li id="shifts-btn"><i class="nav-icons fa-regular fa-file"></i> Shifts</li></a>
+            <a href="#" ><li id="offbusiness-btn"><i class="nav-icons fa-solid fa-briefcase"></i>Official Business</li></a>
+            <a href="#" ><li id="logout-btn"><i class="nav-icons fa-solid fa-arrow-right-from-bracket"></i>Logout</li></a>
+        </ul>
+    </div>
+
+    <!-- DASHBOARD CONTENT -->
+     <div class="dash-container" id="dash-container">
+        <div class="content-header">
+
+        </div>
+        <div class="content-container">
+        
+        </div>
+    </div>
+
+    <!-- LEAVE APPLICATION CONTENT -->
+    <div class="leaves-container" id="leaves-container">
+        <div class="content-header">
+            <input type="text" class="input-search" placeholder="Type here to search">
+            <button class="addLeave-btn" id="addLeave-btn"><i class="fa-solid fa-plus"></i> File leave</button>
+        </div>
+        <div class="content-container">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>DATE</th>
+                    <th>EMP NAME</th>
+                    <th>DEP</th>
+                    <th>CORP</th>
+                    <th>ACTIONS</th>
+                </tr>
+
+                <tbody>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- OVERTIME CONTENT -->
+    <div class="overtime-container" id="overtime-container">
+        <div class="content-header">
+            <input type="text" class="input-search" placeholder="Type here to search">
+            <button class="addLeave-btn" id="addLeave-btn"><i class="fa-solid fa-plus"></i> Add Overtime</button>
+        </div>
+        <div class="content-container">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>DATE</th>
+                    <th>EMP NAME</th>
+                    <th>DEP</th>
+                    <th>CORP</th>
+                    <th>ACTIONS</th>
+                </tr>
+
+                <tbody>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>
