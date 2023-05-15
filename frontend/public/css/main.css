@@ -90,6 +90,7 @@ body{
     height: 82%;
     width: 80%;
     border: 1px solid green;
+    background-color: var(--def-white);
 }
 .content-header{
     position: fixed;
