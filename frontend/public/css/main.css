@@ -5,6 +5,7 @@
     --def-white: #FFFFFF;
     --box-shadow: rgba(25, 39, 52, 0.08);
     --btn-color: #2490ef;
+    --hover-color: #ebeef0;
 }
 body{
     margin: 0;
@@ -78,7 +79,8 @@ body{
     padding: 8px 20px;
 }
 .side-nav li:hover{
-    background-color:#ebeef0;
+    background-color:var(--hover-color);
+    border-radius: 10px;
 }
 
         /* MAIN CONTENT SECTION */
@@ -98,25 +100,38 @@ body{
     height: 7%;
     width: 80%;
     background-color: transparent;
-    border: 1px solid;
     display: flex;
     align-items: center;
     justify-content: end;
 }
 .input-search{
-    padding: 7px 6px;
+    padding: 9px 6px;
+    border: 1px solid var(--border-color);
+
 }
 .addLeave-btn{
-    padding: 7px 6px; 
+    padding: 8px 6px; 
     width: 10%;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 14px;
     border: none;
     background-color: var(--btn-color);
     color: var(--def-white);
     cursor: pointer;
-    margin-left: 10px;
+    margin-left: 25px;
 }
+.addOvertime-btn{
+    padding: 8px; 
+    width: 11%;
+    border-radius: 5px;
+    font-size: 14px;
+    border: none;
+    background-color: var(--btn-color);
+    color: var(--def-white);
+    cursor: pointer;
+    margin-left: 25px;
+}
+
 .fa-plus{
     font-size: 12px;
 }
@@ -132,5 +147,6 @@ th{
 
         /* STYLE TOGGLING */
 .btn-active{
-    background-color:#ebeef0;
+    background-color:var(--hover-color);
+    border-radius: 10px;
 }

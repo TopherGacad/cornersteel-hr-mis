@@ -10,28 +10,34 @@ const overtimeBtn = document.getElementById("overtime-btn")
 
 // MAIN CONTENTS CONTAINER SELECTOR
 dashBtn.addEventListener("click", function(){
+    //MAIN CONTENT ACTIVATOR
     dashContain.style.display = "block"
     leavesContain.style.display = "none"
     overtimeContain.style.display = "none"
 
+    //BUTTON ACTIVE STYLING
     dashBtn.classList.add('btn-active')
     leavesBtn.classList.remove('btn-active')
     overtimeBtn.classList.remove('btn-active')
 })
 leavesBtn.addEventListener("click", function(){
+    //MAIN CONTENT ACTIVATOR
     dashContain.style.display = "none"
     leavesContain.style.display = "block"
     overtimeContain.style.display = "none"
 
+    //BUTTON ACTIVE STYLING
     dashBtn.classList.remove('btn-active')
     leavesBtn.classList.add('btn-active')
     overtimeBtn.classList.remove('btn-active')
 })
 overtimeBtn.addEventListener("click", function(){
+    //MAIN CONTENT ACTIVATOR
     dashContain.style.display = "none"
     leavesContain.style.display = "none"
     overtimeContain.style.display = "block"
 
+    //BUTTON ACTIVE STYLING
     dashBtn.classList.remove('btn-active')
     leavesBtn.classList.remove('btn-active')
     overtimeBtn.classList.add('btn-active')
