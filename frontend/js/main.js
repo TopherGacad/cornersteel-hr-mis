@@ -8,6 +8,9 @@ const dashBtn = document.getElementById("dash-btn")
 const shiftsBtn = document.getElementById("shifts-btn")
 const overtimeBtn = document.getElementById("overtime-btn")
 
+//MODAL BACKGROUND
+const modalBg = document.getElementById("bg")
+
 // MAIN CONTENTS CONTAINER SELECTOR
 dashBtn.addEventListener("click", function(){
     //MAIN CONTENT ACTIVATOR
@@ -43,4 +46,19 @@ overtimeBtn.addEventListener("click", function(){
     overtimeBtn.classList.add('btn-active')
 })
 
+const overtimeModal = document.getElementById("overtime-modal-container")
+// ADD BUTTONS
+const addOvertimeBtn = document.getElementById("addOvertime-btn").addEventListener("click",function(){
 
+        overtimeModal.style.display = "block"
+        modalBg.style.display = "block"
+})
+
+// MODAL BUTTONS
+const otCancelBtn = document.getElementById("otCancel-btn").addEventListener("click",function(){
+        
+        document.getElementById("overtime-form").reset()
+
+        overtimeModal.style.display = "none"
+        modalBg.style.display = "none"
+})

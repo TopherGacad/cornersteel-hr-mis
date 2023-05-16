@@ -8,6 +8,7 @@
     --btn-color: #2490ef;
     --icon-color: #126fc0;
     --hover-color: #ebeef0;
+    --btn-save: #28a745;
 }
 body{
     margin: 0;
@@ -106,13 +107,13 @@ body{
     align-items: center;
     justify-content: end;
 }
-.input-search{
+.overtime-search{
     padding: 9px 6px;
     border: 1px solid var(--border-color);
 }
 .addShifts-btn{
     padding: 8px 6px; 
-    width: 10%;
+    width: 11%;
     border-radius: 5px;
     font-size: 14px;
     border: none;
@@ -155,6 +156,7 @@ td{
     text-align: center;
     padding: 8px 5px;
     border-bottom: 1px solid var(--border-color-cell);
+    
 }
 tbody tr:hover{
     background-color: var(--hover-color);
@@ -171,6 +173,108 @@ tbody tr:hover{
 .act-icon:hover{
     color: var(--btn-color);
 }
+
+        /* FORM MODAL */
+.bg{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+.overtime-modal-container{
+    display: none;
+    position: fixed;
+    top: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 70%;
+    height: fit-content;
+    padding: 10px;
+    background-color: var(--def-white);
+    border-radius: 5px;
+    z-index: 999;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+.modal-header{
+    padding: 0px 10px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    color: var(--icon-color);
+    font-weight: bolder;
+}
+form{
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+}
+.fields{
+    display: flex;
+    flex-direction:column ;
+    padding: 5px 10px;
+}
+textarea{
+    resize: none;
+    height: 110px;
+}
+.name-container{
+    display: flex;
+    justify-content: space-between;
+}
+.time-container{
+    display: flex;
+    gap: 5px;
+}
+.fields input,
+.fields select,
+textarea{
+    padding: 10px 15px;
+    border-radius: 7px;
+    border: 1px solid var(--border-color);
+    background-color: var(--backdrop-color);
+}
+.fields span{
+    color: red;
+}
+.fields label{
+    padding-bottom: 5px;
+}
+.form-left, .form-right{
+    width: 45%;
+}
+.modal-btn-container{
+    padding: 5px 10px;
+    margin: 30px 0px;
+}
+.modal-btn{
+    padding: 10px;
+    border-radius: 5px;
+    width: 100px;
+    margin-right: 10px;
+    border: none;
+    color: var(--def-white);
+    cursor: pointer;
+}
+.otCancelBtn{
+    background-color: var(--btn-color);
+}
+.save-btn{
+    background-color: var(--btn-save);
+}
+
+
+
+
+
+
         /* STYLE TOGGLING */
 .btn-active{
     background-color:var(--hover-color);

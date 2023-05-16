@@ -45,7 +45,7 @@
     <!-- OVERTIME CONTENT -->
     <div class="overtime-container" id="overtime-container">
         <div class="content-header">
-            <input type="text" class="input-search" placeholder="Type here to search">
+            <input type="text" class="overtime-search" id="overtime-search" placeholder="Type here to search">
             <button class="addOvertime-btn" id="addOvertime-btn"><i class="fa-solid fa-plus"></i> Add Overtime</button>
         </div>
         <div class="content-container">
@@ -62,7 +62,7 @@
                     <th>Action</th>
                 </tr>
 
-                <tbody>
+                <tbody id="overtime-table-body">
                     <tr>
                         <td>Cornersteel</td>
                         <td>Human Resources - CF</td>
@@ -361,6 +361,118 @@
                 </tbody>
             </table>
         </div>
+    </div>
+
+    <!-- FORM MODALS -->
+    <!-- ADD OVERTIME MODAL -->
+    <div class="bg" id="bg"></div>
+    <div class="overtime-modal-container" id="overtime-modal-container">
+        <div class="modal-header">
+            <h4>ADD OVERTIME</h4>
+        </div>
+        <form action="" id="overtime-form">
+
+            <!-- LEFT SIDE MODAL -->
+            <div class="form-left">
+                <!-- COMPANY FIELD -->
+                <div class="fields">
+                    <label for="ot-company">Company <span> *</span></label>
+                    <select name="ot-company" id="ot-company" required>
+                        <option value="" selected disabled>Select company</option>
+                        <option value="Comfac">Comfac Corporation</option>
+                        <option value="CSC">Cornersteel Systems Corporation</option>
+                        <option value="ESCO">ESCO</option>
+                    </select>
+                </div>
+
+                <!-- DEPARTMENT FIELD -->
+                <div class="fields">
+                    <label for="ot-department">Department <span> *</span></label>
+                    <input type="text" name="ot-department" id="ot-department" required>
+                </div>
+
+                <!-- NAME FIELDS -->
+                <div class="name-container">
+                    <div class="fields">
+                        <label for="ot-firstname">Employee Firstname <span> *</span></label>
+                        <input type="text" name="ot-firstname" id="ot-firstname" required>
+                    </div>
+    
+                    <div class="fields">
+                        <label for="ot-midname">Middlename</label>
+                        <input type="text" name="ot-midname" id="ot-midname">
+                    </div>
+                </div>
+
+                <!-- LASTNAME FIELD -->
+                <div class="fields">
+                    <label for="ot-lastname">Lastname <span> *</span></label>
+                    <input type="text" name="ot-lastname" id="ot-lastname" required>
+                </div>
+
+                <!-- POSITION FIELD -->
+                <div class="fields">
+                    <label for="ot-position">Position <span> *</span></label>
+                    <input type="text" name="ot-position" id="ot-position" placeholder="Employee Position" required>
+                </div> 
+
+                <!-- TIME FIELDS -->
+                <div class="time-container">
+                    <div class="fields">
+                        <label for="ot-timeFrom">Time (from) <span> *</span></label>
+                        <input type="time" name="ot-timeFrom" id="ot-timeFrom" required>
+                    </div>
+    
+                    <div class="fields">
+                        <label for="ot-timeTo">Time (to) <span> *</span></label>
+                        <input type="time" name="ot-timeTo" id="ot-timeTo" required>
+                    </div>
+                </div>
+
+                 <!-- MODAL BUTTON CONTAINER -->
+                <div class="modal-btn-container">
+                    <input type="button" value="Cancel" class="otCancelBtn modal-btn" id="otCancel-btn">
+                    <button class="save-btn modal-btn" id="save-btn" type="submit">Save</button>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE MODAL -->
+            <div class="form-right">
+
+                <!-- TASK FIELD -->
+                <div class="fields">
+                    <label for="">Work to Perform/ Task</label>
+                    <textarea name="desc" id="desc" cols="30" rows="9" maxlength="150"></textarea>
+                </div>
+
+                <!-- REQUESTED BY FIELD -->
+                <div class="fields">
+                    <label for="ot-requestedBy">Requested By <span> *</span></label>
+                    <input type="text" name="ot-requestedBy" id="ot-requestedBy" required> 
+                </div>
+
+                <!-- DESIGNATION FIELD -->
+                <div class="fields">
+                    <label for="ot-designation">Designation</label>
+                    <input type="text" name="ot-designation" id="ot-designation">
+                </div>
+
+                <!-- APPROVED BY FIELD -->
+                <div class="fields">
+                    <label for="ot-approvedBy">Approved By <span> *</span></label>
+                    <input type="text" name="ot-approvedBy" id="ot-approvedBy" required>
+                </div>
+
+                <!-- NOTED BY FIELD -->
+                <div class="fields">
+                    <label for="ot-noteBy">Noted By <span> *</span></label>
+                    <input type="text" name="ot-noteBy" id="ot-noteBy" required>
+                </div>
+            </div>
+        </form>
+
+    
+        
     </div>
 
     <script src="../../js/main.js"></script>
