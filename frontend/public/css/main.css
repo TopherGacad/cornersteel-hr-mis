@@ -1,10 +1,12 @@
 :root{
     --backdrop-color: #f3f3f3;
     --border-color: #DAE4F2;
+    --border-color-cell: #eaeff7e5;
     --primary-font-color: #404c57;
     --def-white: #FFFFFF;
     --box-shadow: rgba(25, 39, 52, 0.08);
     --btn-color: #2490ef;
+    --icon-color: #126fc0;
     --hover-color: #ebeef0;
 }
 body{
@@ -17,19 +19,17 @@ body{
 }
 .dash-container{
     position: fixed;
-    border: 1px solid red;
     right: 1%;
     bottom: 2%;
     height: 90%;
     width: 80%;
     background-color: transparent;
 }
-.leaves-container,
+.shifts-container,
 .overtime-container
 {
     display: none;
     position: fixed;
-    border: 1px solid red;
     right: 1%;
     bottom: 2%;
     height: 90%;
@@ -91,8 +91,10 @@ body{
     margin-top: 10px;
     height: 82%;
     width: 80%;
-    border: 1px solid green;
     background-color: var(--def-white);
+    box-shadow: var(--box-shadow) 0px 5px 10px 0px;
+    border: 1px solid var(--border-color);
+    overflow-y: auto;
 }
 .content-header{
     position: fixed;
@@ -107,9 +109,8 @@ body{
 .input-search{
     padding: 9px 6px;
     border: 1px solid var(--border-color);
-
 }
-.addLeave-btn{
+.addShifts-btn{
     padding: 8px 6px; 
     width: 10%;
     border-radius: 5px;
@@ -138,13 +139,38 @@ body{
 table{
     width: 100%;
     border-collapse: collapse;
-}
-th{
-    width: 100px;
-    padding: 10px;
-    border: 1px solid red;
+    font-size: 14px;
+    color: var(--primary-font-color);
 }
 
+th{
+    padding: 10px;
+    color: var(--primary-font-color);
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--def-white);
+    position: sticky;
+    top: 0;
+}
+td{
+    text-align: center;
+    padding: 8px 5px;
+    border-bottom: 1px solid var(--border-color-cell);
+}
+tbody tr:hover{
+    background-color: var(--hover-color);
+}
+.thours{
+    width: 50px;
+}
+.act-icon{
+    color: var(--icon-color);
+    padding: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.act-icon:hover{
+    color: var(--btn-color);
+}
         /* STYLE TOGGLING */
 .btn-active{
     background-color:var(--hover-color);

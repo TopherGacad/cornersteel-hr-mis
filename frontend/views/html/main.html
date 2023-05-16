@@ -25,9 +25,8 @@
     <div class="side-nav">
         <ul>
             <a href="#" ><li id="dash-btn"><i class="nav-icons fa-solid fa-house"></i>Dashboard</li></a>
-            <a href="#" ><li id="leaves-btn"><i class="nav-icons fa-regular fa-calendar"></i> Leaves</li></a>
             <a href="#" ><li id="overtime-btn"><i class="nav-icons fa-solid fa-clock"></i>Overtime</li></a>
-            <a href="#" ><li id="shifts-btn"><i class="nav-icons fa-regular fa-file"></i> Shifts</li></a>
+            <a href="#" ><li id="shifts-btn"><i class="nav-icons fa-regular fa-calendar"></i> Shifts</li></a>
             <a href="#" ><li id="offbusiness-btn"><i class="nav-icons fa-solid fa-briefcase"></i>Official Business</li></a>
             <a href="../../views/html/login.html" ><li id="logout-btn"><i class="nav-icons fa-solid fa-arrow-right-from-bracket"></i>Logout</li></a>
         </ul>
@@ -43,33 +42,6 @@
         </div>
     </div>
 
-    <!-- LEAVE APPLICATION CONTENT -->
-    <div class="leaves-container" id="leaves-container">
-        <div class="content-header">
-            <input type="text" class="input-search" placeholder="Type here to search">
-            <button class="addLeave-btn" id="addLeave-btn"><i class="fa-solid fa-plus"></i> File leave</button>
-        </div>
-        <div class="content-container">
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>DATE</th>
-                    <th>EMP NAME</th>
-                    <th>DEP</th>
-                    <th>CORP</th>
-                    <th>ACTIONS</th>
-                </tr>
-
-                <tbody>
-                    <tr></tr>
-                    <tr></tr>
-                    <tr></tr>
-                    <tr></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
     <!-- OVERTIME CONTENT -->
     <div class="overtime-container" id="overtime-container">
         <div class="content-header">
@@ -79,6 +51,300 @@
         <div class="content-container">
             <table>
                 <tr>
+                    <th>Company</th>
+                    <th>Department</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Time from</th>
+                    <th>Time to</th>
+                    <th class="thours">Total hours</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+
+                <tbody>
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>ESCO</td>
+                        <td>Human Resources - CF</td>
+                        <td>Jonathan John Peol</td>
+                        <td>IT Specialist</td>
+                        <td>8:00 pm</td>
+                        <td>11:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cornersteel</td>
+                        <td>Human Resources - CF</td>
+                        <td>Sean Gomez</td>
+                        <td>Worker</td>
+                        <td>6:00 pm</td>
+                        <td>8:00 pm</td>
+                        <td class="thours">3434</td>
+                        <td>16-05-2023</td>
+                        <td>
+                            <i class="act-icon fa-solid fa-trash-can"></i>
+                            <i class="act-icon fa-solid fa-eye"></i>
+                        </td>
+                    </tr>
+            </table>
+        </div>
+    </div>
+
+     <!-- LEAVE APPLICATION CONTENT -->
+     <div class="shifts-container" id="shifts-container">
+        <div class="content-header">
+            <input type="text" class="input-search" placeholder="Type here to search">
+            <button class="addShifts-btn" id="addShifts-btn"><i class="fa-solid fa-plus"></i> Change Shift</button>
+        </div>
+        <div class="content-container">
+            <table>
+                <tr>
                     <th>ID</th>
                     <th>DATE</th>
                     <th>EMP NAME</th>
@@ -96,7 +362,6 @@
             </table>
         </div>
     </div>
-
 
     <script src="../../js/main.js"></script>
 </body>
