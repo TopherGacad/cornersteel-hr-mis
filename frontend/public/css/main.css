@@ -27,7 +27,8 @@ body{
     background-color: transparent;
 }
 .shifts-container,
-.overtime-container
+.overtime-container,
+.offBusiness-container
 {
     display: none;
     position: fixed;
@@ -107,24 +108,17 @@ body{
     align-items: center;
     justify-content: end;
 }
-.overtime-search{
+.overtime-search,
+.shifts-search,
+.offBusiness-search{
     padding: 9px 6px;
     border: 1px solid var(--border-color);
 }
-.addShifts-btn{
-    padding: 8px 6px; 
-    width: 11%;
-    border-radius: 5px;
-    font-size: 14px;
-    border: none;
-    background-color: var(--btn-color);
-    color: var(--def-white);
-    cursor: pointer;
-    margin-left: 25px;
-}
-.addOvertime-btn{
-    padding: 8px; 
-    width: 11%;
+.addOvertime-btn,
+.addShifts-btn,
+.addOffBusiness-btn{
+    padding: 9px; 
+    width: 12%;
     border-radius: 5px;
     font-size: 14px;
     border: none;
@@ -135,7 +129,8 @@ body{
 }
 
 .fa-plus{
-    font-size: 12px;
+    font-size: 10px;
+    padding-right: 5px;
 }
 table{
     width: 100%;
