@@ -51,9 +51,9 @@
         <div class="content-container">
             <table>
                 <tr>
+                    <th>Name</th>
                     <th>Company</th>
                     <th>Department</th>
-                    <th>Name</th>
                     <th>Position</th>
                     <th>Time from</th>
                     <th>Time to</th>
@@ -64,9 +64,9 @@
 
                 <tbody id="overtime-table-body">
                     <tr>
+                        <td>Sean Gomez</td>
                         <td>Cornersteel</td>
                         <td>Human Resources - CF</td>
-                        <td>Sean Gomez</td>
                         <td>Worker</td>
                         <td>6:00 pm</td>
                         <td>8:00 pm</td>
@@ -92,9 +92,9 @@
         <div class="content-container">
             <table>
                 <tr>
+                    <th>Name</th>
                     <th>Company</th>
                     <th>Department</th>
-                    <th>Name</th>
                     <th>Orig Time</th>
                     <th>New Time</th>
                     <th>Approve By</th>
@@ -102,11 +102,11 @@
                     <th>Action</th>
                 </tr>
 
-                <tbody id="overtime-table-body">
+                <tbody id="shift-table-body">
                     <tr>
+                        <td>Sean Gomez</td>
                         <td>Cornersteel</td>
                         <td>Human Resources - CF</td>
-                        <td>Sean Gomez</td>
                         <td>6:00 am - 5:00pm</td>
                         <td>9:00 am - 6:00pm</td>
                         <td>Jonathan Peol</td>
@@ -131,9 +131,9 @@
         <div class="content-container">
             <table>
                 <tr>
+                    <th>Name</th>
                     <th>Company</th>
                     <th>Department</th>
-                    <th>Name</th>
                     <th>Status</th>
                     <th>Authorize Client</th>
                     <th>Approved By</th>
@@ -141,11 +141,11 @@
                     <th>Action</th>
                 </tr>
 
-                <tbody id="overtime-table-body">
+                <tbody id="offBusiness-table-body">
                     <tr>
+                        <td>Sean Gomez</td>
                         <td>Cornersteel</td>
                         <td>Human Resources - Makati City CF</td>
-                        <td>Sean Gomez</td>
                         <td>No Logout</td>
                         <td>Jonathan Peol</td>
                         <td>Christopher Gacad</td>
@@ -186,7 +186,7 @@
                 <!-- DEPARTMENT FIELD -->
                 <div class="fields">
                     <label for="ot-department">Department <span> *</span></label>
-                    <select name="ot-company" id="ot-company" required>
+                    <select name="ot-department" id="ot-department" required>
                         <option value="" selected disabled>Select company</option>
                         <option value="Accounts">Accounts</option>
                         <option value="PID">Project Installation Dep</option>
@@ -273,35 +273,228 @@
                 </div>
             </div>
         </form>
-
-    
-        
     </div>
 
+    <!-- ADD CHANGE SHIFT MODAL -->
+    <div class="bg" id="bg"></div>
+    <div class="shift-modal-container" id="shift-modal-container">
+        <div class="modal-header">
+            <h4>ADD CHANGE SHIFT</h4>
+        </div>
+        <form action="" id="shift-form">
+
+            <!-- LEFT SIDE MODAL -->
+            <div class="form-left">
+                <!-- COMPANY FIELD -->
+                <div class="fields">
+                    <label for="shift-company">Company <span> *</span></label>
+                    <select name="shift-company" id="shift-company" required>
+                        <option value="" selected disabled>Select company</option>
+                        <option value="Comfac">Comfac Corporation</option>
+                        <option value="CSC">Cornersteel Systems Corporation</option>
+                        <option value="ESCO">ESCO</option>
+                    </select>
+                </div>
+
+                <!-- DEPARTMENT FIELD -->
+                <div class="fields">
+                    <label for="shift-department">Department <span> *</span></label>
+                    <select name="shift-company" id="shift-company" required>
+                        <option value="" selected disabled>Select company</option>
+                        <option value="Accounts">Accounts</option>
+                        <option value="PID">Project Installation Dep</option>
+                        <option value="HR">Human Resources</option>
+                    </select>
+                </div>
+
+                <!-- NAME FIELDS -->
+                <div class="name-container">
+                    <div class="fields">
+                        <label for="shift-firstname">Firstname <span> *</span></label>
+                        <input type="text" name="shift-firstname" id="shift-firstname" placeholder="Juan" required>
+                    </div>
+    
+                    <div class="fields">
+                        <label for="shift-midname">Middlename</label>
+                        <input type="text" name="shift-midname" id="shift-midname" placeholder="Reyes">
+                    </div>
+                </div>
+
+                <!-- LASTNAME FIELD -->
+                <div class="fields">
+                    <label for="shift-lastname">Lastname <span> *</span></label>
+                    <input type="text" name="shift-lastname" id="shift-lastname" placeholder="Dela Cruz" required>
+                </div>
+
+                <!-- ORIGINAL SHIFT FIELD -->
+                <div class="fields">
+                    <label for="shift-orig"> Original shift<span> *</span></label>
+                    <select name="shift-orig" id="shift-orig" required>
+                        <option value="" selected disabled>Select shift</option>
+                        <option value="type 1">Shift type 1</option>
+                        <option value="type 2">Shift type 2</option>
+                        <option value="type 3">Shift type 3</option>
+                    </select>
+                </div> 
+
+                 <!-- MODAL BUTTON CONTAINER -->
+                <div class="modal-btn-container">
+                    <input type="button" value="Cancel" class="shiftCancelBtn modal-btn" id="shiftCancel-btn">
+                    <button class="save-btn modal-btn" id="save-btn" type="submit">Save</button>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE MODAL -->
+            <div class="form-right">
+
+
+                <!-- NEW SHIFT FIELD -->
+                <div class="fields">
+                    <label for="shift-new"> New shift<span> *</span></label>
+                    <select name="shift-new" id="shift-new" required>
+                        <option value="" selected disabled>Select shift</option>
+                        <option value="type 1">Shift type 1</option>
+                        <option value="type 2">Shift type 2</option>
+                        <option value="type 3">Shift type 3</option>
+                    </select>
+                </div>
+
+                <!-- REASON FIELD -->
+                <div class="fields">
+                    <label for="">Reason<span> *</span></label>
+                    <textarea name="shift-reason" id="shift-reason" cols="30" rows="9" maxlength="150"></textarea>
+                </div>
+
+                <!-- APPROVED BY FIELD -->
+                <div class="fields">
+                    <label for="shift-approvedBy">Approved By <span> *</span></label>
+                    <input type="text" name="shift-approvedBy" id="ot-approvedBy" required>
+                </div>
+
+                <!-- NOTED BY FIELD -->
+                <div class="fields">
+                    <label for="shift-noteBy">Noted By <span> *</span></label>
+                    <input type="text" name="shift-noteBy" id="shift-noteBy" required>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- ADD OFFICIAL BUSINESS MODAL -->
+    <div class="bg" id="bg"></div>
+    <div class="offBusiness-modal-container" id="offBusiness-modal-container">
+        <div class="modal-header">
+            <h4>ADD OVERTIME</h4>
+        </div>
+        <form action="" id="offBusiness-form">
+
+            <!-- LEFT SIDE MODAL -->
+            <div class="form-left">
+                <!-- COMPANY FIELD -->
+                <div class="fields">
+                    <label for="ot-company">Company <span> *</span></label>
+                    <select name="ot-company" id="ot-company" required>
+                        <option value="" selected disabled>Select company</option>
+                        <option value="Comfac">Comfac Corporation</option>
+                        <option value="CSC">Cornersteel Systems Corporation</option>
+                        <option value="ESCO">ESCO</option>
+                    </select>
+                </div>
+
+                <!-- DEPARTMENT FIELD -->
+                <div class="fields">
+                    <label for="ot-department">Department <span> *</span></label>
+                    <select name="ot-company" id="ot-company" required>
+                        <option value="" selected disabled>Select company</option>
+                        <option value="Accounts">Accounts</option>
+                        <option value="PID">Project Installation Dep</option>
+                        <option value="HR">Human Resources</option>
+                    </select>
+                </div>
+
+                <!-- NAME FIELDS -->
+                <div class="name-container">
+                    <div class="fields">
+                        <label for="ot-firstname">Firstname <span> *</span></label>
+                        <input type="text" name="ot-firstname" id="ot-firstname" placeholder="Juan" required>
+                    </div>
+    
+                    <div class="fields">
+                        <label for="ot-midname">Middlename</label>
+                        <input type="text" name="ot-midname" id="ot-midname" placeholder="Reyes">
+                    </div>
+                </div>
+
+                <!-- LASTNAME FIELD -->
+                <div class="fields">
+                    <label for="ot-lastname">Lastname <span> *</span></label>
+                    <input type="text" name="ot-lastname" id="ot-lastname" placeholder="Dela Cruz" required>
+                </div>
+
+                <!-- POSITION FIELD -->
+                <div class="fields">
+                    <label for="ot-position">Position <span> *</span></label>
+                    <input type="text" name="ot-position" id="ot-position" placeholder="Employee Position" required>
+                </div> 
+
+                <!-- TIME FIELDS -->
+                <div class="time-container">
+                    <div class="fields">
+                        <label for="ot-timeFrom">Time (from) <span> *</span></label>
+                        <input type="time" name="ot-timeFrom" id="ot-timeFrom" required>
+                    </div>
+    
+                    <div class="fields">
+                        <label for="ot-timeTo">Time (to) <span> *</span></label>
+                        <input type="time" name="ot-timeTo" id="ot-timeTo" required>
+                    </div>
+                </div>
+
+                 <!-- MODAL BUTTON CONTAINER -->
+                <div class="modal-btn-container">
+                    <input type="button" value="Cancel" class="offBusCancelBtn modal-btn" id="offBusCancel-btn">
+                    <button class="save-btn modal-btn" id="save-btn" type="submit">Save</button>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE MODAL -->
+            <div class="form-right">
+
+                <!-- TASK FIELD -->
+                <div class="fields">
+                    <label for="">Work to Perform/ Task</label>
+                    <textarea name="desc" id="desc" cols="30" rows="9" maxlength="150"></textarea>
+                </div>
+
+                <!-- REQUESTED BY FIELD -->
+                <div class="fields">
+                    <label for="ot-requestedBy">Requested By <span> *</span></label>
+                    <input type="text" name="ot-requestedBy" id="ot-requestedBy" required> 
+                </div>
+
+                <!-- DESIGNATION FIELD -->
+                <div class="fields">
+                    <label for="ot-designation">Designation</label>
+                    <input type="text" name="ot-designation" id="ot-designation">
+                </div>
+
+                <!-- APPROVED BY FIELD -->
+                <div class="fields">
+                    <label for="ot-approvedBy">Approved By <span> *</span></label>
+                    <input type="text" name="ot-approvedBy" id="ot-approvedBy" required>
+                </div>
+
+                <!-- NOTED BY FIELD -->
+                <div class="fields">
+                    <label for="ot-noteBy">Noted By <span> *</span></label>
+                    <input type="text" name="ot-noteBy" id="ot-noteBy" required>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- JAVASCRIPT -->
     <script src="../../js/main.js"></script>
 </body>
 </html>
-<!-- 
-    SHIFTS:
-company
-department
-empfirstname
-midname
-lastname
-orig shift
-new shift
-approve by
-noted by
-
-OB:
-company -
-department
-emp firstname
-midname
-lastname
-no logout
-no login
-both
-reason
-noted by
-authorize client -->

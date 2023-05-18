@@ -10,9 +10,6 @@ const shiftsBtn = document.getElementById("shifts-btn")
 const overtimeBtn = document.getElementById("overtime-btn")
 const offBusBtn = document.getElementById("offBusiness-btn")
 
-//MODAL BACKGROUND
-const modalBg = document.getElementById("bg")
-
 // MAIN CONTENTS CONTAINER SELECTOR
 dashBtn.addEventListener("click", function(){
     //MAIN CONTENT ACTIVATOR
@@ -67,19 +64,49 @@ offBusBtn.addEventListener("click",function(){
      offBusBtn.classList.add('btn-active')
 })
 
+
+
+
+// MODAL CONTAINERS
+const modalBg = document.getElementById("bg")
 const overtimeModal = document.getElementById("overtime-modal-container")
+const shiftModal = document.getElementById("shift-modal-container")
+const offbusModal = document.getElementById("offBusiness-modal-container")
+
 // ADD BUTTONS
 const addOvertimeBtn = document.getElementById("addOvertime-btn").addEventListener("click",function(){
 
-        overtimeModal.style.display = "block"
-        modalBg.style.display = "block"
+    overtimeModal.style.display = "block"
+    modalBg.style.display = "block"
+})
+const addShiftBtn = document.getElementById("addShifts-btn").addEventListener("click",function(){
+    shiftModal.style.display = "block"
+    modalBg.style.display = "block"
+}) 
+const addOffBusBtn = document.getElementById("addOffBusiness-btn").addEventListener("click",function(){
+    offbusModal.style.display = "block"
+    modalBg.style.display = "block"
 })
 
-// MODAL BUTTONS
+
+// MODAL CANCEL BUTTONS
 const otCancelBtn = document.getElementById("otCancel-btn").addEventListener("click",function(){
         
-        document.getElementById("overtime-form").reset()
+    document.getElementById("overtime-form").reset()
 
-        overtimeModal.style.display = "none"
-        modalBg.style.display = "none"
+    overtimeModal.style.display = "none"
+    modalBg.style.display = "none"
+})
+const shiftCancelBtn = document.getElementById("shiftCancel-btn").addEventListener("click", function(){
+    
+    document.getElementById("shift-form").reset()
+
+    shiftModal.style.display = "none"
+    modalBg.style.display = "none"
+})
+const offBusCancelBtn = document.getElementById("offBusCancel-btn").addEventListener("click",function(){
+    document.getElementById("offBusiness-form").reset()
+
+    offbusModal.style.display = "none"
+    modalBg.style.display = "none"
 })

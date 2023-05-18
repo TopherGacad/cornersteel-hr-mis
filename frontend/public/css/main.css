@@ -183,7 +183,9 @@ tbody tr:hover{
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(2px);
 }
-.overtime-modal-container{
+.overtime-modal-container,
+.shift-modal-container,
+.offBusiness-modal-container{
     display: none;
     position: fixed;
     top: 10px;
@@ -222,6 +224,7 @@ textarea{
     resize: none;
     height: 110px;
 }
+
 .name-container{
     display: flex;
     justify-content: space-between;
@@ -260,7 +263,9 @@ textarea{
     color: var(--def-white);
     cursor: pointer;
 }
-.otCancelBtn{
+.otCancelBtn,
+.shiftCancelBtn,
+.offBusCancelBtn{
     background-color: var(--btn-color);
 }
 .save-btn{
