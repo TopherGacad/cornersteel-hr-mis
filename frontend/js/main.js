@@ -138,7 +138,7 @@ overtimeSearch.addEventListener('input', () => {
   }
 });
 
-//OVERTIME SEARCH
+//CHANGE SHIFT SEARCH
 const shiftTable = document.getElementById("shift-table-body")
 const shiftSearch = document.getElementById("shifts-search")
 
@@ -150,13 +150,42 @@ shiftSearch.addEventListener('input', () => {
     const shiftName = row.cells[0].textContent.toLowerCase()
     const shiftCompany = row.cells[1].textContent.toLowerCase()
     const shiftDepartment = row.cells[2].textContent.toLowerCase()
-    const shiftApproved = row.cells[3].textContent.toLowerCase()
+    const shiftApproved = row.cells[5].textContent.toLowerCase()
 
     if (
       shiftName.includes(searchText) ||
       shiftCompany.includes(searchText) ||
       shiftDepartment.includes(searchText) ||
       shiftApproved.includes(searchText)
+    ) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  }
+});
+
+//OFFICIAL BUSINESS SHIFT SEARCH
+const offBusTable = document.getElementById("offBusiness-table-body")
+const offBusSearch = document.getElementById("offBusiness-search")
+
+offBusSearch.addEventListener('input', () => {
+  const searchText = offBusSearch.value.toLowerCase();
+
+  for (let i = 0; i < offBusTable.rows.length; i++) {
+    const row = offBusTable.rows[i];
+    const offBusName = row.cells[0].textContent.toLowerCase()
+    const offBusCompany = row.cells[1].textContent.toLowerCase()
+    const offBusDepartment = row.cells[2].textContent.toLowerCase()
+    const offBusStatus = row.cells[4].textContent.toLowerCase()
+    const offBusApproved = row.cells[5].textContent.toLowerCase()
+
+    if (
+      offBusName.includes(searchText) ||
+      offBusCompany.includes(searchText) ||
+      offBusDepartment.includes(searchText) ||
+      offBusStatus.includes(searchText) ||
+      offBusApproved.includes(searchText)
     ) {
       row.style.display = '';
     } else {

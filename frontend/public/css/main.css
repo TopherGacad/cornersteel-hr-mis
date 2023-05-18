@@ -153,6 +153,7 @@ td{
     border-bottom: 1px solid var(--border-color-cell);
 }
 td{
+    min-width: 100px;
     max-width: 100px;
 }
 tbody tr:hover{
