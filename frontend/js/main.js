@@ -110,3 +110,57 @@ const offBusCancelBtn = document.getElementById("offBusCancel-btn").addEventList
     offbusModal.style.display = "none"
     modalBg.style.display = "none"
 })
+
+//OVERTIME SEARCH
+const overtimeTable = document.getElementById("overtime-table-body")
+const overtimeSearch = document.getElementById("overtime-search")
+
+overtimeSearch.addEventListener('input', () => {
+  const searchText = overtimeSearch.value.toLowerCase();
+
+  for (let i = 0; i < overtimeTable.rows.length; i++) {
+    const row = overtimeTable.rows[i];
+    const otName = row.cells[0].textContent.toLowerCase()
+    const otCompany = row.cells[1].textContent.toLowerCase()
+    const otDepartment = row.cells[2].textContent.toLowerCase()
+    const otPosition = row.cells[3].textContent.toLowerCase()
+
+    if (
+      otName.includes(searchText) ||
+      otCompany.includes(searchText) ||
+      otDepartment.includes(searchText) ||
+      otPosition.includes(searchText)
+    ) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  }
+});
+
+//OVERTIME SEARCH
+const shiftTable = document.getElementById("shift-table-body")
+const shiftSearch = document.getElementById("shifts-search")
+
+shiftSearch.addEventListener('input', () => {
+  const searchText = shiftSearch.value.toLowerCase();
+
+  for (let i = 0; i < shiftTable.rows.length; i++) {
+    const row = shiftTable.rows[i];
+    const shiftName = row.cells[0].textContent.toLowerCase()
+    const shiftCompany = row.cells[1].textContent.toLowerCase()
+    const shiftDepartment = row.cells[2].textContent.toLowerCase()
+    const shiftApproved = row.cells[3].textContent.toLowerCase()
+
+    if (
+      shiftName.includes(searchText) ||
+      shiftCompany.includes(searchText) ||
+      shiftDepartment.includes(searchText) ||
+      shiftApproved.includes(searchText)
+    ) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  }
+});

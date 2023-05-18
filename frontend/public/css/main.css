@@ -158,6 +158,12 @@ td{
 tbody tr:hover{
     background-color: var(--hover-color);
 }
+.error-container{
+    display: none;
+    position: absolute;
+    margin: 70px auto;
+    border: 1px solid;
+}
 /* .thours{
     width: 50px;
 } */
