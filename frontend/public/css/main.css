@@ -140,7 +140,7 @@ table{
 }
 
 th{
-    padding: 10px;
+    padding: 15px;
     color: var(--primary-font-color);
     border-bottom: 1px solid var(--border-color);
     background-color: var(--def-white);
@@ -151,14 +151,16 @@ td{
     text-align: center;
     padding: 8px 5px;
     border-bottom: 1px solid var(--border-color-cell);
-    
+}
+td{
+    max-width: 100px;
 }
 tbody tr:hover{
     background-color: var(--hover-color);
 }
-.thours{
+/* .thours{
     width: 50px;
-}
+} */
 .act-icon{
     color: var(--icon-color);
     padding: 3px;
