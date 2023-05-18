@@ -64,14 +64,12 @@ offBusBtn.addEventListener("click",function(){
      offBusBtn.classList.add('btn-active')
 })
 
-
-
-
 // MODAL CONTAINERS
 const modalBg = document.getElementById("bg")
 const overtimeModal = document.getElementById("overtime-modal-container")
 const shiftModal = document.getElementById("shift-modal-container")
 const offbusModal = document.getElementById("offBusiness-modal-container")
+const otEditModal = document.getElementById("otEdit-modal-container")
 
 // ADD BUTTONS
 const addOvertimeBtn = document.getElementById("addOvertime-btn").addEventListener("click",function(){
@@ -187,9 +185,27 @@ offBusSearch.addEventListener('input', () => {
       offBusStatus.includes(searchText) ||
       offBusApproved.includes(searchText)
     ) {
-      row.style.display = '';
+      row.style.display = ''
     } else {
-      row.style.display = 'none';
+      row.style.display = 'none'
     }
   }
-});
+})
+
+//EDIT BUTTON
+
+const otEdit = document.querySelector('.fa-pen-to-square')
+otEdit.addEventListener("click", function(){
+  otEditModal.style.display = "block"
+  modalBg.style.display = "block"
+})
+
+const cancelBtn = document.getElementById("cancel-btn").addEventListener("click", function(){
+  otEditModal.style.display = "none"
+  modalBg.style.display = "none"
+})
+
+
+
+
+
