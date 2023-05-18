@@ -111,7 +111,7 @@ body{
 .overtime-search,
 .shifts-search,
 .offBusiness-search{
-    padding: 9px 6px;
+    padding: 9px 10px;
     border: 1px solid var(--border-color);
 }
 .addOvertime-btn,

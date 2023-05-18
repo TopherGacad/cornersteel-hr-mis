@@ -244,8 +244,8 @@
 
                 <!-- TASK FIELD -->
                 <div class="fields">
-                    <label for="">Work to Perform/ Task</label>
-                    <textarea name="desc" id="desc" cols="30" rows="9" maxlength="150"></textarea>
+                    <label for="ot-task">Work to Perform/ Task</label>
+                    <textarea name="ot-task" id="ot-task" cols="30" rows="9" maxlength="150"></textarea>
                 </div>
 
                 <!-- REQUESTED BY FIELD -->
@@ -361,7 +361,7 @@
 
                 <!-- REASON FIELD -->
                 <div class="fields">
-                    <label for="">Reason<span> *</span></label>
+                    <label for="shift-reason">Reason<span> *</span></label>
                     <textarea name="shift-reason" id="shift-reason" cols="30" rows="9" maxlength="150" placeholder="(150 characters only)" required></textarea>
                 </div>
 
@@ -384,7 +384,7 @@
     <div class="bg" id="bg"></div>
     <div class="offBusiness-modal-container" id="offBusiness-modal-container">
         <div class="modal-header">
-            <h4>ADD OVERTIME</h4>
+            <h4>ADD OFFICIAL BUSINESS</h4>
         </div>
         <form action="" id="offBusiness-form">
 
@@ -392,8 +392,8 @@
             <div class="form-left">
                 <!-- COMPANY FIELD -->
                 <div class="fields">
-                    <label for="ot-company">Company <span> *</span></label>
-                    <select name="ot-company" id="ot-company" required>
+                    <label for="ob-company">Company <span> *</span></label>
+                    <select name="ob-company" id="ob-company" required>
                         <option value="" selected disabled>Select company</option>
                         <option value="Comfac">Comfac Corporation</option>
                         <option value="CSC">Cornersteel Systems Corporation</option>
@@ -403,8 +403,8 @@
 
                 <!-- DEPARTMENT FIELD -->
                 <div class="fields">
-                    <label for="ot-department">Department <span> *</span></label>
-                    <select name="ot-company" id="ot-company" required>
+                    <label for="ob-department">Department <span> *</span></label>
+                    <select name="ob-company" id="ob-company" required>
                         <option value="" selected disabled>Select company</option>
                         <option value="Accounts">Accounts</option>
                         <option value="PID">Project Installation Dep</option>
@@ -415,40 +415,28 @@
                 <!-- NAME FIELDS -->
                 <div class="name-container">
                     <div class="fields">
-                        <label for="ot-firstname">Firstname <span> *</span></label>
-                        <input type="text" name="ot-firstname" id="ot-firstname" placeholder="Juan" required>
+                        <label for="ob-firstname">Firstname <span> *</span></label>
+                        <input type="text" name="ob-firstname" id="ob-firstname" placeholder="Juan" required>
                     </div>
     
                     <div class="fields">
-                        <label for="ot-midname">Middlename</label>
-                        <input type="text" name="ot-midname" id="ot-midname" placeholder="Reyes">
+                        <label for="ob-midname">Middlename</label>
+                        <input type="text" name="ob-midname" id="ob-midname" placeholder="Reyes">
                     </div>
                 </div>
 
                 <!-- LASTNAME FIELD -->
                 <div class="fields">
-                    <label for="ot-lastname">Lastname <span> *</span></label>
-                    <input type="text" name="ot-lastname" id="ot-lastname" placeholder="Dela Cruz" required>
+                    <label for="ob-lastname">Lastname <span> *</span></label>
+                    <input type="text" name="ob-lastname" id="ob-lastname" placeholder="Dela Cruz" required>
                 </div>
 
-                <!-- POSITION FIELD -->
+                <!-- AUTHORIZE CLIENT FIELD -->
                 <div class="fields">
-                    <label for="ot-position">Position <span> *</span></label>
-                    <input type="text" name="ot-position" id="ot-position" placeholder="Employee Position" required>
-                </div> 
-
-                <!-- TIME FIELDS -->
-                <div class="time-container">
-                    <div class="fields">
-                        <label for="ot-timeFrom">Time (from) <span> *</span></label>
-                        <input type="time" name="ot-timeFrom" id="ot-timeFrom" required>
-                    </div>
-    
-                    <div class="fields">
-                        <label for="ot-timeTo">Time (to) <span> *</span></label>
-                        <input type="time" name="ot-timeTo" id="ot-timeTo" required>
-                    </div>
+                    <label for="ob-client">Authorize Client <span> *</span></label>
+                    <input type="text" name="ob-client" id="ob-client" required>
                 </div>
+
 
                  <!-- MODAL BUTTON CONTAINER -->
                 <div class="modal-btn-container">
@@ -460,28 +448,21 @@
             <!-- RIGHT SIDE MODAL -->
             <div class="form-right">
 
-                <!-- TASK FIELD -->
-                <div class="fields">
-                    <label for="">Work to Perform/ Task</label>
-                    <textarea name="desc" id="desc" cols="30" rows="9" maxlength="150"></textarea>
+                  <!-- STATUS FIELD -->
+                  <div class="fields">
+                    <label for="ob-status">Status <span> *</span></label>
+                    <select name="ob-status" id="ob-status" required>
+                        <option value="" selected disabled>Select status</option>
+                        <option value="No Login">No Login</option>
+                        <option value="No Logout">No Logout</option>
+                        <option value="Both">Both</option>
+                    </select>
                 </div>
 
-                <!-- REQUESTED BY FIELD -->
+                <!-- REASON FIELD -->
                 <div class="fields">
-                    <label for="ot-requestedBy">Requested By <span> *</span></label>
-                    <input type="text" name="ot-requestedBy" id="ot-requestedBy" required> 
-                </div>
-
-                <!-- DESIGNATION FIELD -->
-                <div class="fields">
-                    <label for="ot-designation">Designation</label>
-                    <input type="text" name="ot-designation" id="ot-designation">
-                </div>
-
-                <!-- APPROVED BY FIELD -->
-                <div class="fields">
-                    <label for="ot-approvedBy">Approved By <span> *</span></label>
-                    <input type="text" name="ot-approvedBy" id="ot-approvedBy" required>
+                    <label for="ob-reason">Reason<span> *</span></label>
+                    <textarea name="ob-reason" id="ob-reason" cols="30" rows="9" maxlength="150"></textarea>
                 </div>
 
                 <!-- NOTED BY FIELD -->
