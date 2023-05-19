@@ -200,10 +200,50 @@ otEdit.addEventListener("click", function(){
   modalBg.style.display = "block"
 })
 
+//DISABLE ALL FIELDS ON EDIT MODAL
+const form = document.getElementById("otEdit-form");
+const elements = form.querySelectorAll("input, select, textarea");
+const label = form.querySelectorAll("label")
+const buttonContainerElements = form.querySelectorAll(".modal-btn-container input, .modal-btn-container button");
+
 const cancelBtn = document.getElementById("cancel-btn").addEventListener("click", function(){
   otEditModal.style.display = "none"
   modalBg.style.display = "none"
+  disableFields()
+
+  for(let i = 0; i<label.length; i++){
+    label[i].classList.add('dis-input')
+  }
 })
+
+function disableFields(){
+  for (let i = 0; i < elements.length; i++) {
+    if (![...buttonContainerElements].includes(elements[i])) {
+      elements[i].disabled = true;
+      elements[i].classList.add('dis-input')
+    }
+  }
+}
+disableFields()
+
+function activeFields(){
+  for (let i = 0; i < elements.length; i++) {
+    if (![...buttonContainerElements].includes(elements[i])) {
+      elements[i].disabled = false;
+      elements[i].classList.remove('dis-input')
+    }
+  }
+
+  for(let i = 0; i<label.length; i++){
+    label[i].classList.remove('dis-input')
+  }
+}
+
+const otEditBtn = document.getElementById("otEdit-btn")
+otEditBtn.addEventListener("click", function(){
+  activeFields()
+})
+
 
 
 

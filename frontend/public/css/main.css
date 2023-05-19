@@ -280,7 +280,14 @@ textarea{
 .save-btn{
     background-color: var(--btn-save);
 }
-
+.edit-btn{
+    background-color: var(--primary-font-color);
+    color: var(--def-white);
+}
+.dis-input{
+    background-color: #f0f0f0;
+    color: #8a8a8a;
+}
 
 
 
