@@ -9,6 +9,10 @@
     --icon-color: #126fc0;
     --hover-color: #ebeef0;
     --btn-save: #28a745;
+    --dis-update: #1f7e35;
+    --dis-font: #bdbdbd;
+    --dis-field:  #8a8a8a;
+    --dis-bg: #f0f0f0;
 }
 body{
     margin: 0;
@@ -277,7 +281,8 @@ textarea{
 .cancelBtn{
     background-color: var(--btn-color);
 }
-.save-btn{
+.save-btn,
+.update-btn{
     background-color: var(--btn-save);
 }
 .edit-btn{
@@ -285,11 +290,14 @@ textarea{
     color: var(--def-white);
 }
 .dis-input{
-    background-color: #f0f0f0;
-    color: #8a8a8a;
+    background-color: var(--dis-bg);
+    color: var(--dis-field);
 }
 
-
+#update-btn:disabled{
+    background-color: var(--dis-update);
+    color: var(--dis-font);
+}
 
 
 

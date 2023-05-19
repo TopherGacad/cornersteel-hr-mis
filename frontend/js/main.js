@@ -205,6 +205,7 @@ const form = document.getElementById("otEdit-form");
 const elements = form.querySelectorAll("input, select, textarea");
 const label = form.querySelectorAll("label")
 const buttonContainerElements = form.querySelectorAll(".modal-btn-container input, .modal-btn-container button");
+const updateBtn = document.getElementById("update-btn")
 
 const cancelBtn = document.getElementById("cancel-btn").addEventListener("click", function(){
   otEditModal.style.display = "none"
@@ -216,21 +217,25 @@ const cancelBtn = document.getElementById("cancel-btn").addEventListener("click"
   }
 })
 
+// DISABLE FIELDS ON EDIT MODAL
 function disableFields(){
   for (let i = 0; i < elements.length; i++) {
     if (![...buttonContainerElements].includes(elements[i])) {
       elements[i].disabled = true;
       elements[i].classList.add('dis-input')
+      updateBtn.disabled = true;
     }
   }
 }
 disableFields()
 
+// ACTIVATE FIELDS ON EDIT MODAL
 function activeFields(){
   for (let i = 0; i < elements.length; i++) {
     if (![...buttonContainerElements].includes(elements[i])) {
       elements[i].disabled = false;
       elements[i].classList.remove('dis-input')
+      updateBtn.disabled = false;
     }
   }
 
@@ -239,6 +244,7 @@ function activeFields(){
   }
 }
 
+// EDIT BUTTON INSIDE THE MODAL
 const otEditBtn = document.getElementById("otEdit-btn")
 otEditBtn.addEventListener("click", function(){
   activeFields()
