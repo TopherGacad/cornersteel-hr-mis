@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +20,7 @@
 
 </head>
 <body>
+    <?php include "../../../backend/includes/error_handlers_inc.php"?>
     
     <div class="login-page-container">
         
@@ -29,7 +36,7 @@
                 <p class="login-title">Sign in to HR-MIS Extension</p>
             </div>
     
-            <form action="#">
+            <form action="../../../backend/includes/login_inc.php" method="post">
 
                 <!-- USERNAME FIELD -->
                 <div class="fields email-field">
@@ -66,7 +73,7 @@
                 
                 <!-- BTN & LINK CONTAINER -->
                 <div class="link-container">
-                    <input class="Btn-login" type="submit" value="Sign in">
+                    <input class="Btn-login" type="submit" value="Sign in" name="login-submit">
                     <p>Don't have an account? <a href="../../views/php/main.php">Register here.</a></p>
                 </div>
             </form>
