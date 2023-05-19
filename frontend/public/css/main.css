@@ -290,7 +290,6 @@ textarea{
     color: var(--def-white);
 }
 .dis-input{
-    background-color: var(--dis-bg);
     color: var(--dis-field);
 }
 
