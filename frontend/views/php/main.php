@@ -1,6 +1,5 @@
 <?php
     session_start();
-    
 ?>
 
 <!DOCTYPE html>
@@ -147,8 +146,8 @@
                         <td>Jonathan Peol</td>
                         <td>05-17-2023</td>
                         <td>
-                            <i class="act-icon fa-solid fa-trash-can"></i>
-                            <i class="act-icon fa-solid fa-pen-to-square"></i>
+                            <i class="act-icon fa-solid fa-trash-can" ></i>
+                            <i class="act-icon fa-solid fa-pen-to-square" id="shift-edit"></i>
                         </td>
                     </tr>
 
@@ -678,6 +677,114 @@
             </div>
         </form>
     </div>
+
+    <!-- EDIT CHANGE SHIFT MODAL -->
+    <div class="bg" id="bg"></div>
+    <div class="shiftEdit-modal-container" id="shiftEdit-modal-container">
+        <div class="modal-header">
+            <h4>EDIT CHANGE SHIFT</h4>
+        </div>
+        <form action="" id="shift-form">
+
+            <!-- LEFT SIDE MODAL -->
+            <div class="form-left">
+                <!-- COMPANY FIELD -->
+                <div class="fields">
+                    <label for="shift-company">Company <span> *</span></label>
+                    <select name="shift_company" id="shift-company" required autofocus>
+                        <option value="" selected disabled>Select company</option>
+                        <option value="Comfac">Comfac Corporation</option>
+                        <option value="CSC">Cornersteel Systems Corporation</option>
+                        <option value="ESCO">ESCO</option>
+                    </select>
+                </div>
+
+                <!-- DEPARTMENT FIELD -->
+                <div class="fields">
+                    <label for="shift-department">Department <span> *</span></label>
+                    <select name="shift_department" id="shift-department" required>
+                        <option value="" selected disabled>Select company</option>
+                        <option value="Accounts">Accounts</option>
+                        <option value="PID">Project Installation Dep</option>
+                        <option value="HR">Human Resources</option>
+                    </select>
+                </div>
+
+                <!-- NAME FIELDS -->
+                <div class="name-container">
+                    <div class="fields">
+                        <label for="shift-firstname">Firstname <span> *</span></label>
+                        <input type="text" name="shift_firstname" id="shift-firstname" placeholder="Juan" required>
+                    </div>
+    
+                    <div class="fields">
+                        <label for="shift-midname">Middlename</label>
+                        <input type="text" name="shift_midname" id="shift-midname" placeholder="Reyes">
+                    </div>
+                </div>
+
+                <!-- LASTNAME FIELD -->
+                <div class="fields">
+                    <label for="shift-lastname">Lastname <span> *</span></label>
+                    <input type="text" name="shift_lastname" id="shift-lastname" placeholder="Dela Cruz" required>
+                </div>
+
+                <!-- ORIGINAL SHIFT FIELD -->
+                <div class="fields">
+                    <label for="shift-orig"> Original shift<span> *</span></label>
+                    <select name="shift_orig" id="shift-orig" required>
+                        <option value="" selected disabled>Select shift</option>
+                        <option value="type 1">Shift type 1: 8:00AM - 5:00PM</option>
+                        <option value="type 2">Shift type 2: 9:00AM - 7:00PM</option>
+                        <option value="type 3">Shift type 3: 6:00AM - 3:00PM</option>
+                    </select>
+                </div> 
+
+                 <!-- MODAL BUTTON CONTAINER -->
+                <div class="modal-btn-container">
+                    <input type="button" value="Cancel" class="shiftCancelBtn modal-btn" id="shiftEdit-cancel">
+                    <button class="edit-btn modal-btn" id="shiftEdit-btn" type="button">Edit</button>
+                    <button class="update-btn modal-btn" id="update-btn" type="submit">Update</button>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE MODAL -->
+            <div class="form-right">
+
+
+                <!-- NEW SHIFT FIELD -->
+                <div class="fields">
+                    <label for="shift-new"> New shift<span> *</span></label>
+                    <select name="shift_new" id="shift-new" required>
+                        <option value="" selected disabled>Select shift</option>
+                        <option value="type 1">Shift type 1: 8:00AM - 5:00PM</option>
+                        <option value="type 2">Shift type 2: 9:00AM - 7:00PM</option>
+                        <option value="type 3">Shift type 3: 6:00AM - 3:00PM</option>
+                    </select>
+                </div>
+
+                <!-- REASON FIELD -->
+                <div class="fields">
+                    <label for="shift-reason">Reason<span> *</span></label>
+                    <textarea name="shift_reason" id="shift-reason" cols="30" rows="9" maxlength="150" placeholder="(150 characters only)" required></textarea>
+                </div>
+
+                <!-- APPROVED BY FIELD -->
+                <div class="fields">
+                    <label for="shift-approvedBy">Approved By <span> *</span></label>
+                    <input type="text" name="shift_approvedBy" id="shift-approvedBy" required>
+                </div>
+
+                <!-- NOTED BY FIELD -->
+                <div class="fields">
+                    <label for="shift-noteBy">Noted By <span> *</span></label>
+                    <input type="text" name="shift_noteBy" id="shift-noteBy" required>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    
 
     <!-- JAVASCRIPT -->
     <script src="../../js/main.js"></script>

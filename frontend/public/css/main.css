@@ -197,7 +197,8 @@ tbody tr:hover{
 .overtime-modal-container,
 .shift-modal-container,
 .offBusiness-modal-container,
-.otEdit-modal-container{
+.otEdit-modal-container,
+.shiftEdit-modal-container{
     display: none;
     position: fixed;
     top: 10px;

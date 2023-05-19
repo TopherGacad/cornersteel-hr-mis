@@ -70,6 +70,7 @@ const overtimeModal = document.getElementById("overtime-modal-container")
 const shiftModal = document.getElementById("shift-modal-container")
 const offbusModal = document.getElementById("offBusiness-modal-container")
 const otEditModal = document.getElementById("otEdit-modal-container")
+const shiftEditModal = document.getElementById("shiftEdit-modal-container")
 
 // ADD BUTTONS
 const addOvertimeBtn = document.getElementById("addOvertime-btn").addEventListener("click",function(){
@@ -193,21 +194,27 @@ offBusSearch.addEventListener('input', () => {
 })
 
 //EDIT BUTTON
-
 const otEdit = document.querySelector('.fa-pen-to-square')
 otEdit.addEventListener("click", function(){
   otEditModal.style.display = "block"
   modalBg.style.display = "block"
 })
 
+const shEdit = document.getElementById("shift-edit")
+shEdit.addEventListener("click", function(){
+  shiftEditModal.style.display = "block"
+  modalBg.style.display = "block"
+})
+
 //DISABLE ALL FIELDS ON EDIT MODAL
-const form = document.getElementById("otEdit-form");
-const elements = form.querySelectorAll("input, select, textarea");
-const label = form.querySelectorAll("label")
-const buttonContainerElements = form.querySelectorAll(".modal-btn-container input, .modal-btn-container button");
+const otform = document.getElementById("otEdit-form");
+const elements = otform.querySelectorAll("input, select, textarea");
+const label = otform.querySelectorAll("label")
+const buttonContainerElements = otform.querySelectorAll(".modal-btn-container input, .modal-btn-container button");
 const updateBtn = document.getElementById("update-btn")
 
-const cancelBtn = document.getElementById("cancel-btn").addEventListener("click", function(){
+// CANCEL BUTTON ON EDIT MODAL
+const otCancel = document.getElementById("cancel-btn").addEventListener("click", function(){
   otEditModal.style.display = "none"
   modalBg.style.display = "none"
   disableFields()
@@ -215,6 +222,10 @@ const cancelBtn = document.getElementById("cancel-btn").addEventListener("click"
   for(let i = 0; i<label.length; i++){
     label[i].classList.add('dis-input')
   }
+})
+const shiftCancel = document.getElementById("shiftEdit-cancel").addEventListener("click", function(){
+  shiftEditModal.style.display = "none"
+  modalBg.style.display = "none"
 })
 
 // DISABLE FIELDS ON EDIT MODAL
