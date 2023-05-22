@@ -626,7 +626,7 @@
                 <div class="modal-btn-container">
                     <input type="button" value="Cancel" class="cancelBtn modal-btn" id="cancel-btn">
                     <button class="edit-btn modal-btn" id="otEdit-btn" type="button">Edit</button>
-                    <button class="update-btn modal-btn" id="update-btn" type="submit">Update</button>
+                    <button class="update-btn modal-btn" id="otEdit-update" type="submit">Update</button>
                 </div>
             </div>
 
@@ -670,16 +670,16 @@
     <div class="bg" id="bg"></div>
     <div class="shiftEdit-modal-container" id="shiftEdit-modal-container">
         <div class="modal-header">
-            <h4>EDIT CHANGE SHIFT</h4>
+            <h4 id="shift-title">VIEW CHANGE SHIFT RECORD</h4>
         </div>
-        <form action="" id="shift-form">
+        <form action="" id="shiftEdit-form">
 
             <!-- LEFT SIDE MODAL -->
             <div class="form-left">
                 <!-- COMPANY FIELD -->
                 <div class="fields">
-                    <label for="shift-company">Company <span> *</span></label>
-                    <select name="shift_company" id="shift-company" required autofocus>
+                    <label class="dis-input" for="shift-company">Company <span> *</span></label>
+                    <select class="dis-input" name="shift_company" id="shift-company" required autofocus>
                         <option value="" selected disabled>Select company</option>
                         <option value="Comfac">Comfac Corporation</option>
                         <option value="CSC">Cornersteel Systems Corporation</option>
@@ -689,8 +689,8 @@
 
                 <!-- DEPARTMENT FIELD -->
                 <div class="fields">
-                    <label for="shift-department">Department <span> *</span></label>
-                    <select name="shift_department" id="shift-department" required>
+                    <label class="dis-input" for="shift-department">Department <span> *</span></label>
+                    <select class="dis-input" class="dis-input" name="shift_department" id="shift-department" required>
                         <option value="" selected disabled>Select company</option>
                         <option value="Accounts">Accounts</option>
                         <option value="PID">Project Installation Dep</option>
@@ -701,26 +701,26 @@
                 <!-- NAME FIELDS -->
                 <div class="field-container">
                     <div class="fields">
-                        <label for="shift-firstname">Firstname <span> *</span></label>
-                        <input type="text" name="shift_firstname" id="shift-firstname" placeholder="Juan" required>
+                        <label class="dis-input" for="shift-firstname">Firstname <span> *</span></label>
+                        <input class="dis-input" type="text" name="shift_firstname" id="shift-firstname" placeholder="Juan" required>
                     </div>
     
                     <div class="fields">
-                        <label for="shift-midname">Middlename</label>
-                        <input type="text" name="shift_midname" id="shift-midname" placeholder="Reyes">
+                        <label class="dis-input" for="shift-midname">Middlename</label>
+                        <input class="dis-input" type="text" name="shift_midname" id="shift-midname" placeholder="Reyes">
                     </div>
                 </div>
 
                 <!-- LASTNAME FIELD -->
                 <div class="fields">
-                    <label for="shift-lastname">Lastname <span> *</span></label>
-                    <input type="text" name="shift_lastname" id="shift-lastname" placeholder="Dela Cruz" required>
+                    <label class="dis-input" for="shift-lastname">Lastname <span> *</span></label>
+                    <input class="dis-input" type="text" name="shift_lastname" id="shift-lastname" placeholder="Dela Cruz" required>
                 </div>
 
                 <!-- ORIGINAL SHIFT FIELD -->
                 <div class="fields">
-                    <label for="shift-orig"> Original shift<span> *</span></label>
-                    <select name="shift_orig" id="shift-orig" required>
+                    <label class="dis-input" for="shift-orig"> Original shift<span> *</span></label>
+                    <select class="dis-input" name="shift_orig" id="shift-orig" required>
                         <option value="" selected disabled>Select shift</option>
                         <option value="type 1">Shift type 1: 8:00AM - 5:00PM</option>
                         <option value="type 2">Shift type 2: 9:00AM - 7:00PM</option>
@@ -732,7 +732,7 @@
                 <div class="modal-btn-container">
                     <input type="button" value="Cancel" class="shiftCancelBtn modal-btn" id="shiftEdit-cancel">
                     <button class="edit-btn modal-btn" id="shiftEdit-btn" type="button">Edit</button>
-                    <button class="update-btn modal-btn" id="update-btn" type="submit">Update</button>
+                    <button class="update-btn modal-btn" id="shiftEdit-update" type="submit">Update</button>
                 </div>
             </div>
 
@@ -742,8 +742,8 @@
 
                 <!-- NEW SHIFT FIELD -->
                 <div class="fields">
-                    <label for="shift-new"> New shift<span> *</span></label>
-                    <select name="shift_new" id="shift-new" required>
+                    <label class="dis-input" for="shift-new"> New shift<span> *</span></label>
+                    <select class="dis-input" name="shift_new" id="shift-new" required>
                         <option value="" selected disabled>Select shift</option>
                         <option value="type 1">Shift type 1: 8:00AM - 5:00PM</option>
                         <option value="type 2">Shift type 2: 9:00AM - 7:00PM</option>
@@ -753,20 +753,20 @@
 
                 <!-- REASON FIELD -->
                 <div class="fields">
-                    <label for="shift-reason">Reason<span> *</span></label>
-                    <textarea name="shift_reason" id="shift-reason" cols="30" rows="9" maxlength="150" placeholder="(150 characters only)" required></textarea>
+                    <label class="dis-input" for="shift-reason">Reason<span> *</span></label>
+                    <textarea class="dis-input" name="shift_reason" id="shift-reason" cols="30" rows="9" maxlength="150" placeholder="(150 characters only)" required></textarea>
                 </div>
 
                 <!-- APPROVED BY FIELD -->
                 <div class="fields">
-                    <label for="shift-approvedBy">Approved By <span> *</span></label>
-                    <input type="text" name="shift_approvedBy" id="shift-approvedBy" required>
+                    <label class="dis-input" for="shift-approvedBy">Approved By <span> *</span></label>
+                    <input class="dis-input" type="text" name="shift_approvedBy" id="shift-approvedBy" required>
                 </div>
 
                 <!-- NOTED BY FIELD -->
                 <div class="fields">
-                    <label for="shift-noteBy">Noted By <span> *</span></label>
-                    <input type="text" name="shift_noteBy" id="shift-noteBy" required>
+                    <label class="dis-input" for="shift-noteBy">Noted By <span> *</span></label>
+                    <input class="dis-input" type="text" name="shift_noteBy" id="shift-noteBy" required>
                 </div>
             </div>
         </form>

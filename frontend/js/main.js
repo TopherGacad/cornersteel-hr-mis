@@ -209,8 +209,15 @@ const otform = document.getElementById("otEdit-form");
 const elements = otform.querySelectorAll("input, select, textarea");
 const label = otform.querySelectorAll("label")
 const buttonContainerElements = otform.querySelectorAll(".modal-btn-container input, .modal-btn-container button");
-const updateBtn = document.getElementById("update-btn")
+const updateBtn = document.getElementById("otEdit-update")
 const otTitle = document.getElementById("ot-title")
+
+const shiftForm = document.getElementById("shiftEdit-form");
+const shiftElememts = shiftForm.querySelectorAll("input, select, textarea");
+const shiftLabel = shiftForm.querySelectorAll("label");
+const shiftBtnContain = shiftForm.querySelectorAll(".modal-btn-container input, .modal-btn-container button");
+const shiftUpdate = document.getElementById("shiftEdit-update");
+const shiftTitle = document.getElementById("shift-title")
 
 // CANCEL BUTTON ON EDIT MODAL
 const otCancel = document.getElementById("cancel-btn").addEventListener("click", function(){
@@ -222,10 +229,17 @@ const otCancel = document.getElementById("cancel-btn").addEventListener("click",
     label[i].classList.add('dis-input')
   }
 })
+
 const shiftCancel = document.getElementById("shiftEdit-cancel").addEventListener("click", function(){
   shiftEditModal.style.display = "none"
   modalBg.style.display = "none"
+  disableShift()
+
+  for(let i = 0; i<shiftLabel.length; i++){
+    shiftLabel[i].classList.add('dis-input')
+  }
 })
+
 
 // DISABLE FIELDS ON EDIT MODAL
 function disableFields(){
@@ -238,6 +252,19 @@ function disableFields(){
   }
 
   otTitle.textContent = "VIEW OVERTIME REQUEST"
+}
+
+// CHANGE SHIFT: DISABLE FIELDS ON EDIT MODAL
+function disableShift(){
+  for (let i = 0; i < shiftElememts.length; i++) {
+    if (![...shiftBtnContain].includes(shiftElememts[i])) {
+      shiftElememts[i].disabled = true;
+      shiftElememts[i].classList.add('dis-input')
+      shiftUpdate.disabled = true;
+    }
+  }
+
+  shiftTitle.textContent = "VIEW CHANGE SHIFT REQUEST"
 }
 
 
@@ -259,13 +286,34 @@ function activeFields(){
   otTitle.textContent = "EDIT OVERTIME REQUEST"
 }
 
+// CHANGE SHIFT: ACTIVATE FIELDS ON EDIT MODAL
+function activeShift(){
+  for (let i = 0; i < shiftElememts.length; i++) {
+    if (![...shiftBtnContain].includes(shiftElememts[i])) {
+      shiftElememts[i].disabled = false;
+      shiftElememts[i].classList.remove('dis-input')
+      shiftUpdate.disabled = false;
+    }
+  }
+
+  for(let i = 0; i<shiftLabel.length; i++){
+    shiftLabel[i].classList.remove('dis-input')
+  }
+
+  shiftTitle.textContent = "EDIT CHANGE SHIFT REQUEST"
+}
+
 // EDIT BUTTON INSIDE THE MODAL
 const otEditBtn = document.getElementById("otEdit-btn")
 otEditBtn.addEventListener("click", function(){
   activeFields()
 })
 
-
+// CHANGE SHIFT: EDIT BUTTON INSIDE THE MODAL
+const shiftEditBtn = document.getElementById("shiftEdit-btn")
+shiftEditBtn.addEventListener("click", function(){
+  activeShift()
+})
 
 
 
