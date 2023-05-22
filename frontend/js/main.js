@@ -278,7 +278,7 @@ function disableFields(){
     }
   }
 
-  otTitle.textContent = "VIEW OVERTIME REQUEST"
+  otTitle.textContent = "VIEWING OVERTIME REQUEST"
 }
 
 // CHANGE SHIFT: DISABLE FIELDS ON EDIT MODAL
@@ -291,7 +291,7 @@ function disableShift(){
     }
   }
 
-  shiftTitle.textContent = "VIEW CHANGE SHIFT REQUEST"
+  shiftTitle.textContent = "VIEWING CHANGE SHIFT REQUEST"
 }
 
 function disableOff(){
@@ -303,7 +303,7 @@ function disableOff(){
     }
   }
 
-  offTitle.textContent = "VIEW CHANGE SHIFT REQUEST"
+  offTitle.textContent = "VIEWING OFFICIAL BUSINESS REQUEST"
 }
 
 
@@ -322,7 +322,7 @@ function activeFields(){
     label[i].classList.remove('dis-input')
   }
 
-  otTitle.textContent = "EDIT OVERTIME REQUEST"
+  otTitle.textContent = "EDITING OVERTIME REQUEST"
 }
 
 // CHANGE SHIFT: ACTIVATE FIELDS ON EDIT MODAL
@@ -339,7 +339,7 @@ function activeShift(){
     shiftLabel[i].classList.remove('dis-input')
   }
 
-  shiftTitle.textContent = "EDIT CHANGE SHIFT REQUEST"
+  shiftTitle.textContent = "EDITING CHANGE SHIFT REQUEST"
 }
 
 function activeOff(){
@@ -355,7 +355,7 @@ function activeOff(){
     offLabel[i].classList.remove('dis-input')
   }
 
-  offTitle.textContent = "EDIT CHANGE SHIFT REQUEST"
+  offTitle.textContent = "EDITING OFFICIAL BUSINESS REQUEST"
 }
 
 // EDIT BUTTON INSIDE THE MODAL
