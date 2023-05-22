@@ -194,17 +194,16 @@ offBusSearch.addEventListener('input', () => {
 })
 
 //EDIT BUTTON
-const otEdit = document.querySelector('.fa-pen-to-square')
-otEdit.addEventListener("click", function(){
+function edit(){
   otEditModal.style.display = "block"
   modalBg.style.display = "block"
-})
+}
 
-const shEdit = document.getElementById("shift-edit")
-shEdit.addEventListener("click", function(){
-  shiftEditModal.style.display = "block"
-  modalBg.style.display = "block"
-})
+// const shEdit = document.getElementById("shift-edit")
+// shEdit.addEventListener("click", function(){
+//   shiftEditModal.style.display = "block"
+//   modalBg.style.display = "block"
+// })
 
 //DISABLE ALL FIELDS ON EDIT MODAL
 const otform = document.getElementById("otEdit-form");

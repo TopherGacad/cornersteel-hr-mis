@@ -181,6 +181,18 @@ tbody tr:hover{
 .act-icon:hover{
     color: var(--btn-color);
 }
+.field-container{
+    display: flex;
+    justify-content: space-between;
+}
+.field-container input[type="date"]{
+   width: 170px;
+}
+
+.field-container select{
+    width: 200px;
+}
+
 
         /* FORM MODAL */
 .bg{
@@ -236,11 +248,6 @@ form{
 textarea{
     resize: none;
     height: 110px;
-}
-
-.name-container{
-    display: flex;
-    justify-content: space-between;
 }
 .time-container{
     display: flex;

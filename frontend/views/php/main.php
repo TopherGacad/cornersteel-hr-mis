@@ -39,7 +39,6 @@
     <!-- DASHBOARD CONTENT -->
      <div class="dash-container" id="dash-container">
         <div class="content-header">
-
         </div>
         <div class="content-container">
         
@@ -133,7 +132,7 @@
                                     <td> ' . $date . '</td>     
                                     <td>
                                         <a href="?succesfullydeleted-row=' . $overtimeid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
-                                        <i class="act-icon fa-solid fa-pen-to-square"></i>
+                                        <i class="act-icon fa-solid fa-pen-to-square" onclick="edit()"></i>
                                     </td>
                                 </tr>';
                             }
@@ -316,7 +315,7 @@
                 </div>
 
                 <!-- NAME FIELDS -->
-                <div class="name-container">
+                <div class="field-container">
                     <div class="fields">
                         <label for="ot-firstname">Firstname <span> *</span></label>
                         <input type="text" name="ot_firstname" id="ot-firstname" placeholder="Juan" required>
@@ -429,7 +428,7 @@
                 </div>
 
                 <!-- NAME FIELDS -->
-                <div class="name-container">
+                <div class="field-container">
                     <div class="fields">
                         <label for="shift-firstname">Firstname <span> *</span></label>
                         <input type="text" name="shift_firstname" id="shift-firstname" placeholder="Juan" required>
@@ -440,13 +439,20 @@
                         <input type="text" name="shift_midname" id="shift-midname" placeholder="Reyes">
                     </div>
                 </div>
+                
+                <div class="field-container">
+                    <!-- LASTNAME FIELD -->
+                    <div class="fields">
+                        <label for="shift-lastname">Lastname <span> *</span></label>
+                        <input type="text" name="shift_lastname" id="shift-lastname" placeholder="Dela Cruz" required>
+                    </div>
 
-                <!-- LASTNAME FIELD -->
-                <div class="fields">
-                    <label for="shift-lastname">Lastname <span> *</span></label>
-                    <input type="text" name="shift_lastname" id="shift-lastname" placeholder="Dela Cruz" required>
+                    <div class="fields">
+                        <label for="shift-date">Date Effective <span> *</span></label>
+                        <input type="date" id="shift-date" required>
+                    </div>
                 </div>
-
+               
                 <!-- ORIGINAL SHIFT FIELD -->
                 <div class="fields">
                     <label for="shift-orig"> Original shift<span> *</span></label>
@@ -534,7 +540,7 @@
                 </div>
 
                 <!-- NAME FIELDS -->
-                <div class="name-container">
+                <div class="field-container">
                     <div class="fields">
                         <label for="ob-firstname">Firstname <span> *</span></label>
                         <input type="text" name="ob_firstname" id="ob-firstname" placeholder="Juan" required>
@@ -568,18 +574,25 @@
 
             <!-- RIGHT SIDE MODAL -->
             <div class="form-right">
-
-                  <!-- STATUS FIELD -->
-                  <div class="fields">
-                    <label for="ob-status">Status <span> *</span></label>
-                    <select name="ob_status" id="ob-status" required>
-                        <option value="" selected disabled>Select status</option>
-                        <option value="No Login">No Login</option>
-                        <option value="No Logout">No Logout</option>
-                        <option value="Both">Both</option>
-                    </select>
+                
+                <div class="field-container">
+                    <!-- STATUS FIELD -->
+                    <div class="fields">
+                        <label for="ob-status">Status <span> *</span></label>
+                        <select name="ob_status" id="ob-status" required>
+                            <option value="" selected disabled>Select status</option>
+                            <option value="No Login">No Login</option>
+                            <option value="No Logout">No Logout</option>
+                            <option value="Both">Both</option>
+                        </select>
+                    </div>
+                    <!-- DATE FIELD -->
+                    <div class="fields">
+                        <label for="ob-date">Date <span> *</span></label>
+                        <input type="date" name="" id="ob-date" required>
+                    </div>
                 </div>
-
+                 
                 <!-- REASON FIELD -->
                 <div class="fields">
                     <label for="ob-reason">Reason<span> *</span></label>
@@ -628,7 +641,7 @@
                 </div>
 
                 <!-- NAME FIELDS -->
-                <div class="name-container">
+                <div class="field-container">
                     <div class="fields">
                         <label class="dis-input" for="ot-firstname">Firstname <span> *</span></label>
                         <input class="dis-input" type="text" name="ot_firstname" id="ot-firstname" required value="Sean">
@@ -742,7 +755,7 @@
                 </div>
 
                 <!-- NAME FIELDS -->
-                <div class="name-container">
+                <div class="field-container">
                     <div class="fields">
                         <label for="shift-firstname">Firstname <span> *</span></label>
                         <input type="text" name="shift_firstname" id="shift-firstname" placeholder="Juan" required>
