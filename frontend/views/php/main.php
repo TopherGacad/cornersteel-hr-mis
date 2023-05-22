@@ -132,7 +132,7 @@
                                     <td> ' . $date . '</td>     
                                     <td>
                                         <a href="?succesfullydeleted-row=' . $overtimeid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
-                                        <i class="act-icon fa-solid fa-pen-to-square" onclick="edit()"></i>
+                                        <i class="act-icon fa-solid fa-pen-to-square" onclick="otEdit()"></i>
                                     </td>
                                 </tr>';
                             }
@@ -177,35 +177,7 @@
                         <td>05-17-2023</td>
                         <td>
                             <i class="act-icon fa-solid fa-trash-can" ></i>
-                            <i class="act-icon fa-solid fa-pen-to-square" id="shift-edit"></i>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Jonathan Peol</td>
-                        <td>Comfac</td>
-                        <td>IT Department</td>
-                        <td>6:00 am - 5:00pm</td>
-                        <td>9:00 am - 6:00pm</td>
-                        <td>Adriel Orio</td>
-                        <td>05-17-2023</td>
-                        <td>
-                            <i class="act-icon fa-solid fa-trash-can"></i>
-                            <i class="act-icon fa-solid fa-pen-to-square"></i>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Sean Gomez</td>
-                        <td>ESCO</td>
-                        <td>Human Resources - CF</td>
-                        <td>6:00 am - 5:00pm</td>
-                        <td>9:00 am - 6:00pm</td>
-                        <td>Jonathan Peol</td>
-                        <td>05-17-2023</td>
-                        <td>
-                            <i class="act-icon fa-solid fa-trash-can"></i>
-                            <i class="act-icon fa-solid fa-pen-to-square"></i>
+                            <i class="act-icon fa-solid fa-pen-to-square" onclick="shEdit()"></i>
                         </td>
                     </tr>
                 </tbody>
@@ -244,35 +216,7 @@
                         <td>16-05-2023</td>
                         <td>
                             <i class="act-icon fa-solid fa-trash-can"></i>
-                            <i class="act-icon fa-solid fa-pen-to-square"></i>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Jonathan Peol</td>
-                        <td>Comfac</td>
-                        <td>Accounts - CF</td>
-                        <td>No Logout</td>
-                        <td>Rein Simacon</td>
-                        <td>Christopher Gacad</td>
-                        <td>16-05-2023</td>
-                        <td>
-                            <i class="act-icon fa-solid fa-trash-can"></i>
-                            <i class="act-icon fa-solid fa-pen-to-square"></i>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Adriel Orio</td>
-                        <td>ESCO</td>
-                        <td>Human Resources</td>
-                        <td>Both</td>
-                        <td>Jonathan Peol</td>
-                        <td>Peach Corcelles</td>
-                        <td>16-05-2023</td>
-                        <td>
-                            <i class="act-icon fa-solid fa-trash-can"></i>
-                            <i class="act-icon fa-solid fa-pen-to-square"></i>
+                            <i class="act-icon fa-solid fa-pen-to-square" onclick="obEdit()"></i>
                         </td>
                     </tr>
                 </tbody>
@@ -612,7 +556,7 @@
     <div class="bg" id="bg"></div>
     <div class="otEdit-modal-container" id="otEdit-modal-container">
         <div class="modal-header">
-            <h4>ADD OVERTIME</h4>
+            <h4 id="ot-title">VIEW OVERTIME REQUEST</h4>
         </div>
         <form action="" id="otEdit-form">
 

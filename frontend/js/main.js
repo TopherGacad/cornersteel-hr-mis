@@ -194,16 +194,15 @@ offBusSearch.addEventListener('input', () => {
 })
 
 //EDIT BUTTON
-function edit(){
+function otEdit(){
   otEditModal.style.display = "block"
   modalBg.style.display = "block"
 }
 
-// const shEdit = document.getElementById("shift-edit")
-// shEdit.addEventListener("click", function(){
-//   shiftEditModal.style.display = "block"
-//   modalBg.style.display = "block"
-// })
+function shEdit(){
+  shiftEditModal.style.display = "block"
+  modalBg.style.display = "block"
+}
 
 //DISABLE ALL FIELDS ON EDIT MODAL
 const otform = document.getElementById("otEdit-form");
@@ -211,6 +210,7 @@ const elements = otform.querySelectorAll("input, select, textarea");
 const label = otform.querySelectorAll("label")
 const buttonContainerElements = otform.querySelectorAll(".modal-btn-container input, .modal-btn-container button");
 const updateBtn = document.getElementById("update-btn")
+const otTitle = document.getElementById("ot-title")
 
 // CANCEL BUTTON ON EDIT MODAL
 const otCancel = document.getElementById("cancel-btn").addEventListener("click", function(){
@@ -236,8 +236,11 @@ function disableFields(){
       updateBtn.disabled = true;
     }
   }
+
+  otTitle.textContent = "VIEW OVERTIME REQUEST"
 }
-disableFields()
+
+
 
 // ACTIVATE FIELDS ON EDIT MODAL
 function activeFields(){
@@ -252,6 +255,8 @@ function activeFields(){
   for(let i = 0; i<label.length; i++){
     label[i].classList.remove('dis-input')
   }
+
+  otTitle.textContent = "EDIT OVERTIME REQUEST"
 }
 
 // EDIT BUTTON INSIDE THE MODAL
