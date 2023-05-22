@@ -216,7 +216,7 @@
                         <td>16-05-2023</td>
                         <td>
                             <i class="act-icon fa-solid fa-trash-can"></i>
-                            <i class="act-icon fa-solid fa-pen-to-square" onclick="obEdit()"></i>
+                            <i class="act-icon fa-solid fa-pen-to-square" onclick="offEdit()"></i>
                         </td>
                     </tr>
                 </tbody>
@@ -772,6 +772,107 @@
         </form>
     </div>
 
+    <!-- EDIT OFFICIAL BUSINESS MODAL -->
+    <div class="bg" id="bg"></div>
+    <div class="offBusEdit-modal-container" id="offBusEdit-modal-container">
+        <div class="modal-header">
+            <h4 id="offBus-title">VIEW OFFICIAL BUSINESS</h4>
+        </div>
+        <form action="" id="offBus-form">
+
+            <!-- LEFT SIDE MODAL -->
+            <div class="form-left">
+                <!-- COMPANY FIELD -->
+                <div class="fields">
+                    <label class="dis-input" for="ob-company">Company <span> *</span></label>
+                    <select class="dis-input" class="dis-input" class="dis-input" class="dis-input" name="ob_company" id="ob-company" required autofocus>
+                        <option value="" selected disabled>Select company</option>
+                        <option value="Comfac">Comfac Corporation</option>
+                        <option value="CSC">Cornersteel Systems Corporation</option>
+                        <option value="ESCO">ESCO</option>
+                    </select>
+                </div>
+
+                <!-- DEPARTMENT FIELD -->
+                <div class="fields">
+                    <label class="dis-input" class="dis-input" class="dis-input" for="ob-department">Department <span> *</span></label>
+                    <select class="dis-input" class="dis-input" class="dis-input" name="ob_department" id="ob-department" required>
+                        <option value="" selected disabled>Select company</option>
+                        <option value="Accounts">Accounts</option>
+                        <option value="PID">Project Installation Dep</option>
+                        <option value="HR">Human Resources</option>
+                    </select>
+                </div>
+
+                <!-- NAME FIELDS -->
+                <div class="field-container">
+                    <div class="fields">
+                        <label class="dis-input" class="dis-input" class="dis-input" for="ob-firstname">Firstname <span> *</span></label>
+                        <input class="dis-input" class="dis-input" class="dis-input" type="text" name="ob_firstname" id="ob-firstname" placeholder="Juan" required>
+                    </div>
+    
+                    <div class="fields">
+                        <label class="dis-input" class="dis-input" class="dis-input" for="ob-midname">Middlename</label>
+                        <input class="dis-input" class="dis-input" class="dis-input" type="text" name="ob_midname" id="ob-midname" placeholder="Reyes">
+                    </div>
+                </div>
+
+                <!-- LASTNAME FIELD -->
+                <div class="fields">
+                    <label class="dis-input" class="dis-input" for="ob-lastname">Lastname <span> *</span></label>
+                    <input class="dis-input" class="dis-input" type="text" name="ob_lastname" id="ob-lastname" placeholder="Dela Cruz" required>
+                </div>
+
+                <!-- AUTHORIZE CLIENT FIELD -->
+                <div class="fields">
+                    <label class="dis-input" class="dis-input" for="ob-client">Authorize Client <span> *</span></label>
+                    <input class="dis-input" class="dis-input" type="text" name="ob_client" id="ob-client" required>
+                </div>
+
+
+                 <!-- MODAL BUTTON CONTAINER -->
+                <div class="modal-btn-container">
+                    <input type="button" value="Cancel" class="offBusCancelBtn modal-btn" id="offEdit-cancel">
+                    <button class="edit-btn modal-btn" id="offBusEdit-btn" type="button">Edit</button>
+                    <button class="update-btn modal-btn" id="offBusEdit-update" type="submit">Update</button>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE MODAL -->
+            <div class="form-right">
+                
+                <div class="field-container">
+                    <!-- STATUS FIELD -->
+                    <div class="fields">
+                        <label class="dis-input" for="ob-status">Status <span> *</span></label>
+                        <select class="dis-input" name="ob_status" id="ob-status" required>
+                            <option value="" selected disabled>Select status</option>
+                            <option value="No Login">No Login</option>
+                            <option value="No Logout">No Logout</option>
+                            <option value="Both">Both</option>
+                        </select>
+                    </div>
+                    <!-- DATE FIELD -->
+                    <div class="fields">
+                        <label class="dis-input" for="ob-date">Date <span> *</span></label>
+                        <input class="dis-input" type="date" name="" id="ob-date" required>
+                    </div>
+                </div>
+                 
+                <!-- REASON FIELD -->
+                <div class="fields">
+                    <label class="dis-input" for="ob-reason">Reason<span> *</span></label>
+                    <textarea class="dis-input" name="ob_reason" id="ob-reason" cols="30" rows="9" maxlength="150"></textarea>
+                </div>
+
+                <!-- NOTED BY FIELD -->
+                <div class="fields">
+                    <label class="dis-input" for="ot-noteBy">Noted By <span> *</span></label>
+                    <input class="dis-input" type="text" name="ot_noteBy" id="ot-noteBy" required>
+                </div>
+            </div>
+        </form>
+    </div>
     
 
     <!-- JAVASCRIPT -->
