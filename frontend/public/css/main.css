@@ -183,13 +183,14 @@ tbody tr:hover{
 }
 .field-container{
     display: flex;
+    justify-content: space-between;
 }
 .field-container input,
 .field-container input[type="date"]{
-    width: 200px;
+    width: 170px;
 }
 .field-container select{
-    width: 230px;
+    width: 200px;
 }
 
         /* FORM MODAL */
@@ -312,6 +313,15 @@ textarea{
     border-radius: 10px;
 }
 
+@media screen and (min-width: 1600px){
+    .field-container input,
+    .field-container input[type="date"]{
+        width: 200px;
+    }
+    .field-container select{
+        width: 230px;
+}
+}
 @media screen and (min-width: 1920px) {
     .field-container input,
     .field-container input[type="date"]{
