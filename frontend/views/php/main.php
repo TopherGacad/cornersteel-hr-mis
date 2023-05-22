@@ -70,8 +70,8 @@
                     <?php
                         include_once '../../../backend/includes/dbconn_inc.php';
 
-                        if(isset($_GET['delete'])){
-                            $overtimeid = $_GET['delete'];
+                        if(isset($_GET['succesfullydeleted-row'])){
+                            $overtimeid = $_GET['succesfullydeleted-row'];
                             
                             $delsql = "DELETE FROM overtime_csc WHERE ot_id = ?;";
                             $delstmt = mysqli_stmt_init($conn);
@@ -85,11 +85,9 @@
 
                                 if(mysqli_stmt_affected_rows($delstmt) > 0){
                                     header('main.php?deletion=successful');
-                                    exit();
                                 }
                                 else{
                                     header('main.php?deletionfailed');
-                                    exit();
                                 }
 
                             }
@@ -134,7 +132,7 @@
                                     <td class="thours">' . $overtime . '</td>
                                     <td> ' . $date . '</td>     
                                     <td>
-                                        <a href="?delete=' . $overtimeid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
+                                        <a href="?succesfullydeleted-row=' . $overtimeid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
                                         <i class="act-icon fa-solid fa-pen-to-square"></i>
                                     </td>
                                 </tr>';
