@@ -65,55 +65,88 @@
                     <th>Date</th>
                     <th>Action</th>
                 </tr>
-
                 <tbody id="overtime-table-body">
-                    <tr>
-                        <td>Sean Gomez</td>
-                        <td>Cornersteel</td>
-                        <td>Human Resources - CF</td>
-                        <td>Worker</td>
-                        <td>6:00 pm</td>
-                        <td>8:00 pm</td>
-                        <td class="thours">3434</td>
-                        <td>16-05-2023</td>
-                        <td>
-                            <i class="act-icon fa-solid fa-trash-can"></i>
-                            <i class="act-icon fa-solid fa-pen-to-square"></i>
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <td>Jonathan Peol</td>
-                        <td>Comfac</td>
-                        <td>Accounts - CF</td>
-                        <td>Worker</td>
-                        <td>6:00 pm</td>
-                        <td>8:00 pm</td>
-                        <td class="thours">3434</td>
-                        <td>16-05-2023</td>
-                        <td>
-                            <i class="act-icon fa-solid fa-trash-can"></i>
-                            <i class="act-icon fa-solid fa-pen-to-square"></i>
-                        </td>
-                    </tr>
+                    <?php
+                        include_once '../../../backend/includes/dbconn_inc.php';
 
-                    <tr>
-                        <td>Adriel Orio</td>
-                        <td>ESCO</td>
-                        <td>IT - Specialist</td>
-                        <td>Plant Director</td>
-                        <td>6:00 pm</td>
-                        <td>8:00 pm</td>
-                        <td class="thours">3434</td>
-                        <td>16-05-2023</td>
-                        <td>
-                            <i class="act-icon fa-solid fa-trash-can"></i>
-                            <i class="act-icon fa-solid fa-pen-to-square"></i>
-                        </td>
-                    </tr>
+                        if(isset($_GET['delete'])){
+                            $overtimeid = $_GET['delete'];
+                            
+                            $delsql = "DELETE FROM overtime_csc WHERE ot_id = ?;";
+                            $delstmt = mysqli_stmt_init($conn);
+
+                            if(!mysqli_stmt_prepare($delstmt, $delsql)){
+                                echo 'deletion failed';
+                            }
+                            else{
+                                mysqli_stmt_bind_param($delstmt, 'i', $overtimeid);
+                                mysqli_stmt_execute($delstmt);
+
+                                if(mysqli_stmt_affected_rows($delstmt) > 0){
+                                    header('main.php?deletion=successful');
+                                    exit();
+                                }
+                                else{
+                                    header('main.php?deletionfailed');
+                                    exit();
+                                }
+
+                            }
+                            mysqli_stmt_close($delstmt);
+                            
+
+                        }
+
+                        $sql = "SELECT * FROM overtime_csc;";
+                        $stmt = mysqli_stmt_init($conn);
+
+                        if(!mysqli_stmt_prepare($stmt, $sql)){
+                            echo 'SQL statement failed';
+                        }
+                        else{
+                            mysqli_stmt_execute($stmt);
+                            $result = mysqli_stmt_get_result($stmt);
+
+                            while($row = mysqli_fetch_assoc($result)){
+                                
+                                $overtimeid = $row['ot_id'];
+                                $company = $row['ot_company'];
+                                $department = $row['ot_dept'];
+                                $firstname = $row['ot_firstname'];
+                                $lastname = $row['ot_lastname'];
+                                $position = $row['ot_position'];
+                                $timefrom = $row['ot_from'];
+                                $timeto = $row['ot_to'];
+                                $overtime = $row['ot_hours'];
+
+                                $filedate = $row['ot_date'];
+
+                                $date = date('m/d/Y', strtotime($filedate));
+
+                                echo ' <tr>
+                                    <td> ' . $firstname . ' ' . $lastname . '</td>
+                                    <td> ' . $company . '</td>
+                                    <td> ' . $department . '</td>
+                                    <td> ' . $position . '</td>
+                                    <td> ' . $timefrom .  '</td>
+                                    <td> ' . $timeto . '</td>
+                                    <td class="thours">' . $overtime . '</td>
+                                    <td> ' . $date . '</td>     
+                                    <td>
+                                        <a href="?delete=' . $overtimeid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
+                                        <i class="act-icon fa-solid fa-pen-to-square"></i>
+                                    </td>
+                                </tr>';
+                            }
+                        }
+
+                    ?>
+
                 </tbody>
     
             </table>
+
         </div>
     </div>
 
@@ -258,7 +291,7 @@
         <div class="modal-header">
             <h4>ADD OVERTIME</h4>
         </div>
-        <form action="" id="overtime-form">
+        <form action="../../../backend/includes/overtime_inc.php" method="post" id="overtime-form">
 
             <!-- LEFT SIDE MODAL -->
             <div class="form-left">
@@ -325,7 +358,7 @@
                  <!-- MODAL BUTTON CONTAINER -->
                 <div class="modal-btn-container">
                     <input type="button" value="Cancel" class="otCancelBtn modal-btn" id="otCancel-btn">
-                    <button class="save-btn modal-btn" id="save-btn" type="submit">Save</button>
+                    <button class="save-btn modal-btn" id="save-btn" type="submit" name="overtime-save">Save</button>
                 </div>
             </div>
 

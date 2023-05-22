@@ -1,9 +1,9 @@
 <?php
     if(isset($_GET["error"])){
         if($_GET["error"] == "incorrectpassword"){
-            echo '<script> alert("Wrong Password") </script>';
+            echo '<script> window.alert("Wrong Password") </script>';
         }
         else if($_GET["error"] == "usernotfound"){
-            echo '<script> alert("User not found") </script>';
+            echo '<script> window.alert("User not found") </script>';
         }
     }

@@ -3,7 +3,7 @@
 //-------------CHECKS IF USER EXISTS IN DATABASE------------------//
 
     function ExistingUser($conn, $username){
-        $sql = "SELECT * from user WHERE user_name = ?;";
+        $sql = "SELECT * from user_csc WHERE user_name = ?;";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -50,3 +50,36 @@
     }
 
     //----------------------------------------------------------------//
+
+
+    //---------------FUNCTION FOR OVERTIME APPLICATION----------------//
+
+    function OvertimeFiling($conn, $company, $department, $firstname, $middlename, $lastname, $position, 
+    $timefrom, $timeto, $tasks, $requested, $designation, $approved, $noted){
+
+
+        $from = strtotime($timefrom);
+        $to = strtotime($timeto);
+
+        $timeDiff = $from - $to;
+        $overtime = $timeDiff / 3600;
+
+            
+        $sql = "INSERT INTO overtime_csc (ot_company, ot_dept, ot_firstname, ot_middlename, ot_lastname, ot_position, ot_from, ot_to, ot_hours, ot_task, 
+        ot_requester, ot_designation, ot_approver, ot_notedby) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        $stmt = mysqli_stmt_init($conn);
+
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            header("Location: ../../frontend/views/php/main.php?error=overtimestatementfailed");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($stmt, "ssssssssdsssss", $company, $department, $firstname, $middlename, $lastname, $position, 
+        $timefrom, $timeto, $overtime, $tasks, $requested, $designation, $approved, $noted);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+
+        header("Location: ../../frontend/views/php/main.php?overtimefiling=successful");
+
+        
+    }
