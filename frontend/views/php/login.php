@@ -41,7 +41,7 @@
                     <label for="login-username">Username</label>
                     <input 
                         id="login-username" 
-                        name="login-username"
+                        name="login_username"
                         type="text" 
                         placeholder="juan@example.com"
                         autofocus
@@ -53,7 +53,7 @@
                     <label for="login-pass">Password</label>
                     <input
                         id="login-pass"
-                        name="login-pass" 
+                        name="login_pass" 
                         type="password"
                         placeholder="8-16 characters only"
                         required>
@@ -70,7 +70,7 @@
                 
                 <!-- BTN & LINK CONTAINER -->
                 <div class="link-container">
-                    <input class="Btn-login" type="submit" value="Sign in" name="login-submit">
+                    <input class="Btn-login" type="submit" value="Sign in" name="login_submit">
                     <p>Don't have an account? <a href="../../views/php/sign-up.php">Register here.</a></p>
                 </div>
             </form>
