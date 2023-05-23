@@ -53,7 +53,7 @@
                 
                 <!-- PASSWORD FIELD -->
                 <div class="fields">
-                    <label for="">Password</label>
+                    <label for="login-pass">Password</label>
                     <input
                         id="login-pass"
                         name="login-pass" 
