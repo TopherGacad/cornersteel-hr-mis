@@ -81,14 +81,14 @@
             $to_hour = 0;
         }
         
-        $timeDiff = $to_hour * 60 + $to_min - $from_hour * 60 + $from_min;
+        $timeDiff = ($to_hour + ($to_min / 60)) - ($from_hour + ($from_min / 60));
 
         if ($timeDiff < 0) {
-            $timeDiff += 24 * 60;
+            $timeDiff += 24;
         }
 
-        return $timeDiff / 60;
-        
+        return $timeDiff;
+
     }
 
     //----------------------------------------------------------------//
@@ -116,6 +116,42 @@
         mysqli_stmt_close($stmt);
 
         header("Location: ../../frontend/views/php/main.php?overtimefiling=successful");
+        
+    }
+
+    //----------------------------------------------------------------//
+
+
+    //-------------------FUNCTION FOR EDIT OVERTIME-------------------//
+
+    function OvertimeEdit($conn, $overtimeid, $company, $department, $firstname, $middlename, $lastname, $position, $timefrom,
+    $timeto, $tasks, $requested, $designation, $approved, $noted){
+
+        $overtime = TotalHours($timefrom, $timeto);  
+
+        $sql = "UPDATE overtime_csc SET ot_company = ?, ot_dept = ?, ot_firstname = ?, ot_middlename = ?, ot_lastname = ?, ot_position = ?, 
+        ot_from = ?, ot_to = ?, ot_hours = ?, ot_task = ?, ot_requester = ?, ot_designation = ?, ot_approver = ?, ot_notedby = ? WHERE ot_id = $overtimeid;";
+        $stmt = mysqli_stmt_init($conn);
+
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            header("Location: ../../frontend/views/php/main.php?error=overtimestatementfailed");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($stmt, "ssssssssdsssss", $company, $department, $firstname, $middlename, $lastname, $position, 
+        $timefrom, $timeto, $overtime, $tasks, $requested, $designation, $approved, $noted);
+        mysqli_stmt_execute($stmt);
+
+        if(mysqli_stmt_affected_rows($stmt) > 0){
+            header("Location: ../../frontend/views/php/main.php?overtimeediting=successful");
+        }
+        else{
+            header("Location: ../../frontend/views/php/main.php?overtimeediting=failed");
+        }
+
+        mysqli_stmt_close($stmt);
+
+        
         
     }
 
