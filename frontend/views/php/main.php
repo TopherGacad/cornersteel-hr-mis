@@ -334,7 +334,7 @@
                                 <td> ' . $effectiveDate . '</td>     
                                 <td>
                                     <a href="?succesfullydeleted-obrow=' . $offbusinessid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
-                                    <i class="act-icon fa-solid fa-pen-to-square" onclick="obEdit()"></i>
+                                    <i class="act-icon fa-solid fa-pen-to-square" onclick="offEdit()"></i>
                                 </td>
                             </tr>';
 
