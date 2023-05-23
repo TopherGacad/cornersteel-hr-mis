@@ -36,7 +36,7 @@
                 <p class="login-title">REGISTER AN ACCOUNT</p>
             </div>
     
-            <form action="../../../backend/includes/login_inc.php" method="post">
+            <form action="../../../backend/includes/signup_inc.php" method="post">
                 <div class="layout-container">
                     
                     <div class="login-left">
@@ -45,7 +45,7 @@
                             <label for="signup-firstname">Firstname <span> *</span></label>
                             <input 
                                 id="signup-firstname" 
-                                name="signup-firstname" 
+                                name="signup_firstname" 
                                 type="text" 
                                 placeholder="Juan"
                                 autofocus
@@ -57,7 +57,7 @@
                             <label for="signup-lastname">Lastname <span> *</span></label>
                             <input 
                                 id="signup-lastname" 
-                                name="signup-lastname" 
+                                name="signup_lastname" 
                                 type="text" 
                                 placeholder="Dela Cruz"
                                 required>
@@ -68,7 +68,7 @@
                             <label for="signup-username">Username <span> *</span></label>
                             <input 
                                 id="signup-username" 
-                                name="signup-username"  
+                                name="signup_email"  
                                 type="text" 
                                 placeholder="juan@example.com"
                                 required>
@@ -77,7 +77,7 @@
                         <!-- COMPANY FIELD -->
                         <div class="fields">
                             <label for="signup-company">Company <span> *</span></label>
-                            <select name="signup-company" id="signup-company" required>
+                            <select name="signup_company" id="signup-company" required>
                                 <option value="" selected disable>Select Company</option>
                                 <option value="CSC">Cornersteel Systems Corp</option>
                                 <option value="Comfac">Comfac</option>
@@ -90,7 +90,7 @@
                         <!-- DEPARTMENT FIELD -->
                         <div class="fields">
                             <label for="signup-dep">Department <span> *</span></label>
-                            <select name="signup-dep" id="signup-dep">
+                            <select name="signup_dep" id="signup-dep">
                                 <option value="" selected disable>Select Department</option>
                                 <option value="PID">Product Installation Department</option>
                                 <option value="HR">Human Resources</option>
@@ -103,7 +103,7 @@
                             <label for="signup-pass">Password <span> *</span></label>
                             <input
                                 id="signup-pass"
-                                name="signup-pass" 
+                                name="signup_pass" 
                                 type="password"
                                 Placeholder="8-16 characters only"
                                 required>
@@ -114,7 +114,7 @@
                             <label for="signup-conpass">Confirm Password <span> *</span></label>
                             <input
                                 id="signup-conpass"
-                                name="signup-conpass" 
+                                name="signup_conpass" 
                                 type="password"
                                 required>
                         </div>
@@ -129,7 +129,7 @@
 
                         <!-- BTN & LINK CONTAINER -->
                         <div class="link-container">
-                            <input class="Btn-login" type="submit" value="Sign in" name="login-submit">
+                            <input class="Btn-login" type="submit" value="Sign in" name="signup_submit">
                         </div>
                     </div>
 
