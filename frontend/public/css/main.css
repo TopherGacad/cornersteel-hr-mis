@@ -160,6 +160,10 @@ td{
     min-width: 100px;
     max-width: 100px;
 }
+.name{
+    min-width: 120px;
+    max-width: 120px;
+}
 tbody tr:hover{
     background-color: var(--hover-color);
 }

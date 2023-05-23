@@ -54,7 +54,7 @@
         <div class="content-container">
             <table>
                 <tr>
-                    <th>Name</th>
+                    <th class="name">Name</th>
                     <th>Company</th>
                     <th>Department</th>
                     <th>Position</th>
@@ -160,7 +160,7 @@
         <div class="content-container">
             <table>
                 <tr>
-                    <th>Name</th>
+                    <th class="name">Name</th>
                     <th>Company</th>
                     <th>Department</th>
                     <th>Orig Time</th>
@@ -259,7 +259,7 @@
         <div class="content-container">
             <table>
                 <tr>
-                    <th>Name</th>
+                    <th class="name">Name</th>
                     <th>Company</th>
                     <th>Department</th>
                     <th>Status</th>
@@ -461,7 +461,6 @@
             </div>
         </form>
     </div>
-
 
     <!-- ADD CHANGE SHIFT MODAL -->
     <div class="bg" id="bg"></div>
