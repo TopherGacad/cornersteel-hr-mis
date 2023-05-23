@@ -1,5 +1,4 @@
 <?php
-
     if(isset($_POST['overtime-save'])){
         $company = $_POST['ot_company'];
         $department = $_POST['ot_department'];
