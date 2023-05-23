@@ -67,10 +67,12 @@
                 <tbody id="overtime-table-body">
 
                     <?php
+                        ob_start();
+
                         include_once '../../../backend/includes/dbconn_inc.php';
 
-                        if(isset($_GET['succesfullydeleted-row'])){
-                            $overtimeid = $_GET['succesfullydeleted-row'];
+                        if(isset($_GET['succesfullydeleted-otrow'])){
+                            $overtimeid = $_GET['succesfullydeleted-otrow'];
                             
                             $delsql = "DELETE FROM overtime_csc WHERE ot_id = ?;";
                             $delstmt = mysqli_stmt_init($conn);
@@ -121,7 +123,8 @@
 
                                 $date = date('m/d/Y', strtotime($filedate));
 
-                                echo ' <tr>
+                                echo ' 
+                                <tr>
                                     <td> ' . $firstname . ' ' . $lastname . '</td>
                                     <td> ' . $company . '</td>
                                     <td> ' . $department . '</td>
@@ -131,7 +134,7 @@
                                     <td class="thours">' . $overtime . '</td>
                                     <td> ' . $date . '</td>     
                                     <td>
-                                        <a href="?succesfullydeleted-row=' . $overtimeid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
+                                        <a href="?succesfullydeleted-otrow=' . $overtimeid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
                                         <i class="act-icon fa-solid fa-pen-to-square" onclick="otEdit()"></i>
                                     </td>
                                 </tr>';
@@ -146,6 +149,7 @@
 
         </div>
     </div>
+
 
     <!-- CHANGE SHIFT CONTENT -->
      <div class="shifts-container" id="shifts-container">
@@ -167,24 +171,84 @@
                 </tr>
 
                 <tbody id="shift-table-body">
-                    <tr>
-                        <td>Sean Gomez</td>
-                        <td>Cornersteel</td>
-                        <td>Human Resources - CF</td>
-                        <td>6:00 am - 5:00pm</td>
-                        <td>9:00 am - 6:00pm</td>
-                        <td>Jonathan Peol</td>
-                        <td>05-17-2023</td>
-                        <td>
-                            <i class="act-icon fa-solid fa-trash-can" ></i>
-                            <i class="act-icon fa-solid fa-pen-to-square" onclick="shEdit()"></i>
-                        </td>
-                    </tr>
+
+
+                <?php 
+                    include_once '../../../backend/includes/dbconn_inc.php';         
+
+                    if(isset($_GET['succesfullydeleted-shiftrow'])){
+                        $shiftid = $_GET['succesfullydeleted-shiftrow'];
+                        
+                        $delsql = "DELETE FROM changeshift_csc WHERE cs_id = ?;";
+                        $delstmt = mysqli_stmt_init($conn);
+
+                        if(!mysqli_stmt_prepare($delstmt, $delsql)){
+                            echo 'deletion failed';
+                        }
+                        else{
+                            mysqli_stmt_bind_param($delstmt, 'i', $shiftid);
+                            mysqli_stmt_execute($delstmt);
+
+                            if(mysqli_stmt_affected_rows($delstmt) > 0){
+                                header('main.php?deletion=successful');
+                            }
+                            else{
+                                header('main.php?deletionfailed');
+                            }
+
+                        }
+                        mysqli_stmt_close($delstmt);
+                        
+                    }
+
+                    $sql = "SELECT * FROM changeshift_csc;";
+                    $stmt = mysqli_stmt_init($conn);
+
+                    if(!mysqli_stmt_prepare($stmt, $sql)){
+                        echo 'SQL statement failed';
+                    }
+                    else{
+                        mysqli_stmt_execute($stmt);
+                        $result = mysqli_stmt_get_result($stmt);
+
+                        while($row = mysqli_fetch_assoc($result)){
+                            $shiftid = $row['cs_id'];
+                            $firstname = $row['cs_firstname'];
+                            $lastname = $row['cs_lastname'];
+                            $company = $row['cs_company'];
+                            $department = $row['cs_dept'];
+                            $origin = $row['cs_shiftorigin'];
+                            $new = $row['cs_shiftnew'];
+                            $approved = $row['cs_approved'];
+                            $date = $row['cs_date'];
+
+                            $effectiveDate = date('m/d/Y', strtotime($date));
+
+                            echo '
+                            <tr>
+                                <td> ' . $firstname . ' ' . $lastname . '</td>
+                                <td> ' . $company . '</td>
+                                <td> ' . $department . '</td>
+                                <td> ' . $origin . '</td>
+                                <td> ' . $new .  '</td>
+                                <td> ' . $approved . '</td>
+                                <td> ' . $effectiveDate . '</td>     
+                                <td>
+                                    <a href="?succesfullydeleted-shiftrow=' . $shiftid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
+                                    <i class="act-icon fa-solid fa-pen-to-square" onclick="shEdit()"></i>
+                                </td>
+                            </tr>';
+                        }
+                    }
+
+                ?>
+
                 </tbody>
     
             </table>
         </div>
     </div>
+
 
     <!-- OFFICIAL BUSINESS CONTENT -->
     <div class="offBusiness-container" id="offBusiness-container">
@@ -206,19 +270,78 @@
                 </tr>
 
                 <tbody id="offBusiness-table-body">
-                    <tr>
-                        <td>Sean Gomez</td>
-                        <td>Cornersteel</td>
-                        <td>Human Resources - Makati City CF</td>
-                        <td>No Logout</td>
-                        <td>Jonathan Peol</td>
-                        <td>Christopher Gacad</td>
-                        <td>16-05-2023</td>
-                        <td>
-                            <i class="act-icon fa-solid fa-trash-can"></i>
-                            <i class="act-icon fa-solid fa-pen-to-square" onclick="offEdit()"></i>
-                        </td>
-                    </tr>
+
+                    
+                <?php 
+                    include_once '../../../backend/includes/dbconn_inc.php';         
+
+                    if(isset($_GET['succesfullydeleted-obrow'])){
+                        $offbusinessid = $_GET['succesfullydeleted-obrow'];
+                        
+                        $delsql = "DELETE FROM officialbusiness_csc WHERE ob_id = ?;";
+                        $delstmt = mysqli_stmt_init($conn);
+
+                        if(!mysqli_stmt_prepare($delstmt, $delsql)){
+                            echo 'deletion failed';
+                        }
+                        else{
+                            mysqli_stmt_bind_param($delstmt, 'i', $offbusinessid);
+                            mysqli_stmt_execute($delstmt);
+
+                            if(mysqli_stmt_affected_rows($delstmt) > 0){
+                                header('main.php?deletion=successful');
+                            }
+                            else{
+                                header('main.php?deletionfailed');
+                            }
+
+                        }
+                        mysqli_stmt_close($delstmt);
+                        
+                    }
+
+                    $sql = "SELECT * FROM officialbusiness_csc;";
+                    $stmt = mysqli_stmt_init($conn);
+
+                    if(!mysqli_stmt_prepare($stmt, $sql)){
+                        echo 'SQL statement failed';
+                    }
+                    else{
+                        mysqli_stmt_execute($stmt);
+                        $result = mysqli_stmt_get_result($stmt);
+
+                        while($row = mysqli_fetch_assoc($result)){
+                            $offbusinessid = $row['ob_id'];
+                            $firstname = $row['ob_firstname'];
+                            $lastname = $row['ob_lastname'];
+                            $company = $row['ob_company'];
+                            $department = $row['ob_dept'];
+                            $status = $row['ob_status'];
+                            $client = $row['ob_client'];
+                            $approved = $row['ob_approved'];
+                            $date = $row['ob_date'];
+
+                            $effectiveDate = date('m/d/Y', strtotime($date));
+
+                            echo '
+                            <tr>
+                                <td> ' . $firstname . ' ' . $lastname . '</td>
+                                <td> ' . $company . '</td>
+                                <td> ' . $department . '</td>
+                                <td> ' . $status . '</td>
+                                <td> ' . $client .  '</td>
+                                <td> ' . $approved . '</td>
+                                <td> ' . $effectiveDate . '</td>     
+                                <td>
+                                    <a href="?succesfullydeleted-obrow=' . $offbusinessid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
+                                    <i class="act-icon fa-solid fa-pen-to-square" onclick="obEdit()"></i>
+                                </td>
+                            </tr>';
+
+                        }
+                    }
+                ?>
+    
                 </tbody>
     
             </table>
@@ -339,13 +462,14 @@
         </form>
     </div>
 
+
     <!-- ADD CHANGE SHIFT MODAL -->
     <div class="bg" id="bg"></div>
     <div class="shift-modal-container" id="shift-modal-container">
         <div class="modal-header">
             <h4>ADD CHANGE SHIFT</h4>
         </div>
-        <form action="" id="shift-form">
+        <form action="../../../backend/includes/changeshift_inc.php" method="post" id="shift-form">
 
             <!-- LEFT SIDE MODAL -->
             <div class="form-left">
@@ -393,7 +517,7 @@
 
                     <div class="fields">
                         <label for="shift-date">Date Effective <span> *</span></label>
-                        <input type="date" id="shift-date" required>
+                        <input type="date" id="shift-date" name="shift_date" required>
                     </div>
                 </div>
                
@@ -411,7 +535,7 @@
                  <!-- MODAL BUTTON CONTAINER -->
                 <div class="modal-btn-container">
                     <input type="button" value="Cancel" class="shiftCancelBtn modal-btn" id="shiftCancel-btn">
-                    <button class="save-btn modal-btn" id="save-btn" type="submit">Save</button>
+                    <button class="save-btn modal-btn" id="save-btn" type="submit" name="shift-save">Save</button>
                 </div>
             </div>
 
@@ -451,13 +575,14 @@
         </form>
     </div>
 
+
     <!-- ADD OFFICIAL BUSINESS MODAL -->
     <div class="bg" id="bg"></div>
     <div class="offBusiness-modal-container" id="offBusiness-modal-container">
         <div class="modal-header">
             <h4>ADD OFFICIAL BUSINESS</h4>
         </div>
-        <form action="" id="offBusiness-form">
+        <form action="../../../backend/includes/offbusiness_inc.php" method="post" id="offBusiness-form">
 
             <!-- LEFT SIDE MODAL -->
             <div class="form-left">
@@ -512,7 +637,7 @@
                  <!-- MODAL BUTTON CONTAINER -->
                 <div class="modal-btn-container">
                     <input type="button" value="Cancel" class="offBusCancelBtn modal-btn" id="offBusCancel-btn">
-                    <button class="save-btn modal-btn" id="save-btn" type="submit">Save</button>
+                    <button class="save-btn modal-btn" id="save-btn" type="submit" name="offbusiness-save">Save</button>
                 </div>
             </div>
 
@@ -533,7 +658,7 @@
                     <!-- DATE FIELD -->
                     <div class="fields">
                         <label for="ob-date">Date <span> *</span></label>
-                        <input type="date" name="" id="ob-date" required>
+                        <input type="date" name="ob_date" id="ob-date" required>
                     </div>
                 </div>
                  
@@ -545,12 +670,13 @@
 
                 <!-- NOTED BY FIELD -->
                 <div class="fields">
-                    <label for="ot-noteBy">Noted By <span> *</span></label>
-                    <input type="text" name="ot_noteBy" id="ot-noteBy" required>
+                    <label for="ot-noteBy">Approved By <span> *</span></label>
+                    <input type="text" name="ob_approvedBy" id="ot-noteBy" required>
                 </div>
             </div>
         </form>
     </div>
+    
 
     <!-- EDIT OVERTIME MODAL -->
     <div class="bg" id="bg"></div>
@@ -561,7 +687,7 @@
         <form action="" id="otEdit-form">
 
             <!-- LEFT SIDE MODAL -->
-            <div class="form-left">
+            <div class="form-left"  >
                 <!-- COMPANY FIELD -->
                 <div class="fields">
                     <label class="dis-input" for="ot-company">Company <span> *</span></label>
@@ -772,6 +898,7 @@
         </form>
     </div>
 
+
     <!-- EDIT OFFICIAL BUSINESS MODAL -->
     <div class="bg" id="bg"></div>
     <div class="offBusEdit-modal-container" id="offBusEdit-modal-container">
@@ -874,8 +1001,11 @@
         </form>
     </div>
     
-
     <!-- JAVASCRIPT -->
     <script src="../../js/main.js"></script>
 </body>
 </html>
+
+<?php
+    ob_end_flush();
+?>
