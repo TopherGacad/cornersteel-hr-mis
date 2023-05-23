@@ -61,7 +61,7 @@
                     <th>Time from</th>
                     <th>Time to</th>
                     <th class="thours">Total hours</th>
-                    <th>Date</th>
+                    <th>Date Created</th>
                     <th>Action</th>
                 </tr>
                 <tbody id="overtime-table-body">
@@ -166,7 +166,7 @@
                     <th>Orig Time</th>
                     <th>New Time</th>
                     <th>Approve By</th>
-                    <th>Date</th>
+                    <th>Date Effective</th>
                     <th>Action</th>
                 </tr>
 
