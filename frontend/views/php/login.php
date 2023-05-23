@@ -26,7 +26,7 @@
         
         <!-- PAGE HEADER -->
         <div class="head-container">
-            <img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo">
+            <a href="../../views/php/main.php"><img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo"></a>
         </div>
         
         <!-- LOGIN FORM -->
@@ -43,8 +43,7 @@
                     <label for="login-username">Username</label>
                     <input 
                         id="login-username" 
-                        name="login-username" 
-                        class="email" 
+                        name="login-username"
                         type="text" 
                         placeholder="juan@example.com"
                         autofocus
@@ -74,7 +73,7 @@
                 <!-- BTN & LINK CONTAINER -->
                 <div class="link-container">
                     <input class="Btn-login" type="submit" value="Sign in" name="login-submit">
-                    <p>Don't have an account? <a href="../../views/php/main.php">Register here.</a></p>
+                    <p>Don't have an account? <a href="../../views/php/sign-up.php">Register here.</a></p>
                 </div>
             </form>
         </div>
