@@ -317,6 +317,19 @@ textarea{
     background-color:var(--hover-color);
     border-radius: 10px;
 }
+@media screen and (min-width: 1300px){
+    .addOffBusiness-btn{
+        padding: 9px; 
+        width: 12%;
+        border-radius: 5px;
+        font-size: 13px;
+        border: none;
+        background-color: var(--btn-color);
+        color: var(--def-white);
+        cursor: pointer;
+        margin-left: 25px;
+    }
+}
 
 @media screen and (min-width: 1600px){
     .field-container input,

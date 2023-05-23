@@ -215,12 +215,12 @@ function offEdit(){
 }
 
 //DISABLE ALL FIELDS ON EDIT MODAL
-const otform = document.getElementById("otEdit-form");
-const elements = otform.querySelectorAll("input, select, textarea");
-const label = otform.querySelectorAll("label")
-const buttonContainerElements = otform.querySelectorAll(".modal-btn-container input, .modal-btn-container button");
-const updateBtn = document.getElementById("otEdit-update")
-const otTitle = document.getElementById("ot-title")
+// const otform = document.getElementById("otEdit-form");
+// const elements = otform.querySelectorAll("input, select, textarea");
+// const label = otform.querySelectorAll("label")
+// const buttonContainerElements = otform.querySelectorAll(".modal-btn-container input, .modal-btn-container button");
+// const updateBtn = document.getElementById("otEdit-update")
+// const otTitle = document.getElementById("ot-title")
 
 const shiftForm = document.getElementById("shiftEdit-form");
 const shiftElememts = shiftForm.querySelectorAll("input, select, textarea");
@@ -237,15 +237,15 @@ const offUpdate = document.getElementById("offBusEdit-update")
 const offTitle = document.getElementById("offBus-title")
 
 // CANCEL BUTTON ON EDIT MODAL
-const otCancel = document.getElementById("cancel-btn").addEventListener("click", function(){
-  otEditModal.style.display = "none"
-  modalBg.style.display = "none"
-  disableFields()
+// const otCancel = document.getElementById("cancel-btn").addEventListener("click", function(){
+//   otEditModal.style.display = "none"
+//   modalBg.style.display = "none"
+//   disableFields()
 
-  for(let i = 0; i<label.length; i++){
-    label[i].classList.add('dis-input')
-  }
-})
+//   for(let i = 0; i<label.length; i++){
+//     label[i].classList.add('dis-input')
+//   }
+// })
 
 const shiftCancel = document.getElementById("shiftEdit-cancel").addEventListener("click", function(){
   shiftEditModal.style.display = "none"
@@ -269,17 +269,17 @@ const offCancel = document.getElementById("offEdit-cancel").addEventListener("cl
 
 
 // DISABLE FIELDS ON EDIT MODAL
-function disableFields(){
-  for (let i = 0; i < elements.length; i++) {
-    if (![...buttonContainerElements].includes(elements[i])) {
-      elements[i].disabled = true;
-      elements[i].classList.add('dis-input')
-      updateBtn.disabled = true;
-    }
-  }
+// function disableFields(){
+//   for (let i = 0; i < elements.length; i++) {
+//     if (![...buttonContainerElements].includes(elements[i])) {
+//       elements[i].disabled = true;
+//       elements[i].classList.add('dis-input')
+//       updateBtn.disabled = true;
+//     }
+//   }
 
-  otTitle.textContent = "VIEWING OVERTIME REQUEST"
-}
+//   otTitle.textContent = "VIEWING OVERTIME REQUEST"
+// }
 
 // CHANGE SHIFT: DISABLE FIELDS ON EDIT MODAL
 function disableShift(){
@@ -309,21 +309,21 @@ function disableOff(){
 
 
 // ACTIVATE FIELDS ON EDIT MODAL
-function activeFields(){
-  for (let i = 0; i < elements.length; i++) {
-    if (![...buttonContainerElements].includes(elements[i])) {
-      elements[i].disabled = false;
-      elements[i].classList.remove('dis-input')
-      updateBtn.disabled = false;
-    }
-  }
+// function activeFields(){
+//   for (let i = 0; i < elements.length; i++) {
+//     if (![...buttonContainerElements].includes(elements[i])) {
+//       elements[i].disabled = false;
+//       elements[i].classList.remove('dis-input')
+//       updateBtn.disabled = false;
+//     }
+//   }
 
-  for(let i = 0; i<label.length; i++){
-    label[i].classList.remove('dis-input')
-  }
+//   for(let i = 0; i<label.length; i++){
+//     label[i].classList.remove('dis-input')
+//   }
 
-  otTitle.textContent = "EDITING OVERTIME REQUEST"
-}
+//   otTitle.textContent = "EDITING OVERTIME REQUEST"
+// }
 
 // CHANGE SHIFT: ACTIVATE FIELDS ON EDIT MODAL
 function activeShift(){
@@ -359,10 +359,10 @@ function activeOff(){
 }
 
 // EDIT BUTTON INSIDE THE MODAL
-const otEditBtn = document.getElementById("otEdit-btn")
-otEditBtn.addEventListener("click", function(){
-  activeFields()
-})
+// const otEditBtn = document.getElementById("otEdit-btn")
+// otEditBtn.addEventListener("click", function(){
+//   activeFields()
+// })
 
 // CHANGE SHIFT: EDIT BUTTON INSIDE THE MODAL
 const shiftEditBtn = document.getElementById("shiftEdit-btn")

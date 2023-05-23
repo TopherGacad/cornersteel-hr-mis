@@ -678,7 +678,7 @@
     </div>
     
 
-    <!-- EDIT OVERTIME MODAL -->
+    <!-- EDIT OVERTIME MODAL
     <div class="bg" id="bg"></div>
     <div class="otEdit-modal-container" id="otEdit-modal-container">
         <div class="modal-header">
@@ -686,9 +686,9 @@
         </div>
         <form action="" id="otEdit-form">
 
-            <!-- LEFT SIDE MODAL -->
+           LEFT SIDE MODAL 
             <div class="form-left"  >
-                <!-- COMPANY FIELD -->
+                 COMPANY FIELD 
                 <div class="fields">
                     <label class="dis-input" for="ot-company">Company <span> *</span></label>
                     <select class="dis-input" name="ot_company" id="ot-company" required autofocus>
@@ -699,7 +699,7 @@
                     </select>
                 </div>
 
-                <!-- DEPARTMENT FIELD -->
+              DEPARTMENT FIELD 
                 <div class="fields">
                     <label class="dis-input" for="ot-department">Department <span> *</span></label>
                     <select class="dis-input" name="ot_department" id="ot-department" required>
@@ -710,7 +710,7 @@
                     </select>
                 </div>
 
-                <!-- NAME FIELDS -->
+               NAME FIELDS 
                 <div class="field-container">
                     <div class="fields">
                         <label class="dis-input" for="ot-firstname">Firstname <span> *</span></label>
@@ -723,19 +723,19 @@
                     </div>
                 </div>
 
-                <!-- LASTNAME FIELD -->
+               LASTNAME FIELD 
                 <div class="fields">
                     <label class="dis-input" for="ot-lastname">Lastname <span> *</span></label>
                     <input class="dis-input" type="text" name="ot_lastname" id="ot-lastname" value="Gomez" required>
                 </div>
 
-                <!-- POSITION FIELD -->
+                 POSITION FIELD 
                 <div class="fields">
                     <label class="dis-input" for="ot-position">Position <span> *</span></label>
                     <input class="dis-input" type="text" name="ot_position" id="ot-position" value="IT-Specialist" required>
                 </div> 
 
-                <!-- TIME FIELDS -->
+                TIME FIELDS 
                 <div class="time-container">
                     <div class="fields">
                         <label class="dis-input" for="ot-timeFrom">Time (from) <span> *</span></label>
@@ -748,7 +748,7 @@
                     </div>
                 </div>
 
-                 <!-- MODAL BUTTON CONTAINER -->
+                 MODAL BUTTON CONTAINER 
                 <div class="modal-btn-container">
                     <input type="button" value="Cancel" class="cancelBtn modal-btn" id="cancel-btn">
                     <button class="edit-btn modal-btn" id="otEdit-btn" type="button">Edit</button>
@@ -756,41 +756,41 @@
                 </div>
             </div>
 
-            <!-- RIGHT SIDE MODAL -->
+            RIGHT SIDE MODAL 
             <div class="form-right">
 
-                <!-- TASK FIELD -->
+                 TASK FIELD 
                 <div class="fields">
                     <label class="dis-input" for="ot-task">Work to Perform/ Task</label>
                     <textarea class="dis-input" name="ot-task" id="ot_task" cols="30" rows="9" maxlength="150"></textarea>
                 </div>
 
-                <!-- REQUESTED BY FIELD -->
+               REQUESTED BY FIELD 
                 <div class="fields">
                     <label class="dis-input" for="ot-requestedBy">Requested By <span> *</span></label>
                     <input class="dis-input" type="text" name="ot_requestedBy" id="ot-requestedBy" value="Jonathan Peol" required> 
                 </div>
 
-                <!-- DESIGNATION FIELD -->
+                 DESIGNATION FIELD 
                 <div class="fields">
                     <label class="dis-input" for="ot-designation">Designation</label>
                     <input class="dis-input" type="text" name="ot_designation" id="ot-designation" value="Department Head">
                 </div>
 
-                <!-- APPROVED BY FIELD -->
+               APPROVED BY FIELD 
                 <div class="fields">
                     <label class="dis-input" for="ot-approvedBy">Approved By <span> *</span></label>
                     <input class="dis-input" type="text" name="ot_approvedBy" id="ot-approvedBy" value="Adriel Orio" required>
                 </div>
 
-                <!-- NOTED BY FIELD -->
+                 NOTED BY FIELD
                 <div class="fields">
                     <label class="dis-input" for="ot-noteBy">Noted By <span> *</span></label>
                     <input class="dis-input" type="text" name="ot_noteBy" id="ot-noteBy" value="Peach Corcelles" required>
                 </div>
             </div>
         </form>
-    </div>
+    </div> -->
 
     <!-- EDIT CHANGE SHIFT MODAL -->
     <div class="bg" id="bg"></div>

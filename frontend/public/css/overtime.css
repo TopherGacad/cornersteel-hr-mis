@@ -24,6 +24,10 @@ body{
     padding: 5px 15px;
     background-color: var(--def-white);
     border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    top: 0;
 }
 .main-logo{
     width: 35px;
@@ -36,6 +40,9 @@ body{
     justify-content: space-between;
     background-color: var(--def-white);
     box-shadow: var(--box-shadow);
+    position: fixed;
+    top: 40px;
+
 }
 .ot-header h3{
     padding-left: 60px;
@@ -60,4 +67,42 @@ body{
 .update-btn{
     background-color: var(--btn-save);
 }
-
+.edit-overtime-container{
+    overflow-y: auto;
+}
+.content-container {
+    margin-top: 120px;
+    padding: 20px;
+    z-index: 998;
+    align-content: center;
+}
+.fields{
+    display: flex;
+    flex-direction:column ;
+    padding: 5px 10px;
+}
+textarea{
+    resize: none;
+    height: 110px;
+}
+.time-container{
+    display: flex;
+    gap: 5px;
+}
+.fields input,
+.fields select,
+textarea{
+    padding: 10px 15px;
+    border-radius: 7px;
+    border: 1px solid var(--border-color);
+    background-color: var(--backdrop-color);
+}
+.fields span{
+    color: red;
+}
+.fields label{
+    padding-bottom: 5px;
+}
+.form-left, .form-right{
+    width: 45%;
+}
