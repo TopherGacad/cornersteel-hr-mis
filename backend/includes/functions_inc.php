@@ -2,8 +2,8 @@
 
 //---------------CHECKS IF USER EXISTS IN DATABASE----------------//
 
-    function ExistingUser($conn, $username){
-        $sql = "SELECT * from user_csc WHERE user_name = ?;";
+    function ExistingUser($conn, $useremail){
+        $sql = "SELECT * from user_csc WHERE user_email = ?;";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -11,7 +11,7 @@
             exit();
         }
 
-        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_bind_param($stmt, "s", $useremail);
         mysqli_stmt_execute($stmt);
 
         $resultData = mysqli_stmt_get_result($stmt);
@@ -28,26 +28,44 @@
     }
 
     //----------------------------------------------------------------//
-    
+
+    //-----------------------SIGN-UP FUNCTION-------------------------//
+
+    function UserSignup($conn, $firstname, $lastname, $email, $company, $department, $password, $cpassword){
+        
+        $sql = "INSERT INTO user_csc (user_firstname, user_lastname, user_email, user_company, user_department, user_password, user_cpassword) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        $stmt = mysqli_stmt_init($conn);
+
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            header("Location: ../../frontend/views/php/main.php?error=signupfailed");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($stmt, "sssssss", $firstname, $lastname, $email, $company, $department, $password, $cpassword);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+
+        header("Location: ../../frontend/views/php/main.php?signup=successful");
+
+    }   
+
+    //----------------------------------------------------------------//
 
     //----------------------MAIN LOGIN FUNCTION-----------------------//
 
-    function UserLogin($conn, $username, $password){
-        $existingUser = ExistingUser($conn, $username, $password);
+    function UserLogin($conn, $useremail, $password) {
+        $existingUser = ExistingUser($conn, $useremail, $password);
 
-        if($existingUser['user_name'] != $username){
+        if ($existingUser['user_email'] != $useremail) {
             header("Location: ../../frontend/views/php/login.php?error=usernotfound");
             exit();
-        }
-        else if($existingUser['user_password'] != $password){
+        } else if ($existingUser['user_password'] != $password) {
             header("Location: ../../frontend/views/php/login.php?error=incorrectpassword");
             exit();
-        }
-        else{
+        } else {
             header("Location: ../../frontend/views/php/main.php?login=successful");
             exit();
         }
-
     }
 
     //----------------------------------------------------------------//
@@ -209,3 +227,5 @@
         header("Location: ../../frontend/views/php/main.php?officialbusinessfiling=successful");
 
     }
+    
+    //----------------------------------------------------------------//
