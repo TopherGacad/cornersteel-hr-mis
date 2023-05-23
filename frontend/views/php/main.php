@@ -514,7 +514,8 @@
                         <label for="shift-lastname">Lastname <span> *</span></label>
                         <input type="text" name="shift_lastname" id="shift-lastname" placeholder="Dela Cruz" required>
                     </div>
-
+                    
+                    <!-- DATE EFFECTIVE -->
                     <div class="fields">
                         <label for="shift-date">Date Effective <span> *</span></label>
                         <input type="date" id="shift-date" name="shift_date" required>
@@ -837,10 +838,18 @@
                     </div>
                 </div>
 
-                <!-- LASTNAME FIELD -->
-                <div class="fields">
-                    <label class="dis-input" for="shift-lastname">Lastname <span> *</span></label>
-                    <input class="dis-input" type="text" name="shift_lastname" id="shift-lastname" placeholder="Dela Cruz" required>
+                <div class="field-container">
+                    <!-- LASTNAME FIELD -->
+                    <div class="fields">
+                        <label class="dis-input" for="shift-lastname">Lastname <span> *</span></label>
+                        <input class="dis-input" type="text" name="shift_lastname" id="shift-lastname" placeholder="Dela Cruz" required>
+                    </div>
+                    
+                    <!-- DATE EFFECTIVE -->
+                    <div class="fields">
+                        <label class="dis-input" for="shift-date">Date Effective <span> *</span></label>
+                        <input class="dis-input" type="date" id="shift-date" name="shift_date" required>
+                    </div>
                 </div>
 
                 <!-- ORIGINAL SHIFT FIELD -->
