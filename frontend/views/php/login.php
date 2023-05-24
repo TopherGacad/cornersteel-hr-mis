@@ -71,7 +71,7 @@
                 <!-- BTN & LINK CONTAINER -->
                 <div class="link-container">
                     <input class="Btn-login" type="submit" value="Sign in" name="login_submit">
-                    <p>Don't have an account? <a href="../../views/php/sign-up.php">Register here.</a></p>
+                    <p>Don't have an account? <a href="../../views/php/signup.php">Register here.</a></p>
                 </div>
             </form>
         </div>
