@@ -135,7 +135,7 @@
                                     <td> ' . $date . '</td>     
                                     <td>
                                         <a href="?succesfullydeleted-otrow=' . $overtimeid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
-                                        <a href="../../views/php/overtime.php"><i class="act-icon fa-solid fa-pen-to-square"></i></a>
+                                        <a href="../../views/php/overtime.php?id=' . $overtimeid . '"><i class="act-icon fa-solid fa-pen-to-square"></i></a>
                                     </td>
                                 </tr>';
                             }
