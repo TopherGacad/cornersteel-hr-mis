@@ -1,13 +1,13 @@
 <?php
 
     if(isset($_POST['login_submit'])){
-        $useremail = $_POST['login_username'];
+        $user = $_POST['login_user'];
         $password = $_POST['login_pass'];
 
         require_once 'dbconn_inc.php';
         require_once 'functions_inc.php';
     
-        UserLogin($conn, $useremail, $password);{
+        UserLogin($conn, $user, $password);{
         }
     }
     else{

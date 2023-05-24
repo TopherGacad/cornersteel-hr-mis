@@ -68,7 +68,7 @@
                             <label for="signup-username">Username <span> *</span></label>
                             <input 
                                 id="signup-username" 
-                                name="signup_email"  
+                                name="signup_username"  
                                 type="text" 
                                 placeholder="juanDelacruz123"
                                 required>
@@ -80,7 +80,7 @@
                             <input 
                             type="email"
                             id="signup-email"
-                            name="singup_email"
+                            name="signup_email"
                             placeholder="juan@example.com"
                             required>
                         </div>
@@ -89,7 +89,7 @@
                          <div class="fields">
                             <label for="signup-company">Company <span> *</span></label>
                             <select name="signup_company" id="signup-company" required>
-                                <option value="" selected disable>Select Company</option>
+                                <option value="" selected disabled>Select Company</option>
                                 <option value="CSC">Cornersteel Systems Corp</option>
                                 <option value="Comfac">Comfac</option>
                                 <option value="ESCO">ESCO</option>
@@ -102,8 +102,8 @@
                         <!-- DEPARTMENT FIELD -->
                         <div class="fields">
                             <label for="signup-dep">Department <span> *</span></label>
-                            <select name="signup_dep" id="signup-dep">
-                                <option value="" selected disable>Select Department</option>
+                            <select name="signup_dep" id="signup-dep" required>
+                                <option value="" selected disabled>Select Department</option>
                                 <option value="PID">Product Installation Department</option>
                                 <option value="HR">Human Resources</option>
                                 <option value="">Accounts</option>

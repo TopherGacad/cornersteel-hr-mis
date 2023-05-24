@@ -1,5 +1,10 @@
 <?php
     session_start();
+    if(!isset($_SESSION['user-id'])){
+        header("Location: ../../../frontend/views/php/login.php");
+        exit();
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -16,9 +21,9 @@
     <link rel="icon" href="../../public/assets/comfac-logo-transparent.png">
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/aa37050208.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
+
      <!-- PAGE HEADER -->
      <div class="head-container">
         <img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo">
@@ -32,7 +37,7 @@
             <a href="#" ><li id="overtime-btn"><i class="nav-icons fa-solid fa-clock"></i>Overtime</li></a>
             <a href="#" ><li id="shifts-btn"><i class="nav-icons fa-regular fa-calendar"></i> Shifts</li></a>
             <a href="#" ><li id="offBusiness-btn"><i class="nav-icons fa-solid fa-briefcase"></i>Official Business</li></a>
-            <a href="../../views/php/login.php" ><li id="logout-btn"><i class="nav-icons fa-solid fa-arrow-right-from-bracket"></i>Logout</li></a>
+            <a href="../../../backend/includes/logout_inc.php" ><li id="logout-btn"><i class="nav-icons fa-solid fa-arrow-right-from-bracket"></i>Logout</li></a>
         </ul>
     </div>
 
@@ -41,7 +46,6 @@
         <div class="content-header">
         </div>
         <div class="content-container">
-        
         </div>
     </div>
 
@@ -64,6 +68,7 @@
                     <th>Date Created</th>
                     <th>Action</th>
                 </tr>
+
                 <tbody id="overtime-table-body">
 
                     <?php
@@ -90,11 +95,9 @@
                                 else{
                                     header('main.php?deletionfailed');
                                 }
-
                             }
-                            mysqli_stmt_close($delstmt);
-                            
 
+                            mysqli_stmt_close($delstmt);
                         }
 
                         $sql = "SELECT * FROM overtime_csc;";
@@ -119,7 +122,7 @@
                                 $timeto = $row['ot_to'];
                                 $overtime = $row['ot_hours'];
 
-                                $filedate = $row['ot_date'];
+                                $filedate = $row['ot_datecreate'];
 
                                 $date = date('m/d/Y', strtotime($filedate));
 
@@ -140,19 +143,15 @@
                                 </tr>';
                             }
                         }
-
                     ?>
 
                 </tbody>
-    
             </table>
-
         </div>
     </div>
 
-
     <!-- CHANGE SHIFT CONTENT -->
-     <div class="shifts-container" id="shifts-container">
+    <div class="shifts-container" id="shifts-container">
         <div class="content-header">
             <input type="text" class="shifts-search" id="shifts-search" placeholder="Type here to search">
             <button class="addShifts-btn" id="addShifts-btn"><i class="fa-solid fa-plus"></i> Change Shift</button>
@@ -171,7 +170,6 @@
                 </tr>
 
                 <tbody id="shift-table-body">
-
 
                 <?php 
                     include_once '../../../backend/includes/dbconn_inc.php';         
@@ -195,10 +193,9 @@
                             else{
                                 header('main.php?deletionfailed');
                             }
-
                         }
+
                         mysqli_stmt_close($delstmt);
-                        
                     }
 
                     $sql = "SELECT * FROM changeshift_csc;";
@@ -240,15 +237,12 @@
                             </tr>';
                         }
                     }
-
                 ?>
 
                 </tbody>
-    
             </table>
         </div>
     </div>
-
 
     <!-- OFFICIAL BUSINESS CONTENT -->
     <div class="offBusiness-container" id="offBusiness-container">
@@ -294,10 +288,9 @@
                             else{
                                 header('main.php?deletionfailed');
                             }
-
                         }
+
                         mysqli_stmt_close($delstmt);
-                        
                     }
 
                     $sql = "SELECT * FROM officialbusiness_csc;";
@@ -337,13 +330,11 @@
                                     <i class="act-icon fa-solid fa-pen-to-square" onclick="offEdit()"></i>
                                 </td>
                             </tr>';
-
                         }
                     }
                 ?>
     
                 </tbody>
-    
             </table>
         </div>
     </div>
