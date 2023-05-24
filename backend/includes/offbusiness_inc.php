@@ -1,5 +1,13 @@
 <?php
+
+    //----------------------------------------------------------------------------//
+    //      DOCUMENT HANDLING ALL THE SCRIPT FOR THE OFFICIAL BUSINESS (ADD)      //
+    //----------------------------------------------------------------------------//
+
+    //--- CHECKS IF THE USER CLICKS THE 'offbusiness-save' NAMED BUTTON ---//
     if(isset($_POST['offbusiness-save'])){
+
+        //--- VARIABLE DECLARATIONS BASED ON THE USER INPUT ---//
         $company = $_POST['ob_company'];
         $department = $_POST['ob_department'];
         $firstname = $_POST['ob_firstname'];
@@ -11,14 +19,16 @@
         $reason = $_POST['ob_reason'];
         $approved = $_POST['ob_approvedBy'];
 
-
+        //--- REQUIRES THE NECESSARY CODE/DOCUMENTS TO PROPERLY FUNCTION ---//
         require_once 'dbconn_inc.php';
         require_once 'functions_inc.php';
 
-        OfficialBusiness($conn, $company, $department, $firstname, $middlename, $lastname, $date, $client, $status, $reason, $approved);{
-        }
+        //--- FUNCTION CALLED FROM THE 'functions_inc.php' RESPONSIBLE FOR THE DATA INSERTION TO THE DATABASE ---//
+        OfficialBusiness($conn, $company, $department, $firstname, $middlename, $lastname, $date, $client, $status, $reason, $approved);
+        
     }
     else{
+        //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHENEVER DATA INSERTION FAILS ---//
         header("Location: ../../frontend/views/php/main.php?OfficialBusinessfailed");
         exit();
     }

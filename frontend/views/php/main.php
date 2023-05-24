@@ -1,5 +1,8 @@
 <?php
+    //--- STARTS SESSION ---//
     session_start();
+
+    //--- REQUIRES USER TO LOGIN IN ORDER TO PROCEED ---//
     if(!isset($_SESSION['user-id'])){
         header("Location: ../../../frontend/views/php/login.php");
         exit();
