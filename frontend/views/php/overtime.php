@@ -1,29 +1,39 @@
 <?php
-
+    //--- STARTS SESSION ---//
     session_start();
 
+    //--- REQUIRES USER TO LOGIN IN ORDER TO PROCEED ---//
     if(!isset($_SESSION['user-id'])){
         header("Location: ../../../frontend/views/php/login.php");
         exit();
     }
 
+    //--- INCLUDES THE DATABASE CONNECTION FILE ---//
     include_once '../../../backend/includes/dbconn_inc.php';
 
+    //--- GETS THE ID VALUE FROM URL UPON CLICKING THE EDIT ICON ---//
     if(isset($_GET['id'])){
         $id = $_GET['id'];
 
+        //--- SELECT QUERY ---//
         $sql = "SELECT * FROM overtime_csc WHERE ot_id = $id;";
+
+        //--- INITIALIZE STATEMENT ---//
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
             echo 'sql failed';
         }
         else{
+
+        //--- EXECUTE STATEMENT ---//
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
 
+        //--- FETCHES ROW DATA BASED ON THE ID ---//
             $row = mysqli_fetch_assoc($result);
 
+        //--- VARIABLE DECLARATION BASED ON THE DATA FETCHED ---//
             $overtimeid = $row['ot_id'];
             $company = $row['ot_company'];
             $department = $row['ot_dept'];
@@ -39,6 +49,7 @@
             $approved = $row['ot_approved'];
             $noted = $row['ot_noted'];
 
+        //--- FORMATTING TIME TO THE REQUIRED FORMAT ---//
             $formatfrom = date('H:i', strtotime($row['ot_from']));
             $formatto = date('H:i', strtotime($row['ot_to']));
         }
@@ -75,6 +86,10 @@
                         <button class="update-btn modal-btn" id="otEdit-update" type="submit" name="overtime-update">Update</button>
                     </div>
                 </div>
+
+                <!-- FOR EVERY PHP TAGS INSIDE THE INPUT TAGS, IT ECHOS/DISPLAYS THE VALUE FETCHED FROM THE DATABASE 
+                ROW. AS FOR THE IF STATEMENTS IN OPTIONS, IT CHECKS WHETHER THE VARIABLE MATCHES THE VALUE OF THE OPTION 
+                ACCORDINGLY, IF YES THEN IT ECHOS 'SELECTED', HENCE MAKING THE 'SELECT' TAG SELECT THE THE SAID OPTION -->
 
                 <input type="hidden" name="id" value="<?php echo $overtimeid; ?>">
 
