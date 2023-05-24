@@ -69,7 +69,7 @@
         <div class="content-container">
             <form action="../../../backend/includes/otedit_inc.php" method="post" id="otEdit-form">
                 <div class="ot-header">
-                    <h3>Edit Overtime Request</h3>
+                    <h3>Edit Change Shift Request</h3>
                     <div class="btn-container">
                         <a href="../../views/php/main.php"><input type="button" value="Discard" class="cancelBtn modal-btn" id="cancel-btn"></a>
                         <button class="update-btn modal-btn" id="otEdit-update" type="submit" name="overtime-update">Update</button>
