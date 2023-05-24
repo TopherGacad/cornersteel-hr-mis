@@ -156,13 +156,13 @@ td{
     padding: 8px 5px;
     border-bottom: 1px solid var(--border-color-cell);
 }
-td{
+td,th{
     min-width: 100px;
     max-width: 100px;
 }
 .name{
-    min-width: 120px;
-    max-width: 120px;
+    min-width: 110;
+    max-width: 110px;
 }
 tbody tr:hover{
     background-color: var(--hover-color);
@@ -173,9 +173,6 @@ tbody tr:hover{
     margin: 70px auto;
     border: 1px solid;
 }
-/* .thours{
-    width: 50px;
-} */
 .act-icon{
     color: var(--icon-color);
     padding: 3px;
@@ -211,10 +208,7 @@ tbody tr:hover{
 }
 .overtime-modal-container,
 .shift-modal-container,
-.offBusiness-modal-container,
-.otEdit-modal-container,
-.shiftEdit-modal-container,
-.offBusEdit-modal-container{
+.offBusiness-modal-container{
     display: none;
     position: fixed;
     top: 10px;
@@ -293,24 +287,9 @@ textarea{
 .cancelBtn{
     background-color: var(--btn-color);
 }
-.save-btn,
-.update-btn{
+.save-btn{
     background-color: var(--btn-save);
 }
-.edit-btn{
-    background-color: var(--primary-font-color);
-    color: var(--def-white);
-}
-.dis-input{
-    color: var(--dis-field);
-}
-
-#update-btn:disabled{
-    background-color: var(--dis-update);
-    color: var(--dis-font);
-}
-
-
 
         /* STYLE TOGGLING */
 .btn-active{
