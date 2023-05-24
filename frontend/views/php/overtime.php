@@ -1,4 +1,12 @@
 <?php
+
+    session_start();
+
+    if(!isset($_SESSION['user-id'])){
+        header("Location: ../../../frontend/views/php/login.php");
+        exit();
+    }
+
     include_once '../../../backend/includes/dbconn_inc.php';
 
     if(isset($_GET['id'])){
@@ -26,18 +34,15 @@
             $timefrom = $row['ot_from'];
             $timeto = $row['ot_to'];
             $tasks = $row['ot_task'];
-            $requested = $row['ot_requester'];      
+            $requested = $row['ot_requested'];      
             $designation = $row['ot_designation'];
-            $approved = $row['ot_approver'];
-            $noted = $row['ot_notedby'];
+            $approved = $row['ot_approved'];
+            $noted = $row['ot_noted'];
 
             $formatfrom = date('H:i', strtotime($row['ot_from']));
             $formatto = date('H:i', strtotime($row['ot_to']));
-            
         }
-
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -189,7 +194,5 @@
                 </div>
             </form>
         </div>
-
-
 </body>
 </html>

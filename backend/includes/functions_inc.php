@@ -2,16 +2,16 @@
 
 //---------------CHECKS IF USER EXISTS IN DATABASE----------------//
 
-    function ExistingUser($conn, $useremail){
-        $sql = "SELECT * from user_csc WHERE user_email = ?;";
+    function ExistingUser($conn, $username, $email){
+        $sql = "SELECT * from user_csc WHERE user_name = ? OR user_email = ?;";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
-            header("Location: ../../frontend/views/php/signup.php");
+            header("Location: ../../frontend/views/php/signup.php?error=stmtfailed");
             exit();
         }
 
-        mysqli_stmt_bind_param($stmt, "s", $useremail);
+        mysqli_stmt_bind_param($stmt, "ss", $username, $email);
         mysqli_stmt_execute($stmt);
 
         $resultData = mysqli_stmt_get_result($stmt);
@@ -20,7 +20,7 @@
             return $row;
         }
         else{
-            $result = false;
+            $result = false;    
             return $result;
         }
 
@@ -29,19 +29,54 @@
 
     //----------------------------------------------------------------//
 
+    //-----------VERIFY IF PASSWORD MATCHES CONFIRM PASSWORD----------//
+
+    function UidVerify($username){
+        $result;
+
+        if(!preg_match("/^[a-zA-Z0-9]*$/", $username)){
+            $result = true;
+        }
+        else{
+            $result = false;
+        }
+
+        return $result;
+    }
+
+    //----------------------------------------------------------------//
+    
+
+    //-----------VERIFY IF PASSWORD MATCHES CONFIRM PASSWORD----------//
+
+    function PassVerify($password, $cfrmpass){
+        $result;
+
+        if($password != $cfrmpass){
+            $result = true;
+        }
+        else{
+            $result = false;
+        }
+
+        return $result;
+    }
+
+    //----------------------------------------------------------------//
+
     //-----------------------SIGN-UP FUNCTION-------------------------//
 
-    function UserSignup($conn, $firstname, $lastname, $email, $company, $department, $password, $cpassword){
+    function UserSignup($conn, $firstname, $lastname, $username, $email, $company, $department, $password){
         
-        $sql = "INSERT INTO user_csc (user_firstname, user_lastname, user_email, user_company, user_department, user_password, user_cpassword) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        $sql = "INSERT INTO user_csc (user_firstname, user_lastname, user_name, user_email, user_company, user_dept, user_password) VALUES (?, ?, ?, ?, ?, ?, ?);";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
-            header("Location: ../../frontend/views/php/main.php?error=signupfailed");
+            header("Location: ../../frontend/views/php/main.php?error=stmtfailed");
             exit();
         }
 
-        mysqli_stmt_bind_param($stmt, "sssssss", $firstname, $lastname, $email, $company, $department, $password, $cpassword);
+        mysqli_stmt_bind_param($stmt, "sssssss", $firstname, $lastname, $username, $email, $company, $department, $password);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
 
@@ -53,16 +88,22 @@
 
     //----------------------MAIN LOGIN FUNCTION-----------------------//
 
-    function UserLogin($conn, $useremail, $password) {
-        $existingUser = ExistingUser($conn, $useremail, $password);
+    function UserLogin($conn, $user, $password) {
+        $existingUser = ExistingUser($conn, $user, $user);
 
-        if ($existingUser['user_email'] != $useremail) {
+        if($existingUser === false){
             header("Location: ../../frontend/views/php/login.php?error=usernotfound");
             exit();
-        } else if ($existingUser['user_password'] != $password) {
-            header("Location: ../../frontend/views/php/login.php?error=incorrectpassword");
+        } 
+        else if($existingUser['user_password'] != $password){
+            header("Location: ../../frontend/views/php/login.php?error=incorrectpassword&login_user=". $user);
             exit();
-        } else {
+        } 
+        else{
+            session_start();
+            $_SESSION['user-id'] = $existingUser['user_id'];
+            $_SESSION['user-name'] = $existingUser['user_name'];
+            $_SESSION['user-email'] = $existingUser['user_email'];
             header("Location: ../../frontend/views/php/main.php?login=successful");
             exit();
         }
@@ -120,7 +161,7 @@
         $overtime = TotalHours($timefrom, $timeto);  
 
         $sql = "INSERT INTO overtime_csc (ot_company, ot_dept, ot_firstname, ot_middlename, ot_lastname, ot_position, ot_from, ot_to, ot_hours, ot_task, 
-        ot_requester, ot_designation, ot_approver, ot_notedby) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        ot_requested, ot_designation, ot_approved, ot_noted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -148,7 +189,7 @@
         $overtime = TotalHours($timefrom, $timeto);  
 
         $sql = "UPDATE overtime_csc SET ot_company = ?, ot_dept = ?, ot_firstname = ?, ot_middlename = ?, ot_lastname = ?, ot_position = ?, 
-        ot_from = ?, ot_to = ?, ot_hours = ?, ot_task = ?, ot_requester = ?, ot_designation = ?, ot_approver = ?, ot_notedby = ? WHERE ot_id = $overtimeid;";
+        ot_from = ?, ot_to = ?, ot_hours = ?, ot_task = ?, ot_requested = ?, ot_designation = ?, ot_approved = ?, ot_noted = ? WHERE ot_id = $overtimeid;";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){

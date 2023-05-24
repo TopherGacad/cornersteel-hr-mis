@@ -2,6 +2,7 @@
     session_start();
     
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +16,8 @@
     <link rel="icon" href="../../public/assets/comfac-logo-transparent.png">
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/aa37050208.js" crossorigin="anonymous"></script>
-
 </head>
+
 <body>
     <?php include "../../../backend/includes/error_handlers_inc.php"?>
     
@@ -41,7 +42,7 @@
                     <label for="login-username">Username</label>
                     <input 
                         id="login-username" 
-                        name="login_username"
+                        name="login_user"
                         type="text" 
                         placeholder="juan@example.com"
                         autofocus
