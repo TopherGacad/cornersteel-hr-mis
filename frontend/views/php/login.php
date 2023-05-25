@@ -26,7 +26,7 @@
         
         <!-- PAGE HEADER -->
         <div class="head-container">
-            <a href="../../views/php/main.php"><img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo"></a>
+            <img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo">
         </div>
         
         <!-- LOGIN FORM -->
