@@ -31,7 +31,7 @@
      <div class="head-container">
         <img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo">
         <div class="profile-container">
-            <p><strong>TopherGacadArnoldHalleluahHAHA</strong></p>
+            <p><strong><?php echo $_SESSION['user-name']?></strong></p>
             <i class="fa-solid fa-user"></i>
         </div>
     </div>
