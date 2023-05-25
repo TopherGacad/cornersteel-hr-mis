@@ -34,7 +34,7 @@
             $client = $row['ob_client'];
             $status = $row['ob_status'];
             $reason = $row['ob_reason'];      
-            $noted = $row['ob_approved'];
+            $noted = $row['ob_noted'];
 
             $formatdate = date('Y-m-d', strtotime($date));
         }
@@ -63,12 +63,12 @@
     </div>
 
         <div class="content-container">
-            <form action="../../../backend/includes/otedit_inc.php" method="post" id="otEdit-form">
+            <form action="../../../backend/includes/obedit_inc.php" method="post" id="obEdit-form">
                 <div class="ot-header">
                     <h3>Edit Official Business Request</h3>
                     <div class="btn-container">
                         <a href="../../views/php/main.php"><input type="button" value="Discard" class="cancelBtn modal-btn" id="cancel-btn"></a>
-                        <button class="update-btn modal-btn" id="otEdit-update" type="submit" name="overtime-update">Update</button>
+                        <button class="update-btn modal-btn" id="obEdit-update" type="submit" name="offbusiness-update">Update</button>
                     </div>
                 </div>
 
@@ -103,7 +103,7 @@
                             <!-- FIRSTNAME FIELD -->
                             <div class="fields">
                                 <label class="dis-input" class="dis-input" class="dis-input" for="ob-firstname">Firstname <span> *</span></label>
-                                <input class="dis-input" class="dis-input" class="dis-input" type="text" name="ob_firstname" id="ob-firstname"value="<?php echo $firstname; ?>" required>
+                                <input class="dis-input" class="dis-input" class="dis-input" type="text" name="ob_firstname" id="ob-firstname" value="<?php echo $firstname; ?>" required>
                             </div>
                         </div>
 
@@ -170,8 +170,8 @@
                         <div class="right-side-approve section">
                             <!-- NOTED BY FIELD -->
                             <div class="fields">
-                                <label class="dis-input" for="ot-noteBy">Noted By <span> *</span></label>
-                                <input class="dis-input" type="text" name="ot_noteBy" id="ot-noteBy" value="<?php echo $noted; ?>" required>
+                                <label class="dis-input" for="ob-noteBy">Noted By <span> *</span></label>
+                                <input class="dis-input" type="text" name="ob_noteBy" id="ob-noteBy" value="<?php echo $noted; ?>" required>
                             </div>
                         </div>
                     </div>

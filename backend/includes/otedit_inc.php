@@ -33,7 +33,7 @@
     }
     else{   
         //--- TAKES USER BACK TO THE MAIN PAGE 'overtime.php' WHENEVER UPDATING DATA FAILS ---//
-        header("Location: ../../frontend/views/php/overtime.php?overtimeupdatefailed");
+        header("Location: ../../frontend/views/php/overtime.php?OTupdate=failed");
         exit();
     }
 

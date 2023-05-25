@@ -29,7 +29,7 @@
     }
     else{
         //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHENEVER DATA INSERTION FAILS ---//
-        header("Location: ../../frontend/views/php/main.php?changeshiftfailed");
+        header("Location: ../../frontend/views/php/main.php?CSinsert=failed");
         exit();
     }
     

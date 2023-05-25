@@ -281,12 +281,12 @@
             if(mysqli_stmt_affected_rows($stmt) > 0){
 
                 //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHEN UPDATING OVERTIME IS SUCCESSFULL ---//
-                header("Location: ../../frontend/views/php/main.php?overtimeediting=successful");
+                header("Location: ../../frontend/views/php/main.php?OTupdate=successful");
             }
             else{
 
                 //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHEN UPDATING OVERTIME FAILS ---//
-                header("Location: ../../frontend/views/php/main.php?overtimeediting=failed");
+                header("Location: ../../frontend/views/php/overtime.php?OTupdate=failed");
             }
 
             //--- CLOSES STATEMENT ---//
@@ -334,27 +334,57 @@
         }
 
         //----------------------------------------------------------------//
-        //-------------FUNCTION FOR OFFICIAL BUSINESS FILING-------------//
+        //-----------------FUNCTION FOR CHANGE SHIFT EDIT-----------------//
+        
+        function ChangeShiftEdit($conn, $shiftid, $company, $department, $firstname, $middlename, $lastname, $origin, $new, $reason, $approved, $noted, $date){
+            $effectiveDate = date('Y-m-d', strtotime($date));
 
-        function OfficialBusiness($conn, $company, $department, $firstname, $middlename, $lastname, $date, $client, $status, $reason, $approved){
+            $sql = "UPDATE changeshift_csc SET cs_company = ?, cs_dept = ?, cs_firstname = ?, cs_middlename = ?, cs_lastname = ?, cs_shiftorigin = ?, cs_shiftnew = ?,
+            cs_reason = ?, cs_approved = ?, cs_noted = ?, cs_date = ? WHERE cs_id = $shiftid;";
+            $stmt = mysqli_stmt_init($conn);
+
+            if(!mysqli_stmt_prepare($stmt, $sql)){
+
+                //--- TAKES USER BACK TO THE CHANGE SHIFT PAGE 'changeshift.php' WHENEVER PREPARE STATEMENT FAILS ---//
+                header("Location: ../../frontend/views/php/changeshift.php?CSstatement=failed");
+                exit();
+            }
+
+            mysqli_stmt_bind_param($stmt, "sssssssssss", $company, $department, $firstname, $middlename, $lastname, $origin, 
+            $new, $reason, $approved, $noted, $effectiveDate);
+
+            if(mysqli_stmt_affected_rows($stmt) > 0){
+                header("Location: ../../frontend/views/php/main.php?CSupdate=successful");
+            }
+            else{
+                header("Location: ../../frontend/views/php/officialBusiness.php?CSupdate=failed");
+            }
+
+            mysqli_stmt_close($stmt);   
+        }
+
+        //----------------------------------------------------------------//
+        //-------------FUNCTION FOR OFFICIAL BUSINESS FILING--------------//
+
+        function OfficialBusiness($conn, $company, $department, $firstname, $middlename, $lastname, $date, $client, $status, $reason, $noted){
 
             //--- FORMATS THE DATE AND ASSIGNED IT TO A VARIABLE ---//
-            $dateEffective = date('Y-m-d', strtotime($date)); 
+            $effectiveDate = date('Y-m-d', strtotime($date)); 
 
             //--- INSERT QUERY ---//
             $sql = "INSERT INTO officialbusiness_csc (ob_company, ob_dept, ob_firstname, ob_middlename, ob_lastname, ob_date, ob_client, ob_status,
-            ob_reason, ob_approved) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            ob_reason, ob_noted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
             $stmt = mysqli_stmt_init($conn);
 
             //--- CHECKS IF THE VARIABLES '$sql' AND '$stmt' IF PREPARE STATEMENT IS SUCCESSFULL ---//
             if(!mysqli_stmt_prepare($stmt, $sql)){
-                header("Location: ../../frontend/views/php/main.php?error=officialbusiness_statementfailed");
+                header("Location: ../../frontend/views/php/main.php?OBstatement=failed");
                 exit();
             }
 
             //--- BINDS THE VARIABLE TO BE INSERTED USING BIND PARAMETER STATEMENT ---//
-            mysqli_stmt_bind_param($stmt, "ssssssssss", $company, $department, $firstname, $middlename, $lastname, $dateEffective, 
-            $client, $status, $reason, $approved);
+            mysqli_stmt_bind_param($stmt, "ssssssssss", $company, $department, $firstname, $middlename, $lastname, $effectiveDate, 
+            $client, $status, $reason, $noted);
 
             //--- EXECUTE STATEMENT ---//
             mysqli_stmt_execute($stmt);
@@ -363,8 +393,39 @@
             mysqli_stmt_close($stmt);
 
             //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHEN FILING OFFICIAL BUSINESS IS SUCCESSFULL ---//
-            header("Location: ../../frontend/views/php/main.php?officialbusinessfiling=successful");
+            header("Location: ../../frontend/views/php/main.php?OBadd=successful");
 
         }
         
         //----------------------------------------------------------------//
+        //--------------FUNCTION FOR OFFICIAL BUSINESS EDIT---------------//
+
+        function OfficialBusinessEdit($conn, $offid, $company, $department, $firstname, $middlename, $lastname, $date, $client, $status, $reason, $noted){
+            
+            $dateEffective = date('Y-m-d', strtotime($date)); 
+            $sql = "UPDATE officialbusiness_csc SET ob_company = ?, ob_dept = ?, ob_firstname = ?, ob_middlename = ?, ob_lastname = ?, ob_date = ?, 
+            ob_client = ?, ob_status = ?, ob_reason = ?, ob_noted = ? WHERE ob_id = $offid;";
+
+            $stmt = mysqli_stmt_init($conn);
+
+            if(!mysqli_stmt_prepare($stmt, $sql)){
+                header("Location: ../../frontend/views/php/main.php?OBstatement=failed");
+                exit();
+            }
+            
+            mysqli_stmt_bind_param($stmt, 'ssssssssss', $company, $department, $firstname, $middlename, 
+            $lastname, $dateEffective, $client, $status, $reason, $noted);
+
+            mysqli_stmt_execute($stmt);
+
+            if(mysqli_stmt_affected_rows($stmt) > 0){
+                header("Location: ../../frontend/views/php/main.php?OBupdate=successful");
+            }
+            else{
+                header("Location: ../../frontend/views/php/officialBusiness.php?OBupdate=failed");
+            }
+
+            mysqli_stmt_close($stmt);
+
+        }
+        

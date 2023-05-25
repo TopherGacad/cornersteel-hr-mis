@@ -235,7 +235,7 @@
                                 <td> ' . $effectiveDate . '</td>     
                                 <td>
                                     <a href="?succesfullydeleted-shiftrow=' . $shiftid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
-                                    <a href="../../views/php/changeshift.php"><i class="act-icon fa-solid fa-pen-to-square"></i></a>
+                                    <a href="../../views/php/changeshift.php?id=' . $shiftid . '"><i class="act-icon fa-solid fa-pen-to-square"></i></a>
                                 </td>
                             </tr>';
                         }
@@ -314,7 +314,7 @@
                             $department = $row['ob_dept'];
                             $status = $row['ob_status'];
                             $client = $row['ob_client'];
-                            $approved = $row['ob_approved'];
+                            $noted = $row['ob_noted'];
                             $date = $row['ob_date'];
 
                             $effectiveDate = date('m/d/Y', strtotime($date));
@@ -326,7 +326,7 @@
                                 <td> ' . $department . '</td>
                                 <td> ' . $status . '</td>
                                 <td> ' . $client .  '</td>
-                                <td> ' . $approved . '</td>
+                                <td> ' . $noted . '</td>
                                 <td> ' . $effectiveDate . '</td>     
                                 <td>
                                     <a href="?succesfullydeleted-obrow=' . $offbusinessid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
@@ -665,7 +665,7 @@
                 <!-- NOTED BY FIELD -->
                 <div class="fields">
                     <label for="ot-noteBy">Approved By <span> *</span></label>
-                    <input type="text" name="ob_approvedBy" id="ot-noteBy" required>
+                    <input type="text" name="ob_noteBy" id="ob-noteBy" required>
                 </div>
             </div>
         </form>
