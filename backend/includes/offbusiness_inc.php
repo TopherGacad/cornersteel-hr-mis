@@ -17,19 +17,19 @@
         $client = $_POST['ob_client'];
         $status = $_POST['ob_status'];
         $reason = $_POST['ob_reason'];
-        $approved = $_POST['ob_approvedBy'];
+        $noted = $_POST['ob_noteBy'];
 
         //--- REQUIRES THE NECESSARY CODE/DOCUMENTS TO PROPERLY FUNCTION ---//
         require_once 'dbconn_inc.php';
         require_once 'functions_inc.php';
 
         //--- FUNCTION CALLED FROM THE 'functions_inc.php' RESPONSIBLE FOR THE DATA INSERTION TO THE DATABASE ---//
-        OfficialBusiness($conn, $company, $department, $firstname, $middlename, $lastname, $date, $client, $status, $reason, $approved);
+        OfficialBusiness($conn, $company, $department, $firstname, $middlename, $lastname, $date, $client, $status, $reason, $noted);
         
     }
     else{
         //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHENEVER DATA INSERTION FAILS ---//
-        header("Location: ../../frontend/views/php/main.php?OfficialBusinessfailed");
+        header("Location: ../../frontend/views/php/main.php?OBinsert=failed");
         exit();
     }
     
