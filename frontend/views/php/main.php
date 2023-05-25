@@ -330,7 +330,7 @@
                                 <td> ' . $effectiveDate . '</td>     
                                 <td>
                                     <a href="?succesfullydeleted-obrow=' . $offbusinessid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
-                                    <a href="../../views/php/officialBusiness.php"><i class="act-icon fa-solid fa-pen-to-square"></i></a>
+                                    <a href="../../views/php/officialBusiness.php?id=' . $offbusinessid . '"><i class="act-icon fa-solid fa-pen-to-square"></i></a>
                                 </td>
                             </tr>';
                         }
