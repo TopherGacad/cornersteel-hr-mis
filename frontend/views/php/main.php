@@ -106,7 +106,7 @@
                             mysqli_stmt_close($delstmt);
                         }
 
-                        $sql = "SELECT * FROM overtime_csc;";
+                        $sql = "SELECT * FROM overtime_csc ORDER BY ot_datecreate DESC;";
                         $stmt = mysqli_stmt_init($conn);
 
                         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -204,7 +204,7 @@
                         mysqli_stmt_close($delstmt);
                     }
 
-                    $sql = "SELECT * FROM changeshift_csc;";
+                    $sql = "SELECT * FROM changeshift_csc ORDER BY cs_datecreate DESC;";
                     $stmt = mysqli_stmt_init($conn);
 
                     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -299,7 +299,7 @@
                         mysqli_stmt_close($delstmt);
                     }
 
-                    $sql = "SELECT * FROM officialbusiness_csc;";
+                    $sql = "SELECT * FROM officialbusiness_csc ORDER BY ob_datecreate DESC;";
                     $stmt = mysqli_stmt_init($conn);
 
                     if(!mysqli_stmt_prepare($stmt, $sql)){

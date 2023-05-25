@@ -7,7 +7,7 @@
     if(isset($_POST['shift-update'])){
 
         //--- VARIABLE DECLARATIONS BASED ON THE USER INPUT ---//
-        $shiftid = $_POST['id']
+        $shiftid = $_POST['id'];
         $company = $_POST['shift_company'];
         $department = $_POST['shift_department'];
         $firstname = $_POST['shift_firstname'];
