@@ -17,7 +17,6 @@
         $timefrom = $_POST['ot_timeFrom'];
         $timeto = $_POST['ot_timeTo'];
         $tasks = $_POST['ot_task'];
-        $requested = $_POST['ot_requestedBy'];
         $designation = $_POST['ot_designation'];
         $approved = $_POST['ot_approvedBy'];
         $noted = $_POST['ot_noteBy'];
@@ -27,7 +26,7 @@
         require_once 'functions_inc.php';
 
         //--- FUNCTION CALLED FROM THE 'functions_inc.php' RESPONSIBLE FOR THE DATA INSERTION TO THE DATABASE ---//
-        OvertimeFiling($conn, $company, $department, $firstname, $middlename, $lastname, $position, $timefrom, $timeto, $tasks, $requested, $designation, $approved, $noted);
+        OvertimeFiling($conn, $company, $department, $firstname, $middlename, $lastname, $position, $timefrom, $timeto, $tasks, $designation, $approved, $noted);
 
     }
     else{

@@ -43,8 +43,7 @@
             $position = $row['ot_position'];
             $timefrom = $row['ot_from'];
             $timeto = $row['ot_to'];
-            $tasks = $row['ot_task'];
-            $requested = $row['ot_requested'];      
+            $tasks = $row['ot_task'];     
             $designation = $row['ot_designation'];
             $approved = $row['ot_approved'];
             $noted = $row['ot_noted'];

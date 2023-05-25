@@ -38,8 +38,6 @@
             $noted = $row['cs_noted'];
 
             $formatdate = date("Y-m-d", strtotime($date));  
-            $formatorigin = date('H:i', strtotime($origin));
-            $formatnew = date('H:i', strtotime($new));
         }
     }
 ?>
@@ -136,9 +134,9 @@
                                 <label class="dis-input" for="shift-orig"> Original shift<span> *</span></label>
                                 <select class="dis-input" name="shift_orig" id="shift-orig" required>
                                     <option value="" selected disabled>Select shift</option>
-                                    <option value="type 1">Shift type 1: 8:00AM - 5:00PM</option>
-                                    <option value="type 2">Shift type 2: 9:00AM - 7:00PM</option>
-                                    <option value="type 3">Shift type 3: 6:00AM - 3:00PM</option>
+                                    <option value="type 1" <?php if($origin === "type 1") echo "selected";?>>Shift type 1: 8:00AM - 5:00PM</option>
+                                    <option value="type 2" <?php if($origin === "type 2") echo "selected";?>>Shift type 2: 9:00AM - 7:00PM</option>
+                                    <option value="type 3" <?php if($origin === "type 3") echo "selected";?>>Shift type 3: 6:00AM - 3:00PM</option>
                                 </select>
                             </div> 
 
@@ -147,9 +145,9 @@
                                 <label class="dis-input" for="shift-new"> New shift<span> *</span></label>
                                 <select class="dis-input" name="shift_new" id="shift-new" required>
                                     <option value="" selected disabled>Select shift</option>
-                                    <option value="type 1">Shift type 1: 8:00AM - 5:00PM</option>
-                                    <option value="type 2">Shift type 2: 9:00AM - 7:00PM</option>
-                                    <option value="type 3">Shift type 3: 6:00AM - 3:00PM</option>
+                                    <option value="type 1" <?php if($new === "type 1") echo "selected";?>>Shift type 1: 8:00AM - 5:00PM</option>
+                                    <option value="type 2" <?php if($new === "type 2") echo "selected";?>>Shift type 2: 9:00AM - 7:00PM</option>
+                                    <option value="type 3" <?php if($new === "type 3") echo "selected";?>>Shift type 3: 6:00AM - 3:00PM</option>
                                 </select>
                             </div>
 

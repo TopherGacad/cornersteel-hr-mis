@@ -215,14 +215,14 @@
         //---------------FUNCTION FOR OVERTIME APPLICATION----------------//
 
         function OvertimeFiling($conn, $company, $department, $firstname, $middlename, $lastname, $position, $timefrom,
-        $timeto, $tasks, $requested, $designation, $approved, $noted){
+        $timeto, $tasks, $designation, $approved, $noted){
 
             //--- ASSIGNED THE FUNCTION TO A VARIABLE ---//
             $overtime = TotalHours($timefrom, $timeto);  
 
             //--- INSERT QUERY ---//
             $sql = "INSERT INTO overtime_csc (ot_company, ot_dept, ot_firstname, ot_middlename, ot_lastname, ot_position, ot_from, ot_to, ot_hours, ot_task, 
-            ot_requested, ot_designation, ot_approved, ot_noted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            ot_designation, ot_approved, ot_noted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
             $stmt = mysqli_stmt_init($conn);
 
             //--- CHECKS IF THE VARIABLES '$sql' AND '$stmt' IF PREPARE STATEMENT IS SUCCESSFULL ---//
@@ -234,8 +234,8 @@
             }
 
             //--- BINDS THE VARIABLE TO BE INSERTED USING BIND PARAMETER STATEMENT ---//
-            mysqli_stmt_bind_param($stmt, "ssssssssdsssss", $company, $department, $firstname, $middlename, $lastname, $position, 
-            $timefrom, $timeto, $overtime, $tasks, $requested, $designation, $approved, $noted);
+            mysqli_stmt_bind_param($stmt, "ssssssssdssss", $company, $department, $firstname, $middlename, $lastname, $position, 
+            $timefrom, $timeto, $overtime, $tasks, $designation, $approved, $noted);
             
             //--- EXECUTE STATEMENT ---//   
             mysqli_stmt_execute($stmt);
@@ -252,14 +252,14 @@
         //-------------------FUNCTION FOR EDIT OVERTIME-------------------//
 
         function OvertimeEdit($conn, $overtimeid, $company, $department, $firstname, $middlename, $lastname, $position, $timefrom,
-        $timeto, $tasks, $requested, $designation, $approved, $noted){
+        $timeto, $tasks, $designation, $approved, $noted){
 
             //--- ASSIGNED THE FUNCTION TO A VARIABLE ---//
             $overtime = TotalHours($timefrom, $timeto);  
 
             //--- UPDATE QUERY --//
             $sql = "UPDATE overtime_csc SET ot_company = ?, ot_dept = ?, ot_firstname = ?, ot_middlename = ?, ot_lastname = ?, ot_position = ?, 
-            ot_from = ?, ot_to = ?, ot_hours = ?, ot_task = ?, ot_requested = ?, ot_designation = ?, ot_approved = ?, ot_noted = ? WHERE ot_id = $overtimeid;";
+            ot_from = ?, ot_to = ?, ot_hours = ?, ot_task = ?, ot_designation = ?, ot_approved = ?, ot_noted = ? WHERE ot_id = $overtimeid;";
             $stmt = mysqli_stmt_init($conn);
 
             //--- CHECKS IF THE VARIABLES '$sql' AND '$stmt' IF PREPARE STATEMENT IS SUCCESSFULL ---//
@@ -271,8 +271,8 @@
             }
 
             //--- BINDS THE VARIABLE TO BE UPDATED USING BIND PARAMETER STATEMENT ---//
-            mysqli_stmt_bind_param($stmt, "ssssssssdsssss", $company, $department, $firstname, $middlename, $lastname, $position, 
-            $timefrom, $timeto, $overtime, $tasks, $requested, $designation, $approved, $noted);
+            mysqli_stmt_bind_param($stmt, "ssssssssdssss", $company, $department, $firstname, $middlename, $lastname, $position, 
+            $timefrom, $timeto, $overtime, $tasks, $designation, $approved, $noted);
             
             //--- EXECUTE STATEMENT ---//
             mysqli_stmt_execute($stmt);
