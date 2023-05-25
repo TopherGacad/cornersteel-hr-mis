@@ -12,7 +12,7 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
 
-        $sql = "SELECT * FROM overtime_csc WHERE ot_id = $id;";
+        $sql = "SELECT * FROM changeshift_csc WHERE cs_id = $id;";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -24,23 +24,22 @@
 
             $row = mysqli_fetch_assoc($result);
 
-            $overtimeid = $row['ot_id'];
-            $company = $row['ot_company'];
-            $department = $row['ot_dept'];
-            $firstname = $row['ot_firstname'];
-            $middlename = $row['ot_middlename'];
-            $lastname = $row['ot_lastname'];
-            $position = $row['ot_position'];
-            $timefrom = $row['ot_from'];
-            $timeto = $row['ot_to'];
-            $tasks = $row['ot_task'];
-            $requested = $row['ot_requested'];      
-            $designation = $row['ot_designation'];
-            $approved = $row['ot_approved'];
-            $noted = $row['ot_noted'];
+            $shiftid = $row['cs_id'];
+            $company = $row['cs_company'];
+            $department = $row['cs_dept'];
+            $firstname = $row['cs_firstname'];
+            $middlename = $row['cs_middlename'];
+            $lastname = $row['cs_lastname'];
+            $date = $row['cs_date'];
+            $origin = $row['cs_shiftorigin'];
+            $new = $row['cs_shiftnew'];
+            $reason = $row['cs_reason'];
+            $approved = $row['cs_approved'];
+            $noted = $row['cs_noted'];
 
-            $formatfrom = date('H:i', strtotime($row['ot_from']));
-            $formatto = date('H:i', strtotime($row['ot_to']));
+            $formatdate = date("Y-m-d", strtotime($date));  
+            $formatorigin = date('H:i', strtotime($origin));
+            $formatnew = date('H:i', strtotime($new));
         }
     }
 ?>
@@ -67,16 +66,16 @@
     </div>
 
         <div class="content-container">
-            <form action="../../../backend/includes/otedit_inc.php" method="post" id="otEdit-form">
+            <form action="../../../backend/includes/csedit_inc.php" method="post" id="otEdit-form">
                 <div class="ot-header">
                     <h3><a href="../../views/php/main.php"><i class="fa-solid fa-arrow-left"></i></a>Edit Change Shift Request</h3>
                     <div class="btn-container">
                         <a href="../../views/php/main.php"><input type="button" value="Discard" class="cancelBtn modal-btn" id="cancel-btn"></a>
-                        <button class="update-btn modal-btn" id="otEdit-update" type="submit" name="overtime-update">Update</button>
+                        <button class="update-btn modal-btn" id="otEdit-update" type="submit" name="shift-update">Update</button>
                     </div>
                 </div>
 
-                <input type="hidden" name="id" value="<?php echo $overtimeid; ?>">
+                <input type="hidden" name="id" value="<?php echo $shiftid; ?>">
 
                 <div class="employee-container">
                     <h3>Employee Details</h3>
@@ -87,9 +86,9 @@
                                 <label class="dis-input" for="shift-company">Company <span> *</span></label>
                                 <select class="dis-input" name="shift_company" id="shift-company" required autofocus>
                                     <option value="" selected disabled>Select company</option>
-                                    <option value="Comfac">Comfac Corporation</option>
-                                    <option value="CSC">Cornersteel Systems Corporation</option>
-                                    <option value="ESCO">ESCO</option>
+                                    <option value="Comfac" <?php if($company === "Comfac") echo "selected";?>>Comfac Corporation</option>
+                                    <option value="CSC" <?php if($company === "CSC") echo "selected";?>>Cornersteel Systems Corporation</option>
+                                    <option value="ESCO" <?php if($company === "ESCO") echo "selected";?>>ESCO</option>
                                 </select>
                             </div>
 
@@ -98,16 +97,16 @@
                                 <label class="dis-input" for="shift-department">Department <span> *</span></label>
                                 <select class="dis-input" class="dis-input" name="shift_department" id="shift-department" required>
                                     <option value="" selected disabled>Select company</option>
-                                    <option value="Accounts">Accounts</option>
-                                    <option value="PID">Project Installation Dep</option>
-                                    <option value="HR">Human Resources</option>
+                                    <option value="Accounts" <?php if($department == "Accounts") echo "selected";?>>Accounts</option>
+                                    <option value="PID" <?php if($department == "PID") echo "selected";?>>Project Installation Dep</option>
+                                    <option value="HR" <?php if($department == "HR") echo "selected";?>>Human Resources</option>
                                 </select>
                             </div>
 
                             <!-- FIRSTNAME FIELD -->
                             <div class="fields">
                                 <label class="dis-input" for="shift-firstname">Firstname <span> *</span></label>
-                                <input class="dis-input" type="text" name="shift_firstname" id="shift-firstname" placeholder="Juan" required>
+                                <input class="dis-input" type="text" name="shift_firstname" id="shift-firstname" value="<?php echo $firstname; ?>" required>
                             </div>
                         </div>
 
@@ -116,13 +115,13 @@
                             <!-- MIDDLE NAME -->
                             <div class="fields">
                                 <label class="dis-input" for="shift-midname">Middlename</label>
-                                <input class="dis-input" type="text" name="shift_midname" id="shift-midname" placeholder="Reyes">
+                                <input class="dis-input" type="text" name="shift_midname" id="shift-midname" value="<?php echo $middlename; ?>">
                             </div>
 
                             <!-- LASTNAME FIELD -->
                             <div class="fields">
                                 <label class="dis-input" for="shift-lastname">Lastname <span> *</span></label>
-                                <input class="dis-input" type="text" name="shift_lastname" id="shift-lastname" placeholder="Dela Cruz" required>
+                                <input class="dis-input" type="text" name="shift_lastname" id="shift-lastname" value="<?php echo $lastname; ?>" required>
                             </div>
                         </div>
                     </div>
@@ -157,7 +156,7 @@
                             <!-- DATE EFFECTIVE -->
                             <div class="fields">
                                 <label class="dis-input" for="shift-date">Date Effective <span> *</span></label>
-                                <input class="dis-input" type="date" id="shift-date" name="shift_date" required>
+                                <input class="dis-input" type="date" id="shift-date" name="shift_date" value="<?php echo $formatdate; ?>" required>
                             </div>
                         </div>
                         
@@ -165,7 +164,7 @@
                            <!-- REASON FIELD -->
                             <div class="fields">
                                 <label class="dis-input" for="shift-reason">Reason<span> *</span></label>
-                                <textarea class="dis-input" name="shift_reason" id="shift-reason" cols="30" rows="9" maxlength="150" placeholder="(150 characters only)" required></textarea>
+                                <textarea class="dis-input" name="shift_reason" id="shift-reason" cols="30" rows="9" maxlength="150" placeholder="(150 characters only)" required><?php echo $reason; ?></textarea>
                             </div>
                         </div>
                     </div>
@@ -178,7 +177,7 @@
                              <!-- APPROVED BY FIELD -->
                              <div class="fields">
                                 <label class="dis-input" for="shift-approvedBy">Approved By <span> *</span></label>
-                                <input class="dis-input" type="text" name="shift_approvedBy" id="shift-approvedBy" required>
+                                <input class="dis-input" type="text" name="shift_approvedBy" id="shift-approvedBy"  value="<?php echo $approved; ?>" required>
                             </div>
                         </div>
 
@@ -186,7 +185,7 @@
                             <!-- NOTED BY FIELD -->
                             <div class="fields">
                                 <label class="dis-input" for="shift-noteBy">Noted By <span> *</span></label>
-                                <input class="dis-input" type="text" name="shift_noteBy" id="shift-noteBy" required>
+                                <input class="dis-input" type="text" name="shift_noteBy" id="shift-noteBy" value="<?php echo $noted; ?>" required>
                             </div>
                         </div>
                     </div>

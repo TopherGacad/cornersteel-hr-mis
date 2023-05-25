@@ -32,7 +32,7 @@
     }
     else{
         //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHENEVER DATA INSERTION FAILS ---//
-        header("Location: ../../frontend/views/php/main.php?overtimefailed");
+        header("Location: ../../frontend/views/php/main.php?OTinsert=failed");
         exit();
     }
 
