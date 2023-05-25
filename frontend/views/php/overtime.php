@@ -65,7 +65,7 @@
     <title>Edit Overtime</title>
 
     <!-- STYLESHEET -->
-    <link rel="stylesheet" href="../../public/css/overtime.css">
+    <link rel="stylesheet" href="../../public/css/editpage.css">
     <!-- WEB ICON -->
     <link rel="icon" href="../../public/assets/comfac-logo-transparent.png">
     <!-- FONT AWESOME -->
@@ -80,7 +80,7 @@
         <div class="content-container">
             <form action="../../../backend/includes/otedit_inc.php" method="post" id="otEdit-form">
                 <div class="ot-header">
-                    <h3>Edit Overtime Request</h3>
+                    <h3><a href="../../views/php/main.php"><i class="fa-solid fa-arrow-left"></i></a>Edit Overtime Request</h3>
                     <div class="btn-container">
                         <a href="../../views/php/main.php"><input type="button" value="Discard" class="cancelBtn modal-btn" id="cancel-btn"></a>
                         <button class="update-btn modal-btn" id="otEdit-update" type="submit" name="overtime-update">Update</button>
@@ -179,20 +179,6 @@
                     <h3>Approval Details</h3>
                     <div class="main">
                         <div class="left-side-approve section">
-                            <!-- REQUESTED BY FIELD -->
-                            <div class="fields">
-                                <label class="dis-input" for="ot-requestedBy">Requested By <span> *</span></label>
-                                <input class="dis-input" type="text" name="ot_requestedBy" id="ot-requestedBy" value="<?php echo $requested; ?>" required> 
-                            </div>
-
-                            <!-- DESIGNATION FIELD -->
-                            <div class="fields">
-                                <label class="dis-input" for="ot-designation">Designation</label>
-                                <input class="dis-input" type="text" name="ot_designation" id="ot-designation" value="<?php echo $designation; ?>">
-                            </div>
-                        </div>
-
-                        <div class="right-side-approve section">
                             <!-- APPROVED BY FIELD -->
                             <div class="fields">
                                 <label class="dis-input" for="ot-approvedBy">Approved By <span> *</span></label>
@@ -205,9 +191,18 @@
                                 <input class="dis-input" type="text" name="ot_noteBy" id="ot-noteBy" value="<?php echo $noted; ?>" required>
                             </div>
                         </div>
+
+                        <div class="right-side-approve section">
+                             <!-- DESIGNATION FIELD -->
+                             <div class="fields">
+                                <label class="dis-input" for="ot-designation">Designation</label>
+                                <input class="dis-input" type="text" name="ot_designation" id="ot-designation" value="<?php echo $designation; ?>">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
+        <script src="../../js/main.js"></script>
 </body>
 </html>

@@ -12,57 +12,75 @@ const offBusBtn = document.getElementById("offBusiness-btn")
 
 // MAIN CONTENTS CONTAINER SELECTOR
 dashBtn.addEventListener("click", function(){
-    //MAIN CONTENT ACTIVATOR
-    dashContain.style.display = "block"
-    shiftsContain.style.display = "none"
-    overtimeContain.style.display = "none"
-    offBusContain.style.display = "none"
-
-    //BUTTON ACTIVE STYLING
-    dashBtn.classList.add('btn-active')
-    shiftsBtn.classList.remove('btn-active')
-    overtimeBtn.classList.remove('btn-active')
-    offBusBtn.classList.remove('btn-active')
+    renderDash()
 })
 shiftsBtn.addEventListener("click", function(){
-    //MAIN CONTENT ACTIVATOR
-    dashContain.style.display = "none"
-    shiftsContain.style.display = "block"
-    overtimeContain.style.display = "none"
-    offBusContain.style.display = "none"
-
-    //BUTTON ACTIVE STYLING
-    dashBtn.classList.remove('btn-active')
-    shiftsBtn.classList.add('btn-active')
-    overtimeBtn.classList.remove('btn-active')
-    offBusBtn.classList.remove('btn-active')
+    renderShift()
 })
 overtimeBtn.addEventListener("click", function(){
+    renderOT()
+})
+offBusBtn.addEventListener("click",function(){
+    renderOffBus()
+})
+
+//=========RENDERING FUNCTIONS==========//
+function renderDash(){
+  //MAIN CONTENT ACTIVATOR
+  dashContain.style.display = "block"
+  shiftsContain.style.display = "none"
+  overtimeContain.style.display = "none"
+  offBusContain.style.display = "none"
+
+  //BUTTON ACTIVE STYLING
+  dashBtn.classList.add('btn-active')
+  shiftsBtn.classList.remove('btn-active')
+  overtimeBtn.classList.remove('btn-active')
+  offBusBtn.classList.remove('btn-active')
+}
+
+function renderOT(){
+  //MAIN CONTENT ACTIVATOR
+  dashContain.style.display = "none"
+  shiftsContain.style.display = "none"
+  overtimeContain.style.display = "block"
+  offBusContain.style.display = "none"
+
+  //BUTTON ACTIVE STYLING
+  dashBtn.classList.remove('btn-active')
+  shiftsBtn.classList.remove('btn-active')
+  overtimeBtn.classList.add('btn-active')
+  offBusBtn.classList.remove('btn-active')
+}
+
+function renderShift(){
+  //MAIN CONTENT ACTIVATOR
+  dashContain.style.display = "none"
+  shiftsContain.style.display = "block"
+  overtimeContain.style.display = "none"
+  offBusContain.style.display = "none"
+
+  //BUTTON ACTIVE STYLING
+  dashBtn.classList.remove('btn-active')
+  shiftsBtn.classList.add('btn-active')
+  overtimeBtn.classList.remove('btn-active')
+  offBusBtn.classList.remove('btn-active')
+}
+
+function renderOffBus(){
     //MAIN CONTENT ACTIVATOR
     dashContain.style.display = "none"
     shiftsContain.style.display = "none"
-    overtimeContain.style.display = "block"
-    offBusContain.style.display = "none"
+    overtimeContain.style.display = "none"
+    offBusContain.style.display = "block"
 
     //BUTTON ACTIVE STYLING
     dashBtn.classList.remove('btn-active')
     shiftsBtn.classList.remove('btn-active')
-    overtimeBtn.classList.add('btn-active')
-    offBusBtn.classList.remove('btn-active')
-})
-offBusBtn.addEventListener("click",function(){
-     //MAIN CONTENT ACTIVATOR
-     dashContain.style.display = "none"
-     shiftsContain.style.display = "none"
-     overtimeContain.style.display = "none"
-     offBusContain.style.display = "block"
- 
-     //BUTTON ACTIVE STYLING
-     dashBtn.classList.remove('btn-active')
-     shiftsBtn.classList.remove('btn-active')
-     overtimeBtn.classList.remove('btn-active')
-     offBusBtn.classList.add('btn-active')
-})
+    overtimeBtn.classList.remove('btn-active')
+    offBusBtn.classList.add('btn-active')
+}
+//=========RENDERING FUNCTIONS==========//
 
 // MODAL CONTAINERS
 const modalBg = document.getElementById("bg")
@@ -192,7 +210,6 @@ offBusSearch.addEventListener('input', () => {
     }
   }
 })
-
 
 
 

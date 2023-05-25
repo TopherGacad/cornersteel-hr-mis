@@ -30,14 +30,17 @@
      <!-- PAGE HEADER -->
      <div class="head-container">
         <img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo">
-        <i class="nav-icons fa-solid fa-arrow-right-from-bracket"></i>
+        <div class="profile-container">
+            <p><strong>TopherGacadArnoldHalleluahHAHA</strong></p>
+            <i class="fa-solid fa-user"></i>
+        </div>
     </div>
 
     <!-- SIDE NAVBAR -->
     <div class="side-nav">
         <ul>
             <a href="#" ><li id="dash-btn"><i class="nav-icons fa-solid fa-house"></i>Dashboard</li></a>
-            <a href="#" ><li id="overtime-btn"><i class="nav-icons fa-solid fa-clock"></i>Overtime</li></a>
+            <a href="#"><li id="overtime-btn"><i class="nav-icons fa-solid fa-clock"></i>Overtime</li></a>
             <a href="#" ><li id="shifts-btn"><i class="nav-icons fa-regular fa-calendar"></i> Shifts</li></a>
             <a href="#" ><li id="offBusiness-btn"><i class="nav-icons fa-solid fa-briefcase"></i>Official Business</li></a>
             <a href="../../../backend/includes/logout_inc.php" ><li id="logout-btn"><i class="nav-icons fa-solid fa-arrow-right-from-bracket"></i>Logout</li></a>
@@ -69,7 +72,7 @@
                     <th>Time to</th>
                     <th class="thours">Total hours</th>
                     <th>Date Created</th>
-                    <th>Action</th>
+                    <th class="actions">Action</th>
                 </tr>
 
                 <tbody id="overtime-table-body">
@@ -167,9 +170,9 @@
                     <th>Department</th>
                     <th>Orig Time</th>
                     <th>New Time</th>
-                    <th>Approve By</th>
+                    <th>Approved By</th>
                     <th>Date Effective</th>
-                    <th>Action</th>
+                    <th class="actions">Action</th>
                 </tr>
 
                 <tbody id="shift-table-body">
@@ -261,9 +264,9 @@
                     <th>Department</th>
                     <th>Status</th>
                     <th>Authorize Client</th>
-                    <th>Approved By</th>
+                    <th>Noted By</th>
                     <th>Date</th>
-                    <th>Action</th>
+                    <th class="actions">Action</th>
                 </tr>
 
                 <tbody id="offBusiness-table-body">
@@ -427,12 +430,6 @@
                 <div class="fields">
                     <label for="ot-task">Work to Perform/ Task</label>
                     <textarea name="ot_task" id="ot-task" cols="30" rows="9" maxlength="150"></textarea>
-                </div>
-
-                <!-- REQUESTED BY FIELD -->
-                <div class="fields">
-                    <label for="ot-requestedBy">Requested By <span> *</span></label>
-                    <input type="text" name="ot_requestedBy" id="ot-requestedBy" required> 
                 </div>
 
                 <!-- DESIGNATION FIELD -->
@@ -664,7 +661,7 @@
 
                 <!-- NOTED BY FIELD -->
                 <div class="fields">
-                    <label for="ot-noteBy">Approved By <span> *</span></label>
+                    <label for="ot-noteBy">Noted By <span> *</span></label>
                     <input type="text" name="ob_approvedBy" id="ot-noteBy" required>
                 </div>
             </div>

@@ -50,7 +50,7 @@
     <title>Edit Official Business Request</title>
 
     <!-- STYLESHEET -->
-    <link rel="stylesheet" href="../../public/css/overtime.css">
+    <link rel="stylesheet" href="../../public/css/editpage.css">
     <!-- WEB ICON -->
     <link rel="icon" href="../../public/assets/comfac-logo-transparent.png">
     <!-- FONT AWESOME -->
@@ -65,7 +65,7 @@
         <div class="content-container">
             <form action="../../../backend/includes/otedit_inc.php" method="post" id="otEdit-form">
                 <div class="ot-header">
-                    <h3>Edit Official Business Request</h3>
+                <h3><a href="../../views/php/main.php"><i class="fa-solid fa-arrow-left"></i></a>Edit Official Business Request</h3>
                     <div class="btn-container">
                         <a href="../../views/php/main.php"><input type="button" value="Discard" class="cancelBtn modal-btn" id="cancel-btn"></a>
                         <button class="update-btn modal-btn" id="otEdit-update" type="submit" name="overtime-update">Update</button>
