@@ -661,13 +661,10 @@
 
                 <!-- NOTED BY FIELD -->
                 <div class="fields">
-<<<<<<< HEAD
-                    <label for="ot-noteBy">Noted By <span> *</span></label>
-                    <input type="text" name="ob_approvedBy" id="ot-noteBy" required>
-=======
-                    <label for="ot-noteBy">Approved By <span> *</span></label>
+
+                    <label for="ob-noteBy">Noted By <span> *</span></label>
                     <input type="text" name="ob_noteBy" id="ob-noteBy" required>
->>>>>>> d482c0a31088319909f0f9a6d910c6d15371662d
+
                 </div>
             </div>
         </form>
