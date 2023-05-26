@@ -36,7 +36,7 @@
                 <p class="login-title">REGISTER AN ACCOUNT</p>
             </div>
     
-            <form action="../../../backend/includes/signup_inc.php" method="post">
+            <form action="../../../backend/includes/signup_inc.php" method="post" oninput='signup_conpass.setCustomValidity(signup_conpass.value != signup_pass.value ? "Passwords do not match." : "")'>
                 <div class="layout-container">
                     
                     <div class="login-left">
@@ -47,8 +47,10 @@
                                 id="signup-firstname" 
                                 name="signup_firstname" 
                                 type="text" 
+                                maxlength="25"
+                                pattern="[A-Za-z]{2,25}"
                                 placeholder="Juan"
-                                autofocus
+                                autofocus        
                                 required>
                         </div>
 
@@ -58,7 +60,9 @@
                             <input 
                                 id="signup-lastname" 
                                 name="signup_lastname" 
-                                type="text" 
+                                type="text"
+                                maxlength="25"
+                                pattern="[A-Za-z]{2,25}"
                                 placeholder="Dela Cruz"
                                 required>
                         </div>
@@ -71,6 +75,7 @@
                                 name="signup_username"  
                                 type="text" 
                                 placeholder="juanDelacruz123"
+                                maxlength="20"
                                 required>
                         </div>
 
@@ -82,6 +87,7 @@
                             id="signup-email"
                             name="signup_email"
                             placeholder="juan@example.com"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                             required>
                         </div>
 
@@ -117,6 +123,8 @@
                                 id="signup-pass"
                                 name="signup_pass" 
                                 type="password"
+                                minlength="8"
+                                maxlength="16"
                                 Placeholder="8-16 characters only"
                                 required>
                         </div>
@@ -128,6 +136,7 @@
                                 id="signup-conpass"
                                 name="signup_conpass" 
                                 type="password"
+                                
                                 required>
                         </div>
 

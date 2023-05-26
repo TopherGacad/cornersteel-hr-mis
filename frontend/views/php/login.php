@@ -47,6 +47,7 @@
                         type="text" 
                         placeholder="juan@example.com"
                         autofocus
+                        maxlength="20"
                         required>
                 </div>
                 
@@ -58,6 +59,8 @@
                         name="login_pass" 
                         type="password"
                         placeholder="8-16 characters only"
+                        minlength="8"
+                        maxlength="16"
                         required>
                 </div>
 
