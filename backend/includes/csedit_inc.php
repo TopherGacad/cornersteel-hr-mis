@@ -23,7 +23,7 @@
         require_once 'dbconn_inc.php';
         require_once 'functions_inc.php';
 
-        ChangeShiftEdit(($conn, $shiftid, $company, $department, $firstname, $middlename, $lastname, $origin, $new, $reason, $approved, $noted, $date);
+        ChangeShiftEdit($conn, $shiftid, $company, $department, $firstname, $middlename, $lastname, $origin, $new, $reason, $approved, $noted, $date);
     }
     else{
         header("Location: ../../frontend/views/php/main.php?CSupdate=failed");

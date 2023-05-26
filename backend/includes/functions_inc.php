@@ -357,7 +357,7 @@
                 header("Location: ../../frontend/views/php/main.php?CSupdate=successful");
             }
             else{
-                header("Location: ../../frontend/views/php/officialBusiness.php?CSupdate=failed");
+                header("Location: ../../frontend/views/php/main.php?CSupdate=failed");
             }
 
             mysqli_stmt_close($stmt);   
