@@ -10,76 +10,76 @@ const shiftsBtn = document.getElementById("shifts-btn")
 const overtimeBtn = document.getElementById("overtime-btn")
 const offBusBtn = document.getElementById("offBusiness-btn")
 
-// MAIN CONTENTS CONTAINER SELECTOR
-dashBtn.addEventListener("click", function(){
-    renderDash()
-})
-shiftsBtn.addEventListener("click", function(){
-    renderShift()
-})
-overtimeBtn.addEventListener("click", function(){
-    renderOT()
-})
-offBusBtn.addEventListener("click",function(){
-    renderOffBus()
-})
+// // MAIN CONTENTS CONTAINER SELECTOR
+// dashBtn.addEventListener("click", function(){
+//     renderDash()
+// })
+// shiftsBtn.addEventListener("click", function(){
+//     renderShift()
+// })
+// overtimeBtn.addEventListener("click", function(){
+//     renderOT()
+// })
+// offBusBtn.addEventListener("click",function(){
+//     renderOffBus()
+// })
 
 //=========RENDERING FUNCTIONS==========//
-function renderDash(){
-  //MAIN CONTENT ACTIVATOR
-  dashContain.style.display = "block"
-  shiftsContain.style.display = "none"
-  overtimeContain.style.display = "none"
-  offBusContain.style.display = "none"
+// function renderDash(){
+//   //MAIN CONTENT ACTIVATOR
+//   dashContain.style.display = "block"
+//   shiftsContain.style.display = "none"
+//   overtimeContain.style.display = "none"
+//   offBusContain.style.display = "none"
 
-  //BUTTON ACTIVE STYLING
-  dashBtn.classList.add('btn-active')
-  shiftsBtn.classList.remove('btn-active')
-  overtimeBtn.classList.remove('btn-active')
-  offBusBtn.classList.remove('btn-active')
-}
+//   //BUTTON ACTIVE STYLING
+//   dashBtn.classList.add('btn-active')
+//   shiftsBtn.classList.remove('btn-active')
+//   overtimeBtn.classList.remove('btn-active')
+//   offBusBtn.classList.remove('btn-active')
+// }
 
-function renderOT(){
-  //MAIN CONTENT ACTIVATOR
-  dashContain.style.display = "none"
-  shiftsContain.style.display = "none"
-  overtimeContain.style.display = "block"
-  offBusContain.style.display = "none"
+// function renderOT(){
+//   //MAIN CONTENT ACTIVATOR
+//   dashContain.style.display = "none"
+//   shiftsContain.style.display = "none"
+//   overtimeContain.style.display = "block"
+//   offBusContain.style.display = "none"
 
-  //BUTTON ACTIVE STYLING
-  dashBtn.classList.remove('btn-active')
-  shiftsBtn.classList.remove('btn-active')
-  overtimeBtn.classList.add('btn-active')
-  offBusBtn.classList.remove('btn-active')
-}
+//   //BUTTON ACTIVE STYLING
+//   dashBtn.classList.remove('btn-active')
+//   shiftsBtn.classList.remove('btn-active')
+//   overtimeBtn.classList.add('btn-active')
+//   offBusBtn.classList.remove('btn-active')
+// }
 
-function renderShift(){
-  //MAIN CONTENT ACTIVATOR
-  dashContain.style.display = "none"
-  shiftsContain.style.display = "block"
-  overtimeContain.style.display = "none"
-  offBusContain.style.display = "none"
+// function renderShift(){
+//   //MAIN CONTENT ACTIVATOR
+//   dashContain.style.display = "none"
+//   shiftsContain.style.display = "block"
+//   overtimeContain.style.display = "none"
+//   offBusContain.style.display = "none"
 
-  //BUTTON ACTIVE STYLING
-  dashBtn.classList.remove('btn-active')
-  shiftsBtn.classList.add('btn-active')
-  overtimeBtn.classList.remove('btn-active')
-  offBusBtn.classList.remove('btn-active')
-}
+//   //BUTTON ACTIVE STYLING
+//   dashBtn.classList.remove('btn-active')
+//   shiftsBtn.classList.add('btn-active')
+//   overtimeBtn.classList.remove('btn-active')
+//   offBusBtn.classList.remove('btn-active')
+// }
 
-function renderOffBus(){
-    //MAIN CONTENT ACTIVATOR
-    dashContain.style.display = "none"
-    shiftsContain.style.display = "none"
-    overtimeContain.style.display = "none"
-    offBusContain.style.display = "block"
+// function renderOffBus(){
+//     //MAIN CONTENT ACTIVATOR
+//     dashContain.style.display = "none"
+//     shiftsContain.style.display = "none"
+//     overtimeContain.style.display = "none"
+//     offBusContain.style.display = "block"
 
-    //BUTTON ACTIVE STYLING
-    dashBtn.classList.remove('btn-active')
-    shiftsBtn.classList.remove('btn-active')
-    overtimeBtn.classList.remove('btn-active')
-    offBusBtn.classList.add('btn-active')
-}
+//     //BUTTON ACTIVE STYLING
+//     dashBtn.classList.remove('btn-active')
+//     shiftsBtn.classList.remove('btn-active')
+//     overtimeBtn.classList.remove('btn-active')
+//     offBusBtn.classList.add('btn-active')
+// }
 //=========RENDERING FUNCTIONS==========//
 
 // MODAL CONTAINERS
@@ -211,7 +211,8 @@ offBusSearch.addEventListener('input', () => {
   }
 })
 
-//RENDERING SPECIFIC MODULE AFTER SELECTION IN SIDENAV
+
+// Get the selected module from browser storage
 const selectedModule = localStorage.getItem('selectedModule');
 
 // Set the initial selected module or the default module if none is stored
@@ -232,40 +233,37 @@ offBusBtn.addEventListener('click', function () {
   renderModule('offBusiness');
 });
 
+// Render the module based on the selected module
 function renderModule(module) {
-  // MAIN CONTENT CONTAINERS
-  const modules = {
-    dash: dashContain,
-    shifts: shiftsContain,
-    overtime: overtimeContain,
-    offBusiness: offBusContain
-  };
-
-  // BUTTONS
-  const buttons = {
-    dash: dashBtn,
-    shifts: shiftsBtn,
-    overtime: overtimeBtn,
-    offBusiness: offBusBtn
-  };
-
   // Hide all modules and deactivate all buttons
-  Object.values(modules).forEach(module => {
-    module.style.display = 'none';
-  });
-  Object.values(buttons).forEach(button => {
-    button.classList.remove('btn-active');
-  });
+  dashContain.style.display = 'none';
+  shiftsContain.style.display = 'none';
+  overtimeContain.style.display = 'none';
+  offBusContain.style.display = 'none';
+
+  dashBtn.classList.remove('btn-active');
+  shiftsBtn.classList.remove('btn-active');
+  overtimeBtn.classList.remove('btn-active');
+  offBusBtn.classList.remove('btn-active');
 
   // Show the selected module and activate its button
-  modules[module].style.display = 'block';
-  buttons[module].classList.add('btn-active');
+  if (module === 'dash') {
+    dashContain.style.display = 'block';
+    dashBtn.classList.add('btn-active');
+  } else if (module === 'shifts') {
+    shiftsContain.style.display = 'block';
+    shiftsBtn.classList.add('btn-active');
+  } else if (module === 'overtime') {
+    overtimeContain.style.display = 'block';
+    overtimeBtn.classList.add('btn-active');
+  } else if (module === 'offBusiness') {
+    offBusContain.style.display = 'block';
+    offBusBtn.classList.add('btn-active');
+  }
 
   // Store the selected module in browser storage
   localStorage.setItem('selectedModule', module);
 }
-
-
 
 
 
