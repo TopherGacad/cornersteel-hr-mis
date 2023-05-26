@@ -382,19 +382,19 @@
                 <div class="field-container">
                     <div class="fields">
                         <label for="ot-firstname">Firstname <span> *</span></label>
-                        <input type="text" name="ot_firstname" id="ot-firstname" placeholder="Juan" required>
+                        <input type="text" maxlength="25" pattern="[A-Za-z]{2,25}" name="ot_firstname" id="ot-firstname" placeholder="Juan" required>
                     </div>
     
                     <div class="fields">
                         <label for="ot-midname">Middlename</label>
-                        <input type="text" name="ot_midname" id="ot-midname" placeholder="Reyes">
+                        <input type="text" maxlength="15" pattern="[A-Za-z]{2,15}" name="ot_midname" id="ot-midname" placeholder="Reyes">
                     </div>
                 </div>
 
                 <!-- LASTNAME FIELD -->
                 <div class="fields">
                     <label for="ot-lastname">Lastname <span> *</span></label>
-                    <input type="text" name="ot_lastname" id="ot-lastname" placeholder="Dela Cruz" required>
+                    <input type="text" maxlength="15" pattern="[A-Za-z]{2,15}" name="ot_lastname" id="ot-lastname" placeholder="Dela Cruz" required>
                 </div>
 
                 <!-- POSITION FIELD -->
@@ -434,8 +434,8 @@
 
                 <!-- DESIGNATION FIELD -->
                 <div class="fields">
-                    <label for="ot-designation">Designation</label>
-                    <input type="text" name="ot_designation" id="ot-designation">
+                    <label for="ot-designation">Designation <span> *</span></label>
+                    <input type="text" name="ot_designation" id="ot-designation" required>
                 </div>
 
                 <!-- APPROVED BY FIELD -->
