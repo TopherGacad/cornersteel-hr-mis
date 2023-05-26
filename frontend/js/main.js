@@ -211,6 +211,59 @@ offBusSearch.addEventListener('input', () => {
   }
 })
 
+//RENDERING SPECIFIC MODULE AFTER SELECTION IN SIDENAV
+const selectedModule = localStorage.getItem('selectedModule');
+
+// Set the initial selected module or the default module if none is stored
+const initialModule = selectedModule || 'dash';
+renderModule(initialModule);
+
+// Attach event listeners to the buttons
+dashBtn.addEventListener('click', function () {
+  renderModule('dash');
+});
+shiftsBtn.addEventListener('click', function () {
+  renderModule('shifts');
+});
+overtimeBtn.addEventListener('click', function () {
+  renderModule('overtime');
+});
+offBusBtn.addEventListener('click', function () {
+  renderModule('offBusiness');
+});
+
+function renderModule(module) {
+  // MAIN CONTENT CONTAINERS
+  const modules = {
+    dash: dashContain,
+    shifts: shiftsContain,
+    overtime: overtimeContain,
+    offBusiness: offBusContain
+  };
+
+  // BUTTONS
+  const buttons = {
+    dash: dashBtn,
+    shifts: shiftsBtn,
+    overtime: overtimeBtn,
+    offBusiness: offBusBtn
+  };
+
+  // Hide all modules and deactivate all buttons
+  Object.values(modules).forEach(module => {
+    module.style.display = 'none';
+  });
+  Object.values(buttons).forEach(button => {
+    button.classList.remove('btn-active');
+  });
+
+  // Show the selected module and activate its button
+  modules[module].style.display = 'block';
+  buttons[module].classList.add('btn-active');
+
+  // Store the selected module in browser storage
+  localStorage.setItem('selectedModule', module);
+}
 
 
 
