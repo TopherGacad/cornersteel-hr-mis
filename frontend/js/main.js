@@ -266,6 +266,15 @@ function renderModule(module) {
 }
 
 
+// Function to handle logout
+function handleLogout() {
+  removeSelectedModule();
+  showSelectedModule("dashboard"); // Set the dashboard as the default module
+  // Perform any additional logout actions here
+}
 
+// Add event listener to the logout button
+const logoutBtn = document.getElementById("logout-btn");
+logoutBtn.addEventListener("click", handleLogout);
 
 
