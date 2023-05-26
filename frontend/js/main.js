@@ -212,7 +212,7 @@ offBusSearch.addEventListener('input', () => {
 })
 
 
-// Get the selected module from browser storage
+//RENDERING CONTAINERS AND PREVENT FROM RETURNING TO DASHBOARD
 const selectedModule = localStorage.getItem('selectedModule');
 
 // Set the initial selected module or the default module if none is stored
