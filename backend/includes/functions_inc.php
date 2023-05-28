@@ -115,7 +115,7 @@
             mysqli_stmt_close($stmt);
 
             //--- TAKES USER BACK TO THE SIGNUP PAGE 'signup.php' WHEN   SIGNUP IS SUCCESSFULL ---//
-            header("Location: ../../frontend/views/php/main.php?SignUP=successful");
+            header("Location: ../../frontend/views/php/main.php?SignUp=successful");
 
         }   
 
