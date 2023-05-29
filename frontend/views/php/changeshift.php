@@ -30,12 +30,12 @@
             $firstname = $row['cs_firstname'];
             $middlename = $row['cs_middlename'];
             $lastname = $row['cs_lastname'];
-            $date = $row['cs_date'];
             $origin = $row['cs_shiftorigin'];
             $new = $row['cs_shiftnew'];
             $reason = $row['cs_reason'];
             $approved = $row['cs_approved'];
             $noted = $row['cs_noted'];
+            $date = $row['cs_date'];
 
             $formatdate = date("Y-m-d", strtotime($date));  
         }
@@ -64,7 +64,7 @@
     </div>
 
         <div class="content-container">
-            <form action="../../../backend/includes/csedit_inc.php" method="post" id="otEdit-form">
+            <form action="../../../backend/includes/csedit_inc.php" method="post" id="csEdit-form">
                 <div class="ot-header">
                     <h3><a href="../../views/php/main.php"><i class="fa-solid fa-arrow-left"></i></a>Edit Change Shift Request</h3>
                     <div class="btn-container">
@@ -72,8 +72,8 @@
                         <button class="update-btn modal-btn" id="otEdit-update" type="submit" name="shift-update">Update</button>
                     </div>
                 </div>
-
-                <input type="hidden" name="id" value="<?php echo $shiftid; ?>">
+ 
+                <input type="hidden" name="id" value="<?php echo $shiftid;?>">
 
                 <div class="employee-container">
                     <h3>Employee Details</h3>
