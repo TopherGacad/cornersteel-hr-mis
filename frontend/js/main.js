@@ -10,76 +10,76 @@ const shiftsBtn = document.getElementById("shifts-btn")
 const overtimeBtn = document.getElementById("overtime-btn")
 const offBusBtn = document.getElementById("offBusiness-btn")
 
-// MAIN CONTENTS CONTAINER SELECTOR
-dashBtn.addEventListener("click", function(){
-    renderDash()
-})
-shiftsBtn.addEventListener("click", function(){
-    renderShift()
-})
-overtimeBtn.addEventListener("click", function(){
-    renderOT()
-})
-offBusBtn.addEventListener("click",function(){
-    renderOffBus()
-})
+// // MAIN CONTENTS CONTAINER SELECTOR
+// dashBtn.addEventListener("click", function(){
+//     renderDash()
+// })
+// shiftsBtn.addEventListener("click", function(){
+//     renderShift()
+// })
+// overtimeBtn.addEventListener("click", function(){
+//     renderOT()
+// })
+// offBusBtn.addEventListener("click",function(){
+//     renderOffBus()
+// })
 
 //=========RENDERING FUNCTIONS==========//
-function renderDash(){
-  //MAIN CONTENT ACTIVATOR
-  dashContain.style.display = "block"
-  shiftsContain.style.display = "none"
-  overtimeContain.style.display = "none"
-  offBusContain.style.display = "none"
+// function renderDash(){
+//   //MAIN CONTENT ACTIVATOR
+//   dashContain.style.display = "block"
+//   shiftsContain.style.display = "none"
+//   overtimeContain.style.display = "none"
+//   offBusContain.style.display = "none"
 
-  //BUTTON ACTIVE STYLING
-  dashBtn.classList.add('btn-active')
-  shiftsBtn.classList.remove('btn-active')
-  overtimeBtn.classList.remove('btn-active')
-  offBusBtn.classList.remove('btn-active')
-}
+//   //BUTTON ACTIVE STYLING
+//   dashBtn.classList.add('btn-active')
+//   shiftsBtn.classList.remove('btn-active')
+//   overtimeBtn.classList.remove('btn-active')
+//   offBusBtn.classList.remove('btn-active')
+// }
 
-function renderOT(){
-  //MAIN CONTENT ACTIVATOR
-  dashContain.style.display = "none"
-  shiftsContain.style.display = "none"
-  overtimeContain.style.display = "block"
-  offBusContain.style.display = "none"
+// function renderOT(){
+//   //MAIN CONTENT ACTIVATOR
+//   dashContain.style.display = "none"
+//   shiftsContain.style.display = "none"
+//   overtimeContain.style.display = "block"
+//   offBusContain.style.display = "none"
 
-  //BUTTON ACTIVE STYLING
-  dashBtn.classList.remove('btn-active')
-  shiftsBtn.classList.remove('btn-active')
-  overtimeBtn.classList.add('btn-active')
-  offBusBtn.classList.remove('btn-active')
-}
+//   //BUTTON ACTIVE STYLING
+//   dashBtn.classList.remove('btn-active')
+//   shiftsBtn.classList.remove('btn-active')
+//   overtimeBtn.classList.add('btn-active')
+//   offBusBtn.classList.remove('btn-active')
+// }
 
-function renderShift(){
-  //MAIN CONTENT ACTIVATOR
-  dashContain.style.display = "none"
-  shiftsContain.style.display = "block"
-  overtimeContain.style.display = "none"
-  offBusContain.style.display = "none"
+// function renderShift(){
+//   //MAIN CONTENT ACTIVATOR
+//   dashContain.style.display = "none"
+//   shiftsContain.style.display = "block"
+//   overtimeContain.style.display = "none"
+//   offBusContain.style.display = "none"
 
-  //BUTTON ACTIVE STYLING
-  dashBtn.classList.remove('btn-active')
-  shiftsBtn.classList.add('btn-active')
-  overtimeBtn.classList.remove('btn-active')
-  offBusBtn.classList.remove('btn-active')
-}
+//   //BUTTON ACTIVE STYLING
+//   dashBtn.classList.remove('btn-active')
+//   shiftsBtn.classList.add('btn-active')
+//   overtimeBtn.classList.remove('btn-active')
+//   offBusBtn.classList.remove('btn-active')
+// }
 
-function renderOffBus(){
-    //MAIN CONTENT ACTIVATOR
-    dashContain.style.display = "none"
-    shiftsContain.style.display = "none"
-    overtimeContain.style.display = "none"
-    offBusContain.style.display = "block"
+// function renderOffBus(){
+//     //MAIN CONTENT ACTIVATOR
+//     dashContain.style.display = "none"
+//     shiftsContain.style.display = "none"
+//     overtimeContain.style.display = "none"
+//     offBusContain.style.display = "block"
 
-    //BUTTON ACTIVE STYLING
-    dashBtn.classList.remove('btn-active')
-    shiftsBtn.classList.remove('btn-active')
-    overtimeBtn.classList.remove('btn-active')
-    offBusBtn.classList.add('btn-active')
-}
+//     //BUTTON ACTIVE STYLING
+//     dashBtn.classList.remove('btn-active')
+//     shiftsBtn.classList.remove('btn-active')
+//     overtimeBtn.classList.remove('btn-active')
+//     offBusBtn.classList.add('btn-active')
+// }
 //=========RENDERING FUNCTIONS==========//
 
 // MODAL CONTAINERS
@@ -212,9 +212,69 @@ offBusSearch.addEventListener('input', () => {
 })
 
 
+//RENDERING CONTAINERS AND PREVENT FROM RETURNING TO DASHBOARD
+const selectedModule = localStorage.getItem('selectedModule');
+
+// Set the initial selected module or the default module if none is stored
+const initialModule = selectedModule || 'dash';
+renderModule(initialModule);
+
+// Attach event listeners to the buttons
+dashBtn.addEventListener('click', function () {
+  renderModule('dash');
+});
+shiftsBtn.addEventListener('click', function () {
+  renderModule('shifts');
+});
+overtimeBtn.addEventListener('click', function () {
+  renderModule('overtime');
+});
+offBusBtn.addEventListener('click', function () {
+  renderModule('offBusiness');
+});
+
+// Render the module based on the selected module
+function renderModule(module) {
+  // Hide all modules and deactivate all buttons
+  dashContain.style.display = 'none';
+  shiftsContain.style.display = 'none';
+  overtimeContain.style.display = 'none';
+  offBusContain.style.display = 'none';
+
+  dashBtn.classList.remove('btn-active');
+  shiftsBtn.classList.remove('btn-active');
+  overtimeBtn.classList.remove('btn-active');
+  offBusBtn.classList.remove('btn-active');
+
+  // Show the selected module and activate its button
+  if (module === 'dash') {
+    dashContain.style.display = 'block';
+    dashBtn.classList.add('btn-active');
+  } else if (module === 'shifts') {
+    shiftsContain.style.display = 'block';
+    shiftsBtn.classList.add('btn-active');
+  } else if (module === 'overtime') {
+    overtimeContain.style.display = 'block';
+    overtimeBtn.classList.add('btn-active');
+  } else if (module === 'offBusiness') {
+    offBusContain.style.display = 'block';
+    offBusBtn.classList.add('btn-active');
+  }
+
+  // Store the selected module in browser storage
+  localStorage.setItem('selectedModule', module);
+}
 
 
+// Function to handle logout
+function handleLogout() {
+  removeSelectedModule();
+  showSelectedModule("dashboard"); // Set the dashboard as the default module
+  // Perform any additional logout actions here
+}
 
-
+// Add event listener to the logout button
+const logoutBtn = document.getElementById("logout-btn");
+logoutBtn.addEventListener("click", handleLogout);
 
 

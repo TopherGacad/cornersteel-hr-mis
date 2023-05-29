@@ -26,7 +26,7 @@
         
         <!-- PAGE HEADER -->
         <div class="head-container">
-            <a href="../../views/php/main.php"><img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo"></a>
+            <img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo">
         </div>
         
         <!-- LOGIN FORM -->
@@ -47,6 +47,7 @@
                         type="text" 
                         placeholder="juan@example.com"
                         autofocus
+                        maxlength="20"
                         required>
                 </div>
                 
@@ -58,6 +59,8 @@
                         name="login_pass" 
                         type="password"
                         placeholder="8-16 characters only"
+                        minlength="8"
+                        maxlength="16"
                         required>
                 </div>
 

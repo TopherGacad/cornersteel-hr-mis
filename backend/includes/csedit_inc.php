@@ -24,6 +24,7 @@
         require_once 'functions_inc.php';
 
         ChangeShiftEdit(($conn, $shiftid, $company, $department, $firstname, $middlename, $lastname, $origin, $new, $date, $reason, $approved, $noted);
+
     }
     else{
         header("Location: ../../frontend/views/php/main.php?CSupdate=failed");
