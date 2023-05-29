@@ -340,11 +340,13 @@
         //----------------------------------------------------------------//
         //-----------------FUNCTION FOR CHANGE SHIFT EDIT-----------------//
         
-        function ChangeShiftEdit($conn, $shiftid, $company, $department, $firstname, $middlename, $lastname, $origin, $new, $reason, $approved, $noted, $date){
+        function ChangeShiftEdit($conn, $shiftid, $company, $department, $firstname, $middlename, $lastname, $origin, $new, $date, $reason, $approved, $noted){
+            
             $effectiveDate = date('Y-m-d', strtotime($date));
 
             $sql = "UPDATE changeshift_csc SET cs_company = ?, cs_dept = ?, cs_firstname = ?, cs_middlename = ?, cs_lastname = ?, cs_shiftorigin = ?, cs_shiftnew = ?,
             cs_reason = ?, cs_approved = ?, cs_noted = ?, cs_date = ? WHERE cs_id = $shiftid;";
+            
             $stmt = mysqli_stmt_init($conn);
 
             if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -352,16 +354,18 @@
                 //--- TAKES USER BACK TO THE CHANGE SHIFT PAGE 'changeshift.php' WHENEVER PREPARE STATEMENT FAILS ---//
                 header("Location: ../../frontend/views/php/changeshift.php?error=csupdatestmtfailed");
                 exit();
-            }
+            }   
 
             mysqli_stmt_bind_param($stmt, "sssssssssss", $company, $department, $firstname, $middlename, $lastname, $origin, 
             $new, $reason, $approved, $noted, $effectiveDate);
+
+            mysqli_stmt_execute($stmt);
 
             if(mysqli_stmt_affected_rows($stmt) > 0){
                 header("Location: ../../frontend/views/php/main.php?CSupdate=successful");
             }
             else{
-                header("Location: ../../frontend/views/php/officialBusiness.php?CSupdate=failed");
+                header("Location: ../../frontend/views/php/changeshift.php?CSupdate=failed");
             }
 
             mysqli_stmt_close($stmt);   
