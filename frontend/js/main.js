@@ -265,16 +265,14 @@ function renderModule(module) {
   localStorage.setItem('selectedModule', module);
 }
 
-
 // Function to handle logout
 function handleLogout() {
-  removeSelectedModule();
-  showSelectedModule("dashboard"); // Set the dashboard as the default module
+  localStorage.removeItem('selectedModule'); // Remove the selected module from storage
+  renderModule('dash'); // Set the dashboard as the default module
   // Perform any additional logout actions here
 }
 
 // Add event listener to the logout button
 const logoutBtn = document.getElementById("logout-btn");
 logoutBtn.addEventListener("click", handleLogout);
-
 
