@@ -16,7 +16,7 @@
             if(!mysqli_stmt_prepare($stmt, $sql)){
 
                 //--- TAKES USER BACK TO THE SIGNUP PAGE 'signup.php' WHENEVER PREPARE STATEMENT FAILS ---//
-                header("Location: ../../frontend/views/php/signup.php?error=stmtfailed");
+                header("Location: ../../frontend/views/php/signup.php?SignUpstmt=failed");
                 exit();
             }
 
@@ -72,8 +72,11 @@
         //-----------VERIFY IF PASSWORD MATCHES CONFIRM PASSWORD----------//
 
         function PassVerify($password, $cfrmpass){
+
+            //--- RETRIEVES THE INPUT($password, $cfrmpass) ---//
             $result;
 
+            //--- CHECKS IF THE BOTH PASSWORDS MATCHES EACH OTHER  (result = true if unmatch else, false) ---//
             if($password != $cfrmpass){
                 $result = true;
             }
@@ -81,6 +84,7 @@
                 $result = false;
             }
 
+            //--- RETURNS RESULT ---//
             return $result;
         }
 
@@ -97,7 +101,7 @@
             if(!mysqli_stmt_prepare($stmt, $sql)){
 
                 //--- TAKES USER BACK TO THE SIGNUP PAGE 'signup.php' WHENEVER PREPARE STATEMENT FAILS ---//
-                header("Location: ../../frontend/views/php/signup.php?error=stmtfailed");
+                header("Location: ../../frontend/views/php/signup.php?SignUpstmt=failed");
                 exit();
             }
 
@@ -111,7 +115,7 @@
             mysqli_stmt_close($stmt);
 
             //--- TAKES USER BACK TO THE SIGNUP PAGE 'signup.php' WHEN   SIGNUP IS SUCCESSFULL ---//
-            header("Location: ../../frontend/views/php/main.php?signup=successful");
+            header("Location: ../../frontend/views/php/main.php?SignUp=successful");
 
         }   
 
@@ -149,7 +153,7 @@
                 $_SESSION['user-email'] = $existingUser['user_email'];
 
                 //--- TAKES USER BACK TO THE LOGIN PAGE 'login.php' WHENE LOGIN IS SUCCESSFULL ---//
-                header("Location: ../../frontend/views/php/main.php?login=successful");
+                header("Location: ../../frontend/views/php/main.php?Login=successful");
                 exit();
             }
         }
@@ -229,7 +233,7 @@
             if(!mysqli_stmt_prepare($stmt, $sql)){
 
                 //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHENEVER PREPARE STATEMENT FAILS ---//
-                header("Location: ../../frontend/views/php/main.php?error=overtimestatementfailed");
+                header("Location: ../../frontend/views/php/main.php?error=otstatementfailed");
                 exit();
             }
 
@@ -244,7 +248,7 @@
             mysqli_stmt_close($stmt);
 
             //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHEN FILING OVERTIME IS SUCCESSFULL ---//
-            header("Location: ../../frontend/views/php/main.php?overtimefiling=successful");
+            header("Location: ../../frontend/views/php/main.php?OTadd=successful");
             
         }
 
@@ -314,7 +318,7 @@
             if(!mysqli_stmt_prepare($stmt, $sql)){
 
                 //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHENEVER PREPARE STATEMENT FAILS ---//
-                header("Location: ../../frontend/views/php/main.php?error=changeshiftstatementfailed");
+                header("Location: ../../frontend/views/php/main.php?error=csstatementfailed");
                 exit();
             }
 
@@ -329,7 +333,7 @@
             mysqli_stmt_close($stmt);
 
             //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHEN FILING CHANGESHIFT IS SUCCESSFULL ---//
-            header("Location: ../../frontend/views/php/main.php?changeshiftfiling=successful");
+            header("Location: ../../frontend/views/php/main.php?CSadd=successful");
 
         }
 
@@ -346,7 +350,7 @@
             if(!mysqli_stmt_prepare($stmt, $sql)){
 
                 //--- TAKES USER BACK TO THE CHANGE SHIFT PAGE 'changeshift.php' WHENEVER PREPARE STATEMENT FAILS ---//
-                header("Location: ../../frontend/views/php/changeshift.php?CSstatement=failed");
+                header("Location: ../../frontend/views/php/changeshift.php?error=csupdatestmtfailed");
                 exit();
             }
 
@@ -378,7 +382,7 @@
 
             //--- CHECKS IF THE VARIABLES '$sql' AND '$stmt' IF PREPARE STATEMENT IS SUCCESSFULL ---//
             if(!mysqli_stmt_prepare($stmt, $sql)){
-                header("Location: ../../frontend/views/php/main.php?OBstatement=failed");
+                header("Location: ../../frontend/views/php/main.php?error=obstatementfailed");
                 exit();
             }
 
@@ -409,7 +413,7 @@
             $stmt = mysqli_stmt_init($conn);
 
             if(!mysqli_stmt_prepare($stmt, $sql)){
-                header("Location: ../../frontend/views/php/main.php?OBstatement=failed");
+                header("Location: ../../frontend/views/php/main.php?error=obupdatestmtfailed");
                 exit();
             }
             

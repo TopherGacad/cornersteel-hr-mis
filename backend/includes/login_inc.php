@@ -20,6 +20,6 @@
     }
     else{
         //--- TAKES USER BACK TO THE LOGIN PAGE 'login.php' WHENEVER LOGIN FAILS ---//
-        header("Location: ../../frontend/views/php/login.php?Loginfailed");
+        header("Location: ../../frontend/views/php/login.php?Login=failed");
         exit();
     }

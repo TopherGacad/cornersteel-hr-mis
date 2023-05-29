@@ -25,7 +25,7 @@
         if(PassVerify($password, $cfrmpass) !== false){
 
             //--- TAKES USER BACK TO THE SIGNUP PAGE 'signup.php' ALONG THE ERROR MESSAGE EMBEDDED TO THE URL ---//
-            header("Location: ../../frontend/views/php.signup.php?error=unmatchingpasswords&signup_firstname=" . $firstname . 
+            header("Location: ../../frontend/views/php.signup.php?error=passwordUnmatch&signup_firstname=" . $firstname . 
             "&signup_lastname=" . $lastname . "&signup_username=" . $username . "&signup_email=" . $email . "&signup_company=" . $company . 
             "&signup_department=" . $department);
             exit();
@@ -45,7 +45,7 @@
         if(ExistingUser($conn, $username, $email) !== false){
 
             //--- TAKES USER BACK TO THE SIGNUP PAGE 'signup.php' ALONG THE ERROR MESSAGE EMBEDDED TO THE URL ---//
-            header("Location: ../../frontend/views/php.signup.php?error=userexists");
+            header("Location: ../../frontend/views/php/signup.php?error=useralreadyexist");
         }
 
         //--- FUNCTION CALLED FROM THE 'functions_inc.php' RESPONSIBLE FOR THE DATA INSERTION TO THE DATABASE ---//
@@ -55,7 +55,7 @@
     else{
 
         //--- TAKES USER BACK TO THE SIGNUP PAGE 'signup.php' WHENEVER DATA INSERTION FAILS ---//
-        header("Location: ../../frontend/views/php/signup.php?SignUpfailed");
+        header("Location: ../../frontend/views/php/signup.php?SignUpinsert=failed");
         exit();
     }
 
