@@ -41,7 +41,7 @@
         <ul>
             <a href="#" ><li id="dash-btn"><i class="nav-icons fa-solid fa-house"></i>Dashboard</li></a>
             <a href="#"><li id="overtime-btn"><i class="nav-icons fa-solid fa-clock"></i>Overtime</li></a>
-            <a href="#" ><li id="shifts-btn"><i class="nav-icons fa-regular fa-calendar"></i> Shifts</li></a>
+            <a href="#" ><li id="shifts-btn"><i class="nav-icons fa-regular fa-calendar"></i> Change Shifts</li></a>
             <a href="#" ><li id="offBusiness-btn"><i class="nav-icons fa-solid fa-briefcase"></i>Official Business</li></a>
             <a href="../../../backend/includes/logout_inc.php" ><li id="logout-btn"><i class="nav-icons fa-solid fa-arrow-right-from-bracket"></i>Logout</li></a>
         </ul>
