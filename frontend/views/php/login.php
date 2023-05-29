@@ -47,7 +47,6 @@
                         type="text" 
                         placeholder="juan@example.com"
                         autofocus
-                        maxlength="20"
                         required>
                 </div>
                 
