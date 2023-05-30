@@ -247,7 +247,7 @@
             else{
 
                 //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHEN UPDATING OVERTIME FAILS ---//
-                header("Location: ../../frontend/views/php/overtime.php?error=norecordmodified");
+                header("Location: ../../frontend/views/php/main.php?error=norecordmodified");
             }
 
             //--- CLOSES STATEMENT ---//
@@ -387,7 +387,7 @@
                 header("Location: ../../frontend/views/php/main.php?OBupdate=successful");
             }
             else{
-                header("Location: ../../frontend/views/php/officialBusiness.php?error=norecordmodified");
+                header("Location: ../../frontend/views/php/main.php?error=norecordmodified");
             }
 
             mysqli_stmt_close($stmt);
