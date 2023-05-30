@@ -33,7 +33,7 @@
         <div class="login-contain">
             <div class="login-header">
                 <img class="form-logo" src="../../public/assets/comfac-logo.png"alt="">
-                <p class="login-title">REGISTER AN ACCOUNT</p>
+                <p class="login-title">REGISTRATION</p>
             </div>
     
             <form action="../../../backend/includes/signup_inc.php" method="post" oninput='signup_conpass.setCustomValidity(signup_conpass.value != signup_pass.value ? "Passwords do not match." : "")'>
@@ -48,7 +48,7 @@
                                 name="signup_firstname" 
                                 type="text" 
                                 maxlength="25"
-                                pattern="[A-Za-z]{2,25}"
+                                pattern="[A-Za-z ]{2,25}"
                                 placeholder="Juan"
                                 autofocus        
                                 required>
@@ -62,7 +62,7 @@
                                 name="signup_lastname" 
                                 type="text"
                                 maxlength="25"
-                                pattern="[A-Za-z]{2,25}"
+                                pattern="[A-Za-z ]{2,25}"
                                 placeholder="Dela Cruz"
                                 required>
                         </div>
@@ -75,7 +75,7 @@
                                 name="signup_username"  
                                 type="text" 
                                 placeholder="juanDelacruz123"
-                                maxlength="20"
+                                maxlength="25"
                                 required>
                         </div>
 
@@ -136,7 +136,6 @@
                                 id="signup-conpass"
                                 name="signup_conpass" 
                                 type="password"
-                                
                                 required>
                         </div>
 

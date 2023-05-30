@@ -31,7 +31,7 @@
      <div class="head-container">
         <img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo">
         <div class="profile-container">
-            <p><strong><?php echo $_SESSION['user-name']?></strong></p>
+            <p><strong><abbr title="<?php echo $_SESSION['user-name']?>"><?php echo $_SESSION['user-name']?></abbr></strong></p>
             <i class="fa-solid fa-user"></i>
         </div>
     </div>
@@ -65,9 +65,9 @@
             <table>
                 <tr>
                     <th class="name">Name</th>
-                    <th>Company</th>
-                    <th>Department</th>
-                    <th>Position</th>
+                    <th class="company">Company*</th>
+                    <th>Department*</th>
+                    <th>Position*</th>
                     <th>Time from</th>
                     <th>Time to</th>
                     <th class="thours">Total hours</th>
@@ -134,15 +134,15 @@
 
                                 echo ' 
                                 <tr>
-                                    <td> ' . $firstname . ' ' . $lastname . '</td>
-                                    <td> ' . $company . '</td>
-                                    <td> ' . $department . '</td>
-                                    <td> ' . $position . '</td>
+                                    <td class="name"><abbr title="' . $firstname . ' ' . $lastname . '">' . $firstname . ' ' . $lastname . '</abbr></td>
+                                    <td class="company"><abbr title="' . $company . '">' . $company . '</abbr></td>
+                                    <td><abbr title="' . $department . '"> ' . $department . '</abbr></td>
+                                    <td><abbr title="' . $position . '">' . $position . '</abbr></td>
                                     <td> ' . $timefrom .  '</td>
                                     <td> ' . $timeto . '</td>
                                     <td class="thours">' . $overtime . '</td>
                                     <td> ' . $date . '</td>     
-                                    <td>
+                                    <td class="actions">
                                         <a href="?succesfullydeleted-otrow=' . $overtimeid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
                                         <a href="../../views/php/overtime.php?id=' . $overtimeid . '"><i class="act-icon fa-solid fa-pen-to-square"></i></a>
                                     </td>
@@ -229,14 +229,14 @@
 
                             echo '
                             <tr>
-                                <td> ' . $firstname . ' ' . $lastname . '</td>
-                                <td> ' . $company . '</td>
-                                <td> ' . $department . '</td>
+                                <td class="name"><abbr title="' . $firstname . ' ' . $lastname . '">' . $firstname . ' ' . $lastname . '</abbr></td>
+                                <td class="company"><abbr title="' . $company . '">' . $company . '</abbr></td>
+                                <td><abbr title="' . $department . '">' . $department . '</abbr></td>
                                 <td> ' . $origin . '</td>
                                 <td> ' . $new .  '</td>
-                                <td> ' . $approved . '</td>
+                                <td><abbr title="' . $approved . '">' . $approved . '</abbr></td>
                                 <td> ' . $effectiveDate . '</td>     
-                                <td>
+                                <td class="actions">
                                     <a href="?succesfullydeleted-shiftrow=' . $shiftid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
                                     <a href="../../views/php/changeshift.php?id=' . $shiftid . '"><i class="act-icon fa-solid fa-pen-to-square"></i></a>
                                 </td>
@@ -324,14 +324,14 @@
 
                             echo '
                             <tr>
-                                <td> ' . $firstname . ' ' . $lastname . '</td>
-                                <td> ' . $company . '</td>
-                                <td> ' . $department . '</td>
+                                <td class="name"><abbr title="' . $firstname . ' ' . $lastname . '">' . $firstname . ' ' . $lastname . '</abbr></td>
+                                <td class="company"><abbr title="' . $company . '">' . $company . '</abbr></td>
+                                <td><abbr title="' . $department . '">' . $department . '</abbr></td>
                                 <td> ' . $status . '</td>
                                 <td> ' . $client .  '</td>
                                 <td> ' . $noted . '</td>
                                 <td> ' . $effectiveDate . '</td>     
-                                <td>
+                                <td class="actions">
                                     <a href="?succesfullydeleted-obrow=' . $offbusinessid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
                                     <a href="../../views/php/officialBusiness.php?id=' . $offbusinessid . '"><i class="act-icon fa-solid fa-pen-to-square"></i></a>
                                 </td>
@@ -373,6 +373,8 @@
                     <select name="ot_department" id="ot-department" required>
                         <option value="" selected disabled>Select company</option>
                         <option value="Accounts">Accounts</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Legal">Legal</option>
                         <option value="PID">Project Installation Dep</option>
                         <option value="HR">Human Resources</option>
                     </select>
@@ -382,7 +384,7 @@
                 <div class="field-container">
                     <div class="fields">
                         <label for="ot-firstname">Firstname <span> *</span></label>
-                        <input type="text" maxlength="25" pattern="[A-Za-z]{2,25}" name="ot_firstname" id="ot-firstname" placeholder="Juan" required>
+                        <input type="text" maxlength="25" pattern="[A-Za-z ]{2,25}" name="ot_firstname" id="ot-firstname" placeholder="Juan" required>
                     </div>
     
                     <div class="fields">
@@ -435,7 +437,15 @@
                 <!-- DESIGNATION FIELD -->
                 <div class="fields">
                     <label for="ot-designation">Designation <span> *</span></label>
-                    <input type="text" name="ot_designation" id="ot-designation" required>
+                    <select name="ot_designation" id="ot-designation" required>
+                        <option value="" selected disabled>Select Designation</option>
+                        <option value="Administrative Officer">Administrative Officer</option>
+                        <option value="Accountant">Accountant</option>
+                        <option value="HR Manager">HR Manager</option>
+                        <option value="Software Developer">Software Developer</option>
+                        <option value="Supervisor">Supervisor</option>
+                        <option value="Secretary">Secretary</option>
+                    </select>
                 </div>
 
                 <!-- APPROVED BY FIELD -->
@@ -480,6 +490,8 @@
                     <select name="shift_department" id="shift-department" required>
                         <option value="" selected disabled>Select company</option>
                         <option value="Accounts">Accounts</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Legal">Legal</option>
                         <option value="PID">Project Installation Dep</option>
                         <option value="HR">Human Resources</option>
                     </select>
@@ -517,9 +529,9 @@
                     <label for="shift-orig"> Original shift<span> *</span></label>
                     <select name="shift_orig" id="shift-orig" required>
                         <option value="" selected disabled>Select shift</option>
-                        <option value="type 1">Shift type 1: 8:00AM - 5:00PM</option>
-                        <option value="type 2">Shift type 2: 9:00AM - 7:00PM</option>
-                        <option value="type 3">Shift type 3: 6:00AM - 3:00PM</option>
+                        <option value="8:00AM - 5:00PM">Shift type 1: 8:00AM - 5:00PM</option>
+                        <option value="9:00AM - 7:00PM">Shift type 2: 9:00AM - 7:00PM</option>
+                        <option value="6:00AM - 3:00PM">Shift type 3: 6:00AM - 3:00PM</option>
                     </select>
                 </div> 
 
@@ -539,9 +551,9 @@
                     <label for="shift-new"> New shift<span> *</span></label>
                     <select name="shift_new" id="shift-new" required>
                         <option value="" selected disabled>Select shift</option>
-                        <option value="type 1">Shift type 1: 8:00AM - 5:00PM</option>
-                        <option value="type 2">Shift type 2: 9:00AM - 7:00PM</option>
-                        <option value="type 3">Shift type 3: 6:00AM - 3:00PM</option>
+                        <option value="8:00AM - 5:00PM">Shift type 1: 8:00AM - 5:00PM</option>
+                        <option value="9:00AM - 7:00PM">Shift type 2: 9:00AM - 7:00PM</option>
+                        <option value="6:00AM - 3:00PM">Shift type 3: 6:00AM - 3:00PM</option>
                     </select>
                 </div>
 
@@ -593,7 +605,9 @@
                     <label for="ob-department">Department <span> *</span></label>
                     <select name="ob_department" id="ob-department" required>
                         <option value="" selected disabled>Select company</option>
-                        <option value="Accounts">Accounts</option>
+                        <option value="Accounting">Accounts</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Legal">Legal</option>
                         <option value="PID">Project Installation Dep</option>
                         <option value="HR">Human Resources</option>
                     </select>

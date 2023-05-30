@@ -185,6 +185,9 @@ td{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+abbr{
+    text-decoration: none;
+}
 td,th{
     min-width: 100px;
     max-width: 100px;
@@ -194,12 +197,16 @@ td,th{
     max-width: 60px;
 }
 .name{
-    min-width: 115px;
-    max-width: 115px;
+    min-width: 120px;
+    max-width: 120px;
+}
+.company{
+    min-width: 70px;
+    max-width: 70px;
 }
 .actions{
-    min-width: 50px;
-    max-width: 50px;
+    min-width: 60px;
+    max-width: 60px;
 }
 tbody tr:hover{
     background-color: var(--hover-color);

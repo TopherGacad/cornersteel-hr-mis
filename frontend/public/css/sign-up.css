@@ -98,13 +98,13 @@ form{
 }
 .fields select{
     align-self: center;
-    height: 30px;
-    width: 80%;
+    height: 35px;
+    width: 90%;
     border: none;
     border-radius: 10px;
-    padding: 5px;
+    padding: 7px 15px;
     background-color: var(--input-bg);
-    font-size: 12px;
+    font-size: 13px;
 }
 .email-field{
     padding-bottom: 15px;
@@ -143,6 +143,7 @@ form{
 }
 .Btn-login{
     width: 90%;
+    margin-top: 60px;
     padding: 7px 10px;
     border: 1px solid;
     border-radius: 5px;
