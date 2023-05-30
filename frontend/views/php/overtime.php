@@ -113,6 +113,8 @@
                                 <select class="dis-input" name="ot_department" id="ot-department" required>
                                     <option value="" disabled>Select company</option>
                                     <option value="Accounts" <?php if($department == "Accounts") echo "selected";?>>Accounts</option>
+                                    <option value="Sales" <?php if($department == "Sales") echo "selected";?>>Sales</option>
+                                    <option value="Legal" <?php if($department == "Legal") echo "selected";?>>Legal</option>
                                     <option value="PID" <?php if($department == "PID") echo "selected";?>>Project Installation Dep</option>
                                     <option value="HR" <?php if($department == "HR") echo "selected";?>>Human Resources</option>
                                 </select>
@@ -193,9 +195,17 @@
 
                         <div class="right-side-approve section">
                              <!-- DESIGNATION FIELD -->
-                             <div class="fields">
-                                <label class="dis-input" for="ot-designation">Designation</label>
-                                <input class="dis-input" type="text" name="ot_designation" id="ot-designation" value="<?php echo $designation; ?>">
+                            <div class="fields">
+                                <label for="ot-designation">Designation <span> *</span></label>
+                                <select name="ot_designation" id="ot-designation" required>
+                                    <option value="" disabled>Select Designation</option>
+                                    <option value="Administrative Officer" <?php if($designation == "Administrative Officer") echo "selected";?>>Administrative Officer</option>
+                                    <option value="Accountant" <?php if($designation == "Accountant") echo "selected";?>>Accountant</option>
+                                    <option value="HR Manager" <?php if($designation == "HR Manager") echo "selected";?>>HR Manager</option>
+                                    <option value="Software Developer" <?php if($designation == "Software Developer") echo "selected";?>>Software Developer</option>
+                                    <option value="Supervisor" <?php if($designation == "Supervisor") echo "selected";?>>Supervisor</option>
+                                    <option value="Secretary" <?php if($designation == "Secretary") echo "selected";?>>Secretary</option>
+                                </select>
                             </div>
                         </div>
                     </div>

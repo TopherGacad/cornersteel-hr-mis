@@ -95,6 +95,8 @@
                                 <select class="dis-input" class="dis-input" class="dis-input" name="ob_department" id="ob-department" required>
                                     <option value="" selected disabled>Select company</option>
                                     <option value="Accounts" <?php if($department == "Accounts") echo "selected";?>>Accounts</option>
+                                    <option value="Sales" <?php if($department == "Sales") echo "selected";?>>Sales</option>
+                                    <option value="Legal" <?php if($department == "Legal") echo "selected";?>>Legal</option>
                                     <option value="PID" <?php if($department == "PID") echo "selected";?>>Project Installation Dep</option>
                                     <option value="HR" <?php if($department == "HR") echo "selected";?>>Human Resources</option>
                                 </select>
