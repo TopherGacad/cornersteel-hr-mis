@@ -46,49 +46,6 @@
         }
 
         //----------------------------------------------------------------//
-        //-----VERIFY IF THE USERNAME FORMAT OR CHARACTERS ARE VALID------//
-
-        function UidVerify($username){
-            //--- RETRIEVES THE INPUT($username) ---//
-            $result;
-
-            //--- CHECKS IF THE INPUT/USERNAME CONTAINS INVALID CHARACTERS ---//
-            if(!preg_match("/^[a-zA-Z0-9]*$/", $username)){
-
-                //--- ASSIGNED TRUE IF YES ---//
-                $result = true;
-            }
-            else{
-
-                //--- ASSIGNED FALSE IF NO ---//
-                $result = false;
-            }
-
-            //--- RETURNS THE BOOLEAN RESULT FROM 'preg_match' FUNCTION ---//
-            return $result;
-        }
-
-        //----------------------------------------------------------------//
-        //-----------VERIFY IF PASSWORD MATCHES CONFIRM PASSWORD----------//
-
-        function PassVerify($password, $cfrmpass){
-
-            //--- RETRIEVES THE INPUT($password, $cfrmpass) ---//
-            $result;
-
-            //--- CHECKS IF THE BOTH PASSWORDS MATCHES EACH OTHER  (result = true if unmatch else, false) ---//
-            if($password != $cfrmpass){
-                $result = true;
-            }
-            else{
-                $result = false;
-            }
-
-            //--- RETURNS RESULT ---//
-            return $result;
-        }
-
-        //----------------------------------------------------------------//
         //-----------------------SIGN-UP FUNCTION-------------------------//
 
         function UserSignup($conn, $firstname, $lastname, $username, $email, $company, $department, $password){
@@ -115,7 +72,7 @@
             mysqli_stmt_close($stmt);
 
             //--- TAKES USER BACK TO THE SIGNUP PAGE 'signup.php' WHEN   SIGNUP IS SUCCESSFULL ---//
-            header("Location: ../../frontend/views/php/main.php?SignUp=successful");
+            header("Location: ../../frontend/views/php/login.php?SignUp=successful");
 
         }   
 
