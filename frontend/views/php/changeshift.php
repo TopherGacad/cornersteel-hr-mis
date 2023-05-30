@@ -96,6 +96,8 @@
                                 <select class="dis-input" class="dis-input" name="shift_department" id="shift-department" required>
                                     <option value="" selected disabled>Select company</option>
                                     <option value="Accounts" <?php if($department == "Accounts") echo "selected";?>>Accounts</option>
+                                    <option value="Sales" <?php if($department == "Sales") echo "selected";?>>Sales</option>
+                                    <option value="Legal" <?php if($department == "Legal") echo "selected";?>>Legal</option>
                                     <option value="PID" <?php if($department == "PID") echo "selected";?>>Project Installation Dep</option>
                                     <option value="HR" <?php if($department == "HR") echo "selected";?>>Human Resources</option>
                                 </select>
@@ -134,9 +136,9 @@
                                 <label class="dis-input" for="shift-orig"> Original shift<span> *</span></label>
                                 <select class="dis-input" name="shift_orig" id="shift-orig" required>
                                     <option value="" selected disabled>Select shift</option>
-                                    <option value="type 1" <?php if($origin === "type 1") echo "selected";?>>Shift type 1: 8:00AM - 5:00PM</option>
-                                    <option value="type 2" <?php if($origin === "type 2") echo "selected";?>>Shift type 2: 9:00AM - 7:00PM</option>
-                                    <option value="type 3" <?php if($origin === "type 3") echo "selected";?>>Shift type 3: 6:00AM - 3:00PM</option>
+                                    <option value="8:00AM - 5:00PM" <?php if($origin === "8:00AM - 5:00PM") echo "selected";?>>Shift type 1: 8:00AM - 5:00PM</option>
+                                    <option value="9:00AM - 7:00PM" <?php if($origin === "9:00AM - 7:00PM") echo "selected";?>>Shift type 2: 9:00AM - 7:00PM</option>
+                                    <option value="6:00AM - 3:00PM" <?php if($origin === "6:00AM - 3:00PM") echo "selected";?>>Shift type 3: 6:00AM - 3:00PM</option>
                                 </select>
                             </div> 
 
@@ -145,9 +147,9 @@
                                 <label class="dis-input" for="shift-new"> New shift<span> *</span></label>
                                 <select class="dis-input" name="shift_new" id="shift-new" required>
                                     <option value="" selected disabled>Select shift</option>
-                                    <option value="type 1" <?php if($new === "type 1") echo "selected";?>>Shift type 1: 8:00AM - 5:00PM</option>
-                                    <option value="type 2" <?php if($new === "type 2") echo "selected";?>>Shift type 2: 9:00AM - 7:00PM</option>
-                                    <option value="type 3" <?php if($new === "type 3") echo "selected";?>>Shift type 3: 6:00AM - 3:00PM</option>
+                                    <option value="8:00AM - 5:00PM" <?php if($new === "8:00AM - 5:00PM") echo "selected";?>>Shift type 1: 8:00AM - 5:00PM</option>
+                                    <option value="9:00AM - 7:00PM" <?php if($new === "9:00AM - 7:00PM") echo "selected";?>>Shift type 2: 9:00AM - 7:00PM</option>
+                                    <option value="6:00AM - 3:00PM" <?php if($new === "6:00AM - 3:00PM") echo "selected";?>>Shift type 3: 6:00AM - 3:00PM</option>
                                 </select>
                             </div>
 
