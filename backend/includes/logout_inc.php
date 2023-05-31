@@ -14,4 +14,4 @@
     session_destroy();
 
     //--- LOGS THE USER OUT OF THE PAGE, DIRECTLY TO THE LOGIN PAGE ---//
-    header("Location: ../../frontend/views/php/login.php");
+    header("Location: ../../frontend/views/php/login.php?Logout=successful");

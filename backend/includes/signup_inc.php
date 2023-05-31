@@ -37,7 +37,7 @@ if(isset($_POST['signup_submit'])){
 else{
 
     //--- TAKES USER BACK TO THE SIGNUP PAGE 'signup.php' WHENEVER DATA INSERTION FAILS ---//
-    header("Location: ../../frontend/views/php/signup.php?SignUpinsert=failed");
+    header("Location: ../../frontend/views/php/signup.php?SignUp=failed");
     exit();
 }
 

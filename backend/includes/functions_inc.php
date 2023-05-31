@@ -58,7 +58,7 @@
             if(!mysqli_stmt_prepare($stmt, $sql)){
 
                 //--- TAKES USER BACK TO THE SIGNUP PAGE 'signup.php' WHENEVER PREPARE STATEMENT FAILS ---//
-                header("Location: ../../frontend/views/php/signup.php?SignUpstmt=failed");
+                header("Location: ../../frontend/views/php/signup.php?error=signstmtfailed");
                 exit();
             }
 
@@ -205,7 +205,7 @@
             mysqli_stmt_close($stmt);
 
             //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHEN FILING OVERTIME IS SUCCESSFULL ---//
-            header("Location: ../../frontend/views/php/main.php?OTadd=successful");
+            header("Location: ../../frontend/views/php/main.php?OTinsert=successful");
             
         }
 
@@ -290,7 +290,7 @@
             mysqli_stmt_close($stmt);
 
             //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHEN FILING CHANGESHIFT IS SUCCESSFULL ---//
-            header("Location: ../../frontend/views/php/main.php?CSadd=successful");
+            header("Location: ../../frontend/views/php/main.php?CSinsert=successful");
 
         }
 
@@ -358,7 +358,7 @@
             mysqli_stmt_close($stmt);
 
             //--- TAKES USER BACK TO THE MAIN PAGE 'main.php' WHEN FILING OFFICIAL BUSINESS IS SUCCESSFULL ---//
-            header("Location: ../../frontend/views/php/main.php?OBadd=successful");
+            header("Location: ../../frontend/views/php/main.php?OBinsert=successful");
 
         }
         
