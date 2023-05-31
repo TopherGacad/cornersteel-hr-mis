@@ -57,6 +57,8 @@
     <script src="https://kit.fontawesome.com/aa37050208.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php include "../../../backend/includes/popup_handlers_inc.php"?>
+
     <!-- PAGE HEADER -->
     <div class="head-container">
         <img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo">

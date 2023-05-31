@@ -26,9 +26,10 @@
     <script src="https://kit.fontawesome.com/aa37050208.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php include "../../../backend/includes/popup_handlers_inc.php"?>
 
-     <!-- PAGE HEADER -->
-     <div class="head-container">
+    <!-- PAGE HEADER -->
+    <div class="head-container">
         <img class="main-logo" src="../../public/assets/comfac-logo.png" alt="comfac global group logo">
         <div class="profile-container">
             <p><strong><abbr title="<?php echo $_SESSION['user-name']?>"><?php echo $_SESSION['user-name']?></abbr></strong></p>
@@ -82,8 +83,8 @@
 
                         include_once '../../../backend/includes/dbconn_inc.php';
 
-                        if(isset($_GET['succesfullydeleted-otrow'])){
-                            $overtimeid = $_GET['succesfullydeleted-otrow'];
+                        if(isset($_GET['deleteovertime'])){
+                            $overtimeid = $_GET['deleteovertime'];
                             
                             $delsql = "DELETE FROM overtime_csc WHERE ot_id = ?;";
                             $delstmt = mysqli_stmt_init($conn);
@@ -96,10 +97,10 @@
                                 mysqli_stmt_execute($delstmt);
 
                                 if(mysqli_stmt_affected_rows($delstmt) > 0){
-                                    header('main.php?deletion=successful');
+                                    header('Location: main.php?deletion=successful');
                                 }
                                 else{
-                                    header('main.php?deletionfailed');
+                                    header('Location: main.php?deletion=failed');
                                 }
                             }
 
@@ -143,7 +144,7 @@
                                     <td class="thours">' . $overtime . '</td>
                                     <td> ' . $date . '</td>     
                                     <td class="actions">
-                                        <a href="?succesfullydeleted-otrow=' . $overtimeid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
+                                        <a href="?deleteovertime=' . $overtimeid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
                                         <a href="../../views/php/overtime.php?id=' . $overtimeid . '"><i class="act-icon fa-solid fa-pen-to-square"></i></a>
                                     </td>
                                 </tr>';
@@ -180,8 +181,8 @@
                 <?php 
                     include_once '../../../backend/includes/dbconn_inc.php';         
 
-                    if(isset($_GET['succesfullydeleted-shiftrow'])){
-                        $shiftid = $_GET['succesfullydeleted-shiftrow'];
+                    if(isset($_GET['deleteshift'])){
+                        $shiftid = $_GET['deleteshift'];
                         
                         $delsql = "DELETE FROM changeshift_csc WHERE cs_id = ?;";
                         $delstmt = mysqli_stmt_init($conn);
@@ -194,10 +195,10 @@
                             mysqli_stmt_execute($delstmt);
 
                             if(mysqli_stmt_affected_rows($delstmt) > 0){
-                                header('main.php?deletion=successful');
+                                header('Location: main.php?deletion=successful');
                             }
                             else{
-                                header('main.php?deletionfailed');
+                                header('Location: main.php?deletion=failed');
                             }
                         }
 
@@ -237,7 +238,7 @@
                                 <td><abbr title="' . $approved . '">' . $approved . '</abbr></td>
                                 <td> ' . $effectiveDate . '</td>     
                                 <td class="actions">
-                                    <a href="?succesfullydeleted-shiftrow=' . $shiftid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
+                                    <a href="?deleteshift=' . $shiftid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
                                     <a href="../../views/php/changeshift.php?id=' . $shiftid . '"><i class="act-icon fa-solid fa-pen-to-square"></i></a>
                                 </td>
                             </tr>';
@@ -275,8 +276,8 @@
                 <?php 
                     include_once '../../../backend/includes/dbconn_inc.php';         
 
-                    if(isset($_GET['succesfullydeleted-obrow'])){
-                        $offbusinessid = $_GET['succesfullydeleted-obrow'];
+                    if(isset($_GET['deleteoffbusiness'])){
+                        $offbusinessid = $_GET['deleteoffbusiness'];
                         
                         $delsql = "DELETE FROM officialbusiness_csc WHERE ob_id = ?;";
                         $delstmt = mysqli_stmt_init($conn);
@@ -289,10 +290,10 @@
                             mysqli_stmt_execute($delstmt);
 
                             if(mysqli_stmt_affected_rows($delstmt) > 0){
-                                header('main.php?deletion=successful');
+                                header('Location: main.php?deletion=successful');
                             }
                             else{
-                                header('main.php?deletionfailed');
+                                header('Location: main.php?deletion=failed');
                             }
                         }
 
@@ -332,7 +333,7 @@
                                 <td> ' . $noted . '</td>
                                 <td> ' . $effectiveDate . '</td>     
                                 <td class="actions">
-                                    <a href="?succesfullydeleted-obrow=' . $offbusinessid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
+                                    <a href="?deleteoffbusiness=' . $offbusinessid . '"><i class="act-icon fa-solid fa-trash-can"></i></a>
                                     <a href="../../views/php/officialBusiness.php?id=' . $offbusinessid . '"><i class="act-icon fa-solid fa-pen-to-square"></i></a>
                                 </td>
                             </tr>';
